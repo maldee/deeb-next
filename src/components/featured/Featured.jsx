@@ -6,7 +6,7 @@ const Featured = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>
-        <b>Hey, lama dev here!</b> Discover my stories and creative ideas.
+        <b>TODAY'S THE DAY 🚀</b> Discover new knowledge and creative ideas.
       </h1>
       <div className={styles.post}>
         <div className={styles.imgContainer}>
@@ -15,10 +15,12 @@ const Featured = () => {
         <div className={styles.textContainer}>
           <h1 className={styles.postTitle}>Lorem ipsum dolor sit amet alim consectetur adipisicing elit.</h1>
           <p className={styles.postDesc}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Cupiditate, quam nisi magni ea laborum inventore voluptatum
-            laudantium repellat ducimus unde aspernatur fuga. Quo, accusantium
-            quisquam! Harum unde sit culpa debitis.
+          Deeflow is an Sri Lankan online education platform on which students can access tutorials and
+           lectures pre-recorded by experts in various fields. This site is developed & maintained by 
+           a small team with a passion for sharing knowledge with students in Sri Lanka. The purpose 
+           of this website is to help Sri Lankans as well as visitors to reach their educational goals. 
+           Therefore we have attempted to provide accurate & maximum details of each subject, lesson, 
+           and exam.
           </p>
           <button className={styles.button}>Read More</button>
         </div>
