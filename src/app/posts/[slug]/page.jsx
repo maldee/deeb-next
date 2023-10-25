@@ -2,9 +2,10 @@ import Menu from "@/components/Menu/Menu";
 import styles from "./singlePage.module.css";
 import Image from "next/image";
 import Comments from "@/components/comments/Comments";
+import { NextSeo } from 'next-seo';
 
 const getData = async (slug) => {
-  const res = await fetch(process.env.NEXTAUTH_URL+`/api/posts/${slug}`, {
+  const res = await fetch(process.env.NEXTAUTH_URL + `/api/posts/${slug}`, {
     cache: "no-store",
   });
 
@@ -20,6 +21,15 @@ const SinglePage = async ({ params }) => {
 
   const data = await getData(slug);
 
+  <NextSeo
+    title={data?.title}
+    description="Next SEO PodCast"
+    openGraph={{
+      title: data?.title,
+      url: 'https://www.example.com/audio/audio',
+      images:{url: data.img}
+    }}
+  />
   return (
     <div className={styles.container}>
       <div className={styles.infoContainer}>
@@ -50,12 +60,14 @@ const SinglePage = async ({ params }) => {
             dangerouslySetInnerHTML={{ __html: data?.desc }}
           />
           <div className={styles.comment}>
-            <Comments postSlug={slug}/>
+            <Comments postSlug={slug} />
           </div>
         </div>
         <Menu />
       </div>
     </div>
+
+
   );
 };
 
