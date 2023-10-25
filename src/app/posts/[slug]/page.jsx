@@ -2,7 +2,6 @@ import Menu from "@/components/Menu/Menu";
 import styles from "./singlePage.module.css";
 import Image from "next/image";
 import Comments from "@/components/comments/Comments";
-import { NextSeo } from 'next-seo';
 
 const getData = async (slug) => {
   const res = await fetch(process.env.NEXTAUTH_URL + `/api/posts/${slug}`, {
@@ -21,15 +20,6 @@ const SinglePage = async ({ params }) => {
 
   const data = await getData(slug);
 
-  <NextSeo
-    title={data?.title}
-    description="Next SEO PodCast"
-    openGraph={{
-      title: data?.title,
-      url: 'https://www.example.com/audio/audio',
-      images:{url: data.img}
-    }}
-  />
   return (
     <div className={styles.container}>
       <div className={styles.infoContainer}>
@@ -66,9 +56,23 @@ const SinglePage = async ({ params }) => {
         <Menu />
       </div>
     </div>
-
-
   );
 };
+
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+
+  const data = await getData(slug);
+
+  return {
+    openGraph: {
+      title: data?.title,
+      images: [{url:data.img}],
+      siteName: 'Next.js',
+      type: 'website',
+    }
+  };
+}
+
 
 export default SinglePage;
