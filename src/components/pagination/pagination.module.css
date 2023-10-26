@@ -4,12 +4,13 @@
 }
 
 .button {
-  width: 100px;
+  width: 80px;
   border: none;
   padding: 16px;
   background-color: crimson;
   color: white;
   cursor: pointer;
+  border-radius: 30px;
 }
 
 .button:disabled{

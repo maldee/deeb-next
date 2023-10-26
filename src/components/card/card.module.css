@@ -60,6 +60,10 @@
   flex: 2;
 }
 
+.linkMuted{
+  text-decoration: none;
+  cursor: default;
+}
 
 @media screen and (max-width: 1536px) and (min-width: 1280px)  {
 
