@@ -12,8 +12,6 @@ const Navbar = () => {
         <a href="/" className={styles.logoLink}>
         <Image src="/logo.png" alt="deeflow" width={40} height={40} />
         </a>
-        
-       
       </div>
   
       <div className={styles.links}>
