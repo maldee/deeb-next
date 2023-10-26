@@ -43,8 +43,62 @@
   padding: 2px 0px;
 }
 
+.mobileCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileImageContainer {
+  flex-wrap: wrap;
+  height: 250px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.mobileTextContainer {
+  flex: 2;
+}
+
+
+@media screen and (max-width: 1536px) and (min-width: 1280px)  {
+
+  .mobileCard {
+    display: none;
+  }
+
+  .mobileImageContainer {
+    display: none;
+  }
+
+  .mobileTextContainer {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 1280px) {
+  
+
+}
+
+@media screen and (max-width: 1024px) {
+ 
+}
+
+@media screen and (max-width: 640px) {
+
   .imageContainer {
     display: none;
   }
+
+  .textContainer{
+    display: none;
+  }
+
+  .image {
+    object-fit: unset;
+  }
+
+
+
 }

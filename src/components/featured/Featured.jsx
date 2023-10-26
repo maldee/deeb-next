@@ -8,7 +8,7 @@ const Featured = () => {
       <h1 className={styles.title}>
         <b>{`TODAY'S THE DAY 🚀`}</b> 
       </h1>
-      <h4 className={styles.subTitle}>Discover new knowledge and creative ideas.</h4>
+      <h4 className={styles.subTitle}>Discover knowledge and creative ideas.</h4>
      
     </div>
   );
