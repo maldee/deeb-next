@@ -91,13 +91,7 @@
   width: 100%;
 }
 
-.content *{
-  word-break: break-word;
-  font-size: 20px;
-  font-weight: 300;
-  width: 100%;
-  overflow-x: auto;
-}
+
 
 .content ul {
   padding-left: 20px;
@@ -107,14 +101,17 @@
   padding-left: 20px;
 }
 
-.content img{
-  width: 100%;
-}
 
-@media screen and (max-width: 1536px) {
+@media screen and (max-width: 1536px) and (min-width: 1280px) {
   .title {
     font-size: 54px;
   }
+
+  .content *{
+    word-break: break-word;
+    overflow-x: auto;
+  }
+  
 }
 
 @media screen and (max-width: 1280px) {
@@ -149,4 +146,15 @@
   width: 100%;
   }
 
+  .content *{
+    word-break: break-word;
+    font-size: 20px;
+    font-weight: 300;
+   
+    overflow-x: auto;
+  }
+
+  .content img{
+    width: 100%;
+  }
 }
