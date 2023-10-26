@@ -4,7 +4,7 @@ import styles from "./menuCategories.module.css";
 import Image from "next/image";
 
 const getData = async () => {
-  const res = await fetch("/api/categories", {
+  const res = await fetch(process.env.NEXTAUTH_URL+"/api/categories", {
     cache: "no-store",
   });
 
