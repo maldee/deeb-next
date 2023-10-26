@@ -10,11 +10,17 @@ export default function Home({ searchParams }) {
 
   return (
     <div className={styles.container}>
-      <Featured />
-      <div className={styles.content}>
-        <CardList page={page}/>
-        <Menu />
+      <div className={styles.postList}>
+        <div className={styles.postGrid}>
+        <Featured />
+        <div className={styles.content}>
+          <CardList page={page} />
+         
+        </div>
       </div>
+      <Menu />
+      </div>
+      
     </div>
   );
 }

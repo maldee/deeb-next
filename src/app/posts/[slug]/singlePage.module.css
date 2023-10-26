@@ -1,7 +1,11 @@
 .infoContainer {
+
+  flex: 5 1;
+}
+
+.postContent{
+  gap: 60px;
   display: flex;
-  align-items: center;
-  gap: 50px;
 }
 
 .imageThumbnail {

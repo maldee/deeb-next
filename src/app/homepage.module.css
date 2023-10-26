@@ -2,3 +2,12 @@
   display: flex;
   gap: 50px;
 }
+
+.postList{
+  display: flex;
+  gap: 60px;
+}
+
+.postGrid{
+  flex: 6 1;
+}

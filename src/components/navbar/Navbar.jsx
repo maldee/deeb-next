@@ -9,7 +9,10 @@ const Navbar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
+        <a href="/" className={styles.logoLink}>
         <Image src="/logo.png" alt="deeflow" width={40} height={40} />
+        </a>
+        
        
       </div>
   
