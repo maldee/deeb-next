@@ -14,6 +14,7 @@ const Menu = () => {
       <h2 className={styles.subtitle}>Discover by topic</h2>
       <h1 className={styles.title}>Categories</h1>
       <MenuCategories />
+     
     </div>
   );
 };
