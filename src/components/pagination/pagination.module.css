@@ -1,10 +1,11 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
 }
 
 .button {
-  width: 80px;
+
   border: none;
   padding: 16px;
   background-color: crimson;
@@ -13,7 +14,55 @@
   border-radius: 30px;
 }
 
+.buttonNp {
+
+  border: none;
+  padding: 16px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+
 .button:disabled{
   background-color: rgba(220, 20, 60, 0.473);
   cursor: not-allowed;
+}
+
+.pagination {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ list-style: none;
+ gap: 20px;
+}
+
+.pageLink {
+ cursor: pointer;
+}
+
+/* pagination pageItem */
+.pageItem {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 2rem;
+ height: 2rem;
+ border: 1px solid #eaeaea;
+ border-radius: 1rem;
+ cursor: pointer;
+}
+
+/* pagination page item when active */
+.pageItemActive {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 2rem;
+ height: 2rem;
+ border: 1px solid #eaeaea;
+ border-radius: 0.5rem;
+ cursor: pointer;
+ background-color: red;
 }
