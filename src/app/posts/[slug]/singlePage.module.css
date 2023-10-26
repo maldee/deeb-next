@@ -95,8 +95,8 @@
   word-break: break-word;
   font-size: 20px;
   font-weight: 300;
-  
   width: 100%;
+  overflow-x: auto;
 }
 
 .content ul {
