@@ -83,11 +83,20 @@
   margin-top: 60px;
 }
 
-.description p {
-  word-break: break-all;
+.content p {
+  word-break: break-word;
   font-size: 20px;
   font-weight: 300;
   margin-bottom: 20px;
+  width: 100%;
+}
+
+.content ul {
+  padding-left: 20px;
+}
+
+.content img{
+  width: 100%;
 }
 
 @media screen and (max-width: 1536px) {
