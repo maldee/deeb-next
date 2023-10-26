@@ -91,7 +91,19 @@
   width: 100%;
 }
 
+.content *{
+  word-break: break-word;
+  font-size: 20px;
+  font-weight: 300;
+  
+  width: 100%;
+}
+
 .content ul {
+  padding-left: 20px;
+}
+
+.content ol {
   padding-left: 20px;
 }
 
