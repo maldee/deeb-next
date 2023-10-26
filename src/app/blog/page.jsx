@@ -8,7 +8,7 @@ const BlogPage = ({ searchParams }) => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>{cat} Blog</h1>
+      <h4 className={styles.title}>Category: {cat}</h4>
       <div className={styles.content}>
         <CardList page={page} cat={cat}/>
         <Menu />

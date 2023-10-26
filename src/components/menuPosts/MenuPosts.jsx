@@ -3,7 +3,19 @@ import Link from "next/link";
 import React from "react";
 import styles from "./menuPosts.module.css"
 
-const MenuPosts = ({ withImage }) => {
+const getData = async () => {
+  const res = await fetch(process.env.NEXTAUTH_URL+"/api/posts", {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed");
+  }
+
+  return res.json();
+};
+
+const MenuPosts = async ({ withImage }) => {
   return (
     <div className={styles.items}>
       <Link href="/" className={styles.item}>

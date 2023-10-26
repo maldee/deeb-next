@@ -1,7 +1,9 @@
 .title{
+  width: fit-content;
   background-color: coral;
   color: white;
   padding: 5px 10px;
+  border-radius: 30px;
   text-align: center;
   text-transform: capitalize;
 }

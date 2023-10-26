@@ -14,7 +14,7 @@ const Pagination = ({ page, pages, hasPrev, hasNext }) => {
         disabled={!hasPrev}
         onClick={() => router.push(`?page=${page - 1}`)}
       >
-        {`<<`}
+        {`<`}
       </button>
       <ul className={styles.pagination}>
         {pages.map((page) => (
@@ -35,16 +35,12 @@ const Pagination = ({ page, pages, hasPrev, hasNext }) => {
           </li>
         ))}
       </ul>
-
-
-
-
       <button
         disabled={!hasNext}
         className={styles.buttonNp}
         onClick={() => router.push(`?page=${page + 1}`)}
       >
-        {`>>`}
+        {`>`}
       </button>
     </div>
   );

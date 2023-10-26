@@ -20,9 +20,9 @@ const AuthLinks = () => {
           <Link href="/write" className={styles.link}>
             Write
           </Link>
-          <span className={styles.link} onClick={signOut}>
-            Logout
-          </span>
+          <Link href="/write" className={styles.link} onClick={signOut}>
+          Logout
+          </Link>
         </>
       )}
       <div className={styles.burger} onClick={() => setOpen(!open)}>
@@ -32,9 +32,10 @@ const AuthLinks = () => {
       </div>
       {open && (
         <div className={styles.responsiveMenu}>
-          <Link href="/">Homepage</Link>
-          <Link href="/">About</Link>
-          <Link href="/">Contact</Link>
+          <Link href="/">👨‍🏫 Classroom</Link>
+          <Link href="/">🙋 Quizy</Link>
+          <Link href="/">💬 Chatbits</Link>
+          <Link href="/">🤝 Qlake</Link>
           {status === "unauthenticated" ? (
             <Link onClick={toggle} href="/login">Login</Link>
           ) : (
