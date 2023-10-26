@@ -4,13 +4,28 @@
   gap: 50px;
 }
 
+.imageThumbnail {
+  display: flex;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: relative;
+  height: 450px;
+  width: 600px;
+}
+
 .textContainer {
-  flex: 1;
+  flex: 2;
+}
+
+.userContainer {
+  flex: 2;
+  margin-bottom: 20px;
 }
 
 .title {
   font-size: 64px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .user {
@@ -38,9 +53,11 @@
 }
 
 .username {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
 }
+
+
 
 .imageContainer {
   flex: 1;
@@ -49,7 +66,7 @@
 }
 
 .image {
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .content {
@@ -63,6 +80,7 @@
 }
 
 .description p {
+  word-break: break-all;
   font-size: 20px;
   font-weight: 300;
   margin-bottom: 20px;
@@ -73,22 +91,37 @@
     font-size: 54px;
   }
 }
+
 @media screen and (max-width: 1280px) {
   .title {
     font-size: 48px;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .imageContainer {
     display: none;
   }
 }
+
 @media screen and (max-width: 640px) {
   .title {
-    font-size: 36px;
+    font-size: 28px;
   }
 
-  .description p{
+  .description p {
     font-size: 18px;
   }
+
+  .imageThumbnail {
+    display: flex;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: relative;
+    object-fit: fill;
+    height: 250px;
+  width: 100%;
+  }
+
 }
