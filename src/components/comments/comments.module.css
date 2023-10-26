@@ -10,13 +10,12 @@
 .write {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 30px;
 }
 
 .input {
-  padding: 20px;
-  width: 100%;
+  padding: 8px;
+  width: 50%;
 }
 
 .button {
