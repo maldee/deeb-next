@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styles from "./menuCategories.module.css";
+import useSWR from "swr";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
