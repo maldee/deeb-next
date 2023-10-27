@@ -18,7 +18,7 @@ const MenuCategories = async () => {
   const data = await getData();
   return (
       <div className={styles.categoryList}>
-        {data.map((item) => (
+        {data?.map((item) => (
           <Link
           
             href={`/blog?cat=${item.title}`}
