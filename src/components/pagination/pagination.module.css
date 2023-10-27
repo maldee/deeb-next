@@ -4,7 +4,7 @@
 }
 
 .button {
-
+  cursor: pointer;
   border: none;
   padding: 16px;
   background-color: transparent;
@@ -14,7 +14,7 @@
 }
 
 .buttonNp {
-
+  cursor: pointer;
   border: none;
   padding: 16px;
   background-color: transparent;
