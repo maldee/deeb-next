@@ -5,7 +5,7 @@ import Card from "../card/Card";
 
 const getData = async (page, cat) => {
   const res = await fetch(
-    process.env.NEXTAUTH_URL+`/api/posts?page=${page}&cat=${cat || ""}`,
+    process.env.NEXTAUTH_URL + `/api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
     }
@@ -20,11 +20,11 @@ const getData = async (page, cat) => {
 
 const CardList = async ({ page, cat }) => {
   const { posts, count } = await getData(page, cat);
-  
+
   const POST_PER_PAGE = 5;
-  
-  const totalPages =  Math.ceil(count / POST_PER_PAGE);
- 
+
+  const totalPages = Math.ceil(count / POST_PER_PAGE);
+
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
@@ -33,15 +33,15 @@ const CardList = async ({ page, cat }) => {
   return (
     <div className={styles.container}>
       <div className={styles.paginationBar}>
-      <h3 className={styles.title}>Posts</h3>
-      <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
+        <h3 className={styles.title}>Posts</h3>
+        <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
       </div>
       <div className={styles.posts}>
         {posts?.map((item) => (
           <Card item={item} key={item._id} />
         ))}
       </div>
-      
+
     </div>
   );
 };

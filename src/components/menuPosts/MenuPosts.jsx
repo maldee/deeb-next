@@ -20,7 +20,7 @@ const MenuPosts = async () => {
   return (
     <div className={styles.items}>
       {data?.map((item) => (
-      <Link href="/" className={styles.item}  key={item._id}>
+      <Link href={`/posts/${item.slug}`} className={styles.item}  key={item._id}>
        
         <div className={styles.textContainer}>
           <span className={`${styles.category} ${styles[item.catSlug]}`}>{item.catSlug}</span>
