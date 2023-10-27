@@ -21,7 +21,7 @@ const getData = async (page, cat) => {
 const CardList = async ({ page, cat }) => {
   const { posts, count } = await getData(page, cat);
   
-  const POST_PER_PAGE = 3;
+  const POST_PER_PAGE = 6;
   
   const totalPages =  Math.ceil(count / POST_PER_PAGE);
  
