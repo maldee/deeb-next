@@ -13,6 +13,7 @@ export default function Home({ searchParams }) {
       <div className={styles.postList}>
         <div className={styles.postGrid}>
         <Featured />
+        <CategoryList />
         <div className={styles.content}>
           <CardList page={page} />
          

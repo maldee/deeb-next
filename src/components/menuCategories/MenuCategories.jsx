@@ -1,28 +1,21 @@
 import Link from "next/link";
 import React from "react";
 import styles from "./menuCategories.module.css";
-import useSWR from "swr";
 
-const fetcher = async (url) => {
-  const res = await fetch(url);
-
-  const data = await res.json();
+const getData = async () => {
+  const res = await fetch(process.env.NEXTAUTH_URL+"/api/categories", {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
-    const error = new Error(data.message);
-    throw error;
+    throw new Error("Failed");
   }
 
-  return data;
+  return res.json();
 };
 
 const MenuCategories = async () => {
-  
-  const { data, mutate, isLoading } = useSWR(
-    `/api/categories`,
-    fetcher
-  );
-
+  const data = await getData();
   return (
       <div className={styles.categoryList}>
         {data?.map((item) => (
