@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+.linkLogout{
+  cursor: pointer;
+}
+
 .burger {
   width: 20px;
   height: 16px;
@@ -32,6 +36,13 @@
   font-size: 24px;
   z-index: 999;
 }
+
+@media screen and (max-width: 1536px) and (min-width: 1280px)  {
+  .linkLogout{
+    display: none;
+  }
+}
+
 
 @media screen and (max-width: 640px) {
   .burger {
