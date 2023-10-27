@@ -1,10 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import styles from "./menuCategories.module.css";
-import Image from "next/image";
 
 const getData = async () => {
-  const res = await fetch("https://deeb-next-production.up.railway.app/api/categories", {
+  const res = await fetch(process.env.NEXTAUTH_URL+"/api/categories", {
     cache: "no-store",
   });
 
@@ -19,7 +18,7 @@ const MenuCategories = async () => {
   const data = await getData();
   return (
       <div className={styles.categoryList}>
-        {data?.map((item) => (
+        {data.map((item) => (
           <Link
           
             href={`/blog?cat=${item.title}`}
