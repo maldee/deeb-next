@@ -1,8 +1,9 @@
 .container {
-  margin-bottom: 50px;
+  
   display: flex;
   align-items: center;
   gap: 50px;
+  margin-top: -40px;
 }
 
 .imageContainer {
@@ -90,6 +91,10 @@
 }
 
 @media screen and (max-width: 640px) {
+
+  .container{
+    margin-top: 10px;
+  }
 
   .imageContainer {
     display: none;

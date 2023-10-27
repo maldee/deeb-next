@@ -1,13 +1,14 @@
+
 .categoryList {
   margin-top: 35px;
   margin-bottom: 60px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
 }
 
 .categoryItem {
-  padding: 10px 25px;
+  padding: 5px 10px;
   border-radius: 10px;
   font-size: 14px;
 }

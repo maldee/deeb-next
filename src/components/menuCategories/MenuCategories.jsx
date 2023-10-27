@@ -17,6 +17,7 @@ const getData = async () => {
 const MenuCategories = async () => {
   const data = await getData();
   return (
+   
       <div className={styles.categoryList}>
         {data?.map((item) => (
           <Link
@@ -28,7 +29,7 @@ const MenuCategories = async () => {
           </Link>
         ))}
       </div>
- 
+    
   );
 };
 
