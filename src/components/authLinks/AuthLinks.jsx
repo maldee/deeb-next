@@ -32,7 +32,7 @@ const AuthLinks = () => {
       </div>
       {open && (
         <div className={styles.responsiveMenu}>
-          <Link href="/">👨‍🏫 Classroom</Link>
+          <Link onClick={toggle} href="/classroom">👨‍🏫 Classroom</Link>
           <Link href="/">🙋 Quizy</Link>
           <Link href="/">💬 Chatbits</Link>
           <Link href="/">🤝 Qlake</Link>

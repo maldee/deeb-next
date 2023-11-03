@@ -47,6 +47,8 @@ model User {
   sessions      Session[]
   Post          Post[]
   Comment       Comment[]
+  QlakeAnswer   QlakeAnswer[]
+  Qlake         Qlake[]
 }
 
 model VerificationToken {
@@ -80,6 +82,55 @@ model Post {
   comments  Comment[]
 }
 
+model Qlake {
+  id        String    @id @default(cuid()) @map("_id")
+  createdAt DateTime  @default(now())
+  question  String
+  views     Int       @default(0)
+  userEmail String
+  user      User      @relation(fields: [userEmail], references: [email])
+  answers   QlakeAnswer[]
+}
+
+model QlakeAnswer {
+  id            String   @id @default(cuid()) @map("_id")
+  createdAt     DateTime @default(now())
+  answer        String
+  userEmail     String
+  user          User     @relation(fields: [userEmail], references: [email])
+  questionId    String
+  question      Qlake    @relation(fields: [questionId], references: [id])
+}
+
+
+model Classroom {
+  id        String    @id @default(cuid()) @map("_id")
+  title     String
+  desc      String
+  grade     String
+  subject   String
+  teacher   String
+  link      String?
+}
+
+model Quizy {
+  id        String    @id @default(cuid()) @map("_id")
+  title     String
+  grade     String
+  subject   String
+  quiz      Json?
+}
+
+model Chatbits {
+  id            String    @id @default(cuid()) @map("_id")
+  eng_p         String
+  phrase        String
+  note          String
+  category      String
+  situation     String
+  language      String
+}
+
 model Comment {
   id        String   @id @default(cuid()) @map("_id")
   createdAt DateTime @default(now())
@@ -89,3 +140,4 @@ model Comment {
   postSlug  String
   post      Post     @relation(fields: [postSlug], references: [slug])
 }
+

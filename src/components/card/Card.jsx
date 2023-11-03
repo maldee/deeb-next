@@ -5,7 +5,7 @@ import Link from "next/link";
 const Card = ({ key, item }) => {
   return (
     <div className={styles.container} key={key}>
-
+ 
       {item.img && (
         <div className={styles.imageContainer}>
           <a href={`/posts/${item.slug}`} className={styles.linkMuted}>

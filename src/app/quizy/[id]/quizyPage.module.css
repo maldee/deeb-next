@@ -1,0 +1,72 @@
+.container {
+  margin-top: 20px;
+}
+
+.videoList {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr ;
+}
+
+.searchInput {
+  width: 50%;
+  border: 2px solid #1f273a;
+  box-sizing: border-box;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0f172a;
+  color: #ddd;
+}
+
+.slideMenuButtonActivated {
+  width: 150px;
+  color: white;
+  text-align: inherit;
+  background-color: #775aec;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 14px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1536px) and (min-width: 1280px)  {
+ 
+
+  .videoList iframe{
+    width: 600px;
+    height: 330px;
+   
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  
+
+}
+
+@media screen and (max-width: 1024px) {
+ 
+}
+
+@media screen and (max-width: 640px) {
+
+  .searchInput {
+    width: 100%;
+  }
+  
+  .videoList {
+    grid-template-columns: 1fr ;
+    
+
+  }
+
+  .videoList iframe{
+    width: 100%;
+    height: 200px;
+   
+  }
+
+
+}

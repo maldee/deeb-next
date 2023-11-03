@@ -14,7 +14,10 @@ const Navbar = () => {
           <Image src="/logo.png" alt="deeflow" width={40} height={40} />
         </a>
         <div className={styles.searchIcon}>
-          <FaSearch />
+          <Link href="/search" className={styles.link}>
+            <FaSearch />
+          </Link>
+
         </div>
       </div>
 

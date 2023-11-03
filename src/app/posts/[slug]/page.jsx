@@ -1,6 +1,6 @@
 import styles from "./singlePage.module.css";
 import Image from "next/image";
-import Comments from "@/components/comments/Comments";
+import Comments from "../../../components/comments/Comments";
 
 const getData = async (slug) => {
   const res = await fetch(process.env.NEXTAUTH_URL + `/api/posts/${slug}`, {
@@ -15,6 +15,7 @@ const getData = async (slug) => {
 };
 
 const SinglePage = async ({ params }) => {
+ 
   const { slug } = params;
 
   const data = await getData(slug);
