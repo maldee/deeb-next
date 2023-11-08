@@ -6,21 +6,18 @@ export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
 
   const page = searchParams.get("page");
- 
 
   const POST_PER_PAGE = 5;
-
-
 
   try {
     const [questions, count] = await prisma.$transaction([
       prisma.qlake.findMany({
-        skip: 0,
-        take: 4,
+        take: POST_PER_PAGE,
+        skip: POST_PER_PAGE * (page - 1),
       }),
       prisma.qlake.count(),
     ]);
-    console.log(count);
+
     return new NextResponse(JSON.stringify({ questions, count }, { status: 200 }));
   } catch (err) {
     console.log(err);

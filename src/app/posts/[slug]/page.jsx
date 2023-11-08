@@ -1,4 +1,4 @@
-import styles from "./singlePage.module.css";
+import styles from "./viewPostPage.module.css";
 import Image from "next/image";
 import Comments from "../../../components/comments/Comments";
 

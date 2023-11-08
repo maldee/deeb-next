@@ -33,9 +33,9 @@ const AuthLinks = () => {
       {open && (
         <div className={styles.responsiveMenu}>
           <Link onClick={toggle} href="/classroom">👨‍🏫 Classroom</Link>
-          <Link href="/">🙋 Quizy</Link>
-          <Link href="/">💬 Chatbits</Link>
-          <Link href="/">🤝 Qlake</Link>
+          <Link onClick={toggle} href="/quizy">🙋 Quizy</Link>
+          <Link onClick={toggle} href="/chatbits">💬 Chatbits</Link>
+          <Link onClick={toggle} href="/qlake">🤝 Qlake</Link>
           {status === "unauthenticated" ? (
             <Link onClick={toggle} href="/login">Login</Link>
           ) : (

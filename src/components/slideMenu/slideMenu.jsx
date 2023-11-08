@@ -12,15 +12,15 @@ const SlideMenu = () => {
       <button className={styles.slideMenuButtonActivated} >🏠 {'Home'}</button>
       </Link>
 
-      <Link  href="/classroom">
+      <Link  href="classroom">
       <button className={styles.slideMenuButton} >👨‍🏫 {'Classroom'}</button>
       </Link>
 
-      <Link  href="/quizy">
+      <Link  href="quizy">
       <button className={styles.slideMenuButton} >🙋 {'Quizy'}</button>
       </Link>
      
-      <Link  href="/chatbits">
+      <Link  href="chatbits">
       <button className={styles.slideMenuButton} >💬 {'Chatbits'}</button>
       </Link>
 
@@ -28,7 +28,7 @@ const SlideMenu = () => {
       <button className={styles.slideMenuButton} >🛒 {'Store'}</button>
       </Link>
      
-      <Link  href="/qlake">
+      <Link  href="qlake">
       <button className={styles.slideMenuButton} >🤝 {'qLake'}</button>
       </Link>
    

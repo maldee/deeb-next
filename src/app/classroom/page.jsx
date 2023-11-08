@@ -6,7 +6,10 @@ import React from 'react';
 import YouTube from 'react-youtube';
 import useSWR from "swr";
 import { useState, useEffect } from "react"
-import Pagination from "./Pagination"; 
+import Pagination from "./../../components/pagination/Pagination"; 
+import { ColorRing } from 'react-loader-spinner';
+import ClassroomSkeleton from "./classroom.skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function Classroom ({ searchParams }){
 
@@ -41,8 +44,6 @@ export default function Classroom ({ searchParams }){
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
 
-
-
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
@@ -54,7 +55,9 @@ export default function Classroom ({ searchParams }){
       <input className={styles.searchInput} type="text" placeholder="Search video..." onChange={(e) => setQuery(e.target.value)} />
       <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
       <div className={styles.videoList}>
-        {data?.videos?.map((item) => (
+        {isLoading ?
+       <ClassroomSkeleton count={5} />
+        : data?.videos?.map((item) => (
           <YouTube className={styles.videoList} videoId={item.link} />
 
         ))}
@@ -65,19 +68,5 @@ export default function Classroom ({ searchParams }){
 
 }
 
-export async function generateMetadata({ params }) {
-  const { slug } = params;
-
-  const data = await getData(slug);
-
-  return {
-    openGraph: {
-      title: data?.title,
-      images: [{ url: data.img }],
-      siteName: 'Next.js',
-      type: 'website',
-    }
-  };
-}
 
 

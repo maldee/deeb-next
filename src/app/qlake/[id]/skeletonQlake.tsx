@@ -6,7 +6,7 @@ const SkeletonPost = () => {
     return (
         <SkeletonTheme baseColor="#1f273a" highlightColor="#0F1729">
         
-        <div className={styles.container}>
+        <div className={styles.skeletonContainer}>
             <div  >
                 <a >
                     <Skeleton height={80} width={100} />

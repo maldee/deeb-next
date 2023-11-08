@@ -2,6 +2,7 @@ import prisma from "../../../../utils/connect";
 import { NextResponse } from "next/server";
 
 export const GET = async () => {
+
   try {
     const questions = await prisma.qlake.findMany();
 

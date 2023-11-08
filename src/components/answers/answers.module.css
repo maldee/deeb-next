@@ -4,7 +4,6 @@
 
 .title {
   color: var(--softTextColor);
-  margin-bottom: 30px;
 }
 
 .write {
@@ -30,10 +29,14 @@
 }
 
 .comments{
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .comment{
+  width: 80%;
+  padding: 20px;
+  background-color: #1B1E21;
+  border-radius: 10px;
   margin-bottom: 50px;
 }
 

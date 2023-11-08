@@ -3,11 +3,13 @@
 
 .searchInput{
   width: 100%;
-  border: 1px solid #666;
+  border: 2px solid #1f273a;
   box-sizing: border-box;
   font-size: 18px;
-  padding: 18px;
+  padding: 10px;
   margin-bottom: 20px;
+  background-color: #0f172a;
+  color: #ddd;
 }
 
 .searchButton{
@@ -17,11 +19,8 @@
   padding: 5;
 }
 
-/*  */
-
-
 .container {
-  display: flex;
+  width: 60%;
   gap: 20px;
   margin-bottom: 20px;
 }
@@ -116,19 +115,14 @@
   cursor: default;
 }
 
+.skeletonBody{
+  width: 60%;
+  height: 170px;
+}
+
 @media screen and (max-width: 1536px) and (min-width: 1280px)  {
-
-  .mobileCard {
-    display: none;
-  }
-
-  .mobileImageContainer {
-    display: none;
-  }
-
-  .mobileTextContainer {
-    display: none;
-  }
+ 
+  
 }
 
 @media screen and (max-width: 1280px) {
@@ -142,22 +136,16 @@
 
 @media screen and (max-width: 640px) {
 
-  .container{
-    margin-top: 10px;
+  .container {
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 20px;
   }
-
-  .imageContainer {
-    display: none;
+  
+  .skeletonBody{
+    width: 100%;
+    height: 170px;
   }
-
-  .textContainer{
-    display: none;
-  }
-
-  .image {
-    object-fit: unset;
-  }
-
 
 
 }

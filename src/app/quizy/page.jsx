@@ -5,6 +5,9 @@ import React from 'react';
 import useSWR from "swr";
 import { useState } from "react"
 import Link from "next/link";
+import { ColorRing } from 'react-loader-spinner';
+import 'react-loading-skeleton/dist/skeleton.css'
+import QuizySkeleton from "./quizy.skeleton";
 
 export default function Quizy() {
 
@@ -35,21 +38,26 @@ export default function Quizy() {
     <div className={styles.container}>
       <input className={styles.searchInput} type="text" placeholder="Search quiz..." onChange={(e) => setQuery(e.target.value)} />
 
-      <div className={styles.videoList}>
-        <ul>
-          {data?.map((item) => (
+      <div className={styles.quizyList}>
+        
+          {isLoading ? 
+           <QuizySkeleton count={5} />
+          :
+            data?.map((item) => (
+              <div className={styles.qCard}>
+              
+                <Link className={styles.quizLink} key={item.id} href={`/quizy/${item.id}`} >
+                  <h4>{item.title}</h4>
+                </Link>
+             
+              </div>
+            ))}
 
-            <li className={styles.quizLink}>
-              <Link key={item.id} href={`/quizy/${item.id}`} >
-                <h4>{item.title}</h4>
-              </Link>
-            </li>
 
-          ))}
+         
+        </div>
 
-
-        </ul>
-      </div>
+     
 
     </div>
   );

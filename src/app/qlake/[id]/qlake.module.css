@@ -101,6 +101,56 @@
   padding-left: 20px;
 }
 
+.container{
+  margin-top: 30px;
+}
+
+.skeletonContainer {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.answerCard{
+  padding: 10px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userImageContainer {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.qTitle{
+  margin-bottom: 10px;
+}
+
+.qContent{
+  color: #CB5646;
+margin-top: 10px;
+text-align: center;
+}
+
+.qDetails{
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+}
+
+.qViews{
+  margin-left: 10px;
+  color: #fff;
+margin-top: 10px;
+font-size: 14px;
+}
+
 
 @media screen and (max-width: 1536px) and (min-width: 1280px) {
   .title {
@@ -158,5 +208,8 @@
     width: 100%;
   }
 
- 
+  .skeletonContainer{
+    margin-top: 10px;
+  }
+
 }
