@@ -1,40 +1,15 @@
-.skeletonContainer{
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.infoContainer {
-
-  flex: 5 1;
-}
-
-.postContent{
-  gap: 60px;
-  display: flex;
-}
-
-.imageThumbnail {
-  display: flex;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: relative;
-  height: 450px;
-  width: 600px;
-}
-
 .textContainer {
   flex: 2;
 }
 
-.userContainer {
-  flex: 2;
+.title {
+  font-size: 64px;
   margin-bottom: 20px;
 }
 
-.title {
-  font-size: 64px;
+
+.userContainer {
+  flex: 2;
   margin-bottom: 20px;
 }
 
@@ -44,16 +19,22 @@
   gap: 20px;
 }
 
+
 .userImageContainer {
   width: 50px;
   height: 50px;
   position: relative;
 }
 
+.image {
+  object-fit: fill;
+}
+
 .avatar {
   border-radius: 50%;
   object-fit: cover;
 }
+
 
 .userTextContainer {
   display: flex;
@@ -67,7 +48,15 @@
   font-weight: 500;
 }
 
-
+.imageThumbnail {
+  display: flex;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: relative;
+  height: 450px;
+  width: 600px;
+}
 
 .imageContainer {
   flex: 1;
@@ -75,9 +64,6 @@
   position: relative;
 }
 
-.image {
-  object-fit: fill;
-}
 
 .content {
   display: flex;
@@ -97,8 +83,6 @@
   width: 100%;
 }
 
-
-
 .content ul {
   padding-left: 20px;
 }
@@ -113,11 +97,11 @@
     font-size: 40px;
   }
 
-  .content *{
+  .content * {
     word-break: break-word;
     overflow-x: auto;
   }
-  
+
 }
 
 @media screen and (max-width: 1280px) {
@@ -149,24 +133,19 @@
     position: relative;
     object-fit: fill;
     height: 250px;
-  width: 100%;
-  }
-
-  .content *{
-    word-break: break-word;
-    font-size: 20px;
-    font-weight: 300;
-   
-    overflow-x: auto;
-  }
-
-  .content img{
     width: 100%;
   }
 
-  .skeletonContainer{
-    margin-top: 10px;
+  .content * {
+    word-break: break-word;
+    font-size: 20px;
+    font-weight: 300;
+
+    overflow-x: auto;
   }
 
- 
+  .content img {
+    width: 100%;
+  }
+
 }

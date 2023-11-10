@@ -2,29 +2,10 @@
   margin-top: 20px;
 }
 
-
-
-.react-quiz-container{
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #1f273a;
-  }
-
-.videoList {
+.quizyList {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr ;
-}
-
-.searchInput {
-  width: 50%;
-  border: 2px solid #1f273a;
-  box-sizing: border-box;
-  font-size: 18px;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: #0f172a;
-  color: #ddd;
 }
 
 .slideMenuButtonActivated {
@@ -39,10 +20,16 @@
   cursor: pointer;
 }
 
+.react-quiz-container{
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #1f273a;
+  }
+
 @media screen and (max-width: 1536px) and (min-width: 1280px)  {
  
 
-  .videoList iframe{
+  .quizyList iframe{
     width: 600px;
     height: 330px;
    
@@ -60,17 +47,14 @@
 
 @media screen and (max-width: 640px) {
 
-  .searchInput {
-    width: 100%;
-  }
   
-  .videoList {
+  .quizyList {
     grid-template-columns: 1fr ;
     
 
   }
 
-  .videoList iframe{
+  .quizyList iframe{
     width: 100%;
     height: 200px;
    

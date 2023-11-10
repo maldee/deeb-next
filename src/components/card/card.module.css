@@ -1,9 +1,8 @@
 .container {
-  
   display: flex;
   align-items: center;
   gap: 50px;
-  
+ 
 }
 
 .imageContainer {
@@ -94,6 +93,8 @@
 
   .container{
     margin-top: 40px;
+    background-color: #1f273a;
+    border-radius: 10px;
   }
 
   .imageContainer {
@@ -108,6 +109,18 @@
     object-fit: unset;
   }
 
+  .mobileTextContainer{
+    padding: 20px;
+  }
+
+  .mobileImageContainer img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px
+  }
+
+  .desc {
+    margin-bottom: 5px;
+  }
 
 
 }

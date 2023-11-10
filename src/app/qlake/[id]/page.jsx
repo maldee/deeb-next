@@ -1,4 +1,4 @@
-import styles from "./qlake.module.css";
+import styles from "./qlakeView.module.css";
 import Image from "next/image";
 import Answers from "../../../components/answers/Answers";
 import Chip from "../../../components/chip/Chip";

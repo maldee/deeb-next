@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: space-between;
   color: var(--softTextColor);
+  gap: 100px
 }
 
 .info {
@@ -37,7 +38,6 @@
 .links {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
   gap: 100px;
 }
 

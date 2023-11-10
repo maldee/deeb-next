@@ -36,7 +36,7 @@ const QuizyStart = () => {
   return (
 
 
-    <div className={styles.videoList}>
+    <div className={styles.quizyList}>
 
       <Link href="/quizy">
         <button className={styles.slideMenuButtonActivated} >{'Back to Quizes'}</button>

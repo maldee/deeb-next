@@ -1,8 +1,6 @@
 import styles from "./qlake.module.css";
 import QlakeList from "../../components/qlakeList/QlakeList";
 
-
-
 export default function Qlake({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
 

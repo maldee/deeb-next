@@ -6,7 +6,6 @@
 }
 
 .wrapper {
-  background-color: var(--softBg);
   padding: 150px 200px;
   display: flex;
   flex-direction: column;
@@ -26,8 +25,12 @@
   justify-content: center;
 }
 
+.signLabel{
+  padding-left: 10px;
+}
+
 .socialButton:first-child {
-  background-color: #ff5555;
+  background-color: var(--softBg);
 }
 
 .socialButton:nth-child(2) {
@@ -36,6 +39,10 @@
 
 .socialButton:nth-child(3) {
   background-color: #087bea;
+}
+
+.loading{
+text-align: center;
 }
 
 @media screen and (max-width: 768px) {
