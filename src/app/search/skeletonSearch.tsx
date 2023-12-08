@@ -12,7 +12,7 @@ const SkeletonSearch = () => {
         <div className={styles.container}>
             <div  >
                 <a >
-                    <Skeleton height={80} width={100} />
+                    <Skeleton key={item.id} height={80} width={100} />
                 </a>
             </div>
             <div >

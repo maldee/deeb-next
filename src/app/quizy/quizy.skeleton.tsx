@@ -10,7 +10,7 @@ const ClassroomSkeleton = () => {
             .fill(1, 2)
             .map((item, index) => (
                 
-        <div className={styles.skeletonBody}>
+        <div key={item.id} className={styles.skeletonBody}>
              <Skeleton className={styles.skeletonItem} />
             </div>
      

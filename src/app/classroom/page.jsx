@@ -69,7 +69,7 @@ export default function Classroom({ searchParams }) {
           <ClassroomSkeleton count={5} />
           : data?.videos.length > 0 ? (
             data?.videos?.map((item) => (
-              <YouTube className={styles.videoList} videoId={item.link} />
+              <YouTube key={item.id} className={styles.videoList} videoId={item.link} />
 
             ))) : (
             <h3>No results found</h3>

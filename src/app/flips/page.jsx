@@ -73,7 +73,7 @@ export default function Flips({ searchParams }) {
             colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
           />
           : data?.lessons?.map((item) => (
-            <option value={item.lesson}>{item.lesson}</option>
+            <option key={item.id} value={item.lesson}>{item.lesson}</option>
           ))}
 
       </select>
@@ -91,7 +91,7 @@ export default function Flips({ searchParams }) {
             colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
           />
           : data?.types?.map((item) => (
-            <option value={item.type}>{item.type}</option>
+            <option key={item.id} value={item.type}>{item.type}</option>
           ))}
       </select>
 

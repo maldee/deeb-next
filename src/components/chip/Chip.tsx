@@ -7,7 +7,7 @@ const Chip = ({ key, item }) => {
     return (
         <div className={styles.chipContainer}>
             {chip.map((tag) => (
-                <div className={styles.chip}>
+                <div key={item.id} className={styles.chip}>
                     <span className={styles.tag}>{tag}
                     </span>
                 </div>

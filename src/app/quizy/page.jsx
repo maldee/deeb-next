@@ -49,7 +49,7 @@ export default function Quizy() {
           <QuizySkeleton count={5} />
           : data?.length > 0 ? (
             data?.map((item) => (
-              <div className={styles.qCard}>
+              <div key={item.id} className={styles.qCard}>
 
                 <Link className={styles.quizLink} key={item.id} href={`/quizy/${item.id}`} >
                   <h4>{item.title}</h4>

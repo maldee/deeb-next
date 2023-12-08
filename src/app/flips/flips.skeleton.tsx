@@ -11,10 +11,10 @@ const ClassroomSkeleton = () => {
             .map((item, index) => (
                 
         <div className={styles.skeletonBody}>
-             <Skeleton className={styles.skeletonItem} />
-             <Skeleton className={styles.skeletonItem} />
-             <Skeleton className={styles.skeletonItem} />
-             <Skeleton className={styles.skeletonItem} />
+             <Skeleton key={item.id} className={styles.skeletonItem} />
+             <Skeleton key={item.id} className={styles.skeletonItem} />
+             <Skeleton key={item.id} className={styles.skeletonItem} />
+             <Skeleton key={item.id} className={styles.skeletonItem} />
                
             </div>
      

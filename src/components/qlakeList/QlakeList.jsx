@@ -61,7 +61,7 @@ export default function QlakeList({ page }) {
         {isLoading ? <QlakeSkeleton count={5} />
           : questions?.length > 0 ? (
             questions?.map((item) => (
-              <div className={styles.card}>
+              <div key={item.id} className={styles.card}>
                 <a href={`/qlake/${item.id}`} className={styles.qLink}>
                   {item.question}
                 </a>
