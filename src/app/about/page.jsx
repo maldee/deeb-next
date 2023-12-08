@@ -16,7 +16,7 @@ export default function Qlake({ searchParams }) {
         <h1 className={styles.vision}>The Best Online Education Platform</h1>
 
         <h2 className={styles.sections}>🏹 🎨 🎬 🏈 👩‍🎓 👨‍🏫 👩‍🍳 👪 💼</h2>
-        <span className={styles.sections}>Powered by world's top JavaScript frameworks</span>
+        <span className={styles.sections}>Powered by world&apos;s top JavaScript frameworks</span>
       </div>
       <div className={styles.container}>
         <h1 className={styles.subTitle}>About Deeflow</h1>
