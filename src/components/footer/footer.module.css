@@ -49,7 +49,8 @@
 }
 
 .listTitle {
-  font-weight: bold;
+  color: chocolate;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 1024px) {

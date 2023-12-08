@@ -1,14 +1,14 @@
-.content{
-  display: flex;
-  gap: 50px;
+.container {
+  margin: 5px;
 }
 
-.postList{
-  display: flex;
-  gap: 60px;
-}
+@media screen and (max-width: 1536px) and (min-width: 1280px) {}
 
-.postGrid{
-  flex: 6 1;
-}
+@media screen and (max-width: 1280px) {}
 
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 640px) {
+
+
+}

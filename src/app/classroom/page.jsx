@@ -6,12 +6,17 @@ import React from 'react';
 import YouTube from 'react-youtube';
 import useSWR from "swr";
 import { useState, useEffect } from "react"
-import Pagination from "./../../components/pagination/Pagination"; 
+import Pagination from "./../../components/pagination/Pagination";
 import { ColorRing } from 'react-loader-spinner';
 import ClassroomSkeleton from "./classroom.skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 
-export default function Classroom ({ searchParams }){
+// export const metadata = {
+//   title: "Classroom | Deeflow",
+//   description: "Interactive learning with deeflow",
+// };
+
+export default function Classroom({ searchParams }) {
 
   const page = parseInt(searchParams.page) || 1;
 
@@ -19,18 +24,18 @@ export default function Classroom ({ searchParams }){
 
   const fetcher = async (url) => {
 
-  
-  const res = await fetch(url);
 
-  const data = await res.json();
+    const res = await fetch(url);
 
-  if (!res.ok) {
-    const error = new Error(data.message);
-    throw error;
-  }
+    const data = await res.json();
 
-  return data;
-};
+    if (!res.ok) {
+      const error = new Error(data.message);
+      throw error;
+    }
+
+    return data;
+  };
 
   const { data, mutate, isLoading } = useSWR(
     `/api/classroom?page=${page}&query=${query}`,
@@ -53,14 +58,23 @@ export default function Classroom ({ searchParams }){
 
     <div className={styles.container}>
       <input className={styles.searchInput} type="text" placeholder="Search video..." onChange={(e) => setQuery(e.target.value)} />
-      <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
+      
+      {data?.videos.length > 0 ? (
+          <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
+      ):(null)}
+      
+      
       <div className={styles.videoList}>
         {isLoading ?
-       <ClassroomSkeleton count={5} />
-        : data?.videos?.map((item) => (
-          <YouTube className={styles.videoList} videoId={item.link} />
+          <ClassroomSkeleton count={5} />
+          : data?.videos.length > 0 ? (
+            data?.videos?.map((item) => (
+              <YouTube className={styles.videoList} videoId={item.link} />
 
-        ))}
+            ))) : (
+            <h3>No results found</h3>
+          )}
+
       </div>
 
     </div>

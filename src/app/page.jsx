@@ -1,28 +1,27 @@
 import styles from "./homepage.module.css";
-import Featured from "../components/featured/Featured";
-import CardList from "../components/cardList/CardList";
-import Menu from "../components/Menu/Menu";
-import SlideMenu from "../components/slideMenu/slideMenu";
-
+import Hero from "../components/home-hero/Hero";
+import Analytics from "../components/home-analytics/Analytics";
+import Features from "../components/home-features/Features";
+import Testimonial from "../components/home-testimonial/Testimonial";
+import Mentors from "../components/home-mentors/Mentors";
+import Subscribe from "../components/home-subscribe/Subscribe";
+import Flows from "../components/home-flows/Flows";
 
 export default function Home({ searchParams }) {
-  const page = parseInt(searchParams.page) || 1;
 
-  return (
-    <div className={styles.container}>
+    const page = parseInt(searchParams.page) || 1;
 
-      <div className={styles.postList}>
-        <SlideMenu />
-        <div className={styles.postGrid}>
-          <Featured />
-          <div className={styles.content}>
-            <CardList page={page} />
+    return (
+        <div className={styles.container}>
 
-          </div>
+            <Hero />
+            <Analytics />
+            <Flows />
+            <Features />
+            <Testimonial />
+            <Mentors />
+            <Subscribe />
+
         </div>
-        <Menu />
-      </div>
-
-    </div>
-  );
+    );
 }

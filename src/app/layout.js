@@ -6,11 +6,12 @@ import { ThemeContextProvider } from "../context/ThemeContext";
 import ThemeProvider from "../providers/ThemeProvider";
 import AuthProvider from "../providers/AuthProvider";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Deeflow Blog",
-  description: "The best blog app!",
+  title: "Deeflow",
+  description: "Flow to the next world",
 };
 
 export default function RootLayout({ children }) {

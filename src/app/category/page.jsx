@@ -2,7 +2,7 @@ import CardList from "../../components/cardList/CardList";
 import styles from "./categoryPage.module.css";
 import Menu from "../../components/Menu/Menu";
 
-const BlogPage = ({ searchParams }) => {
+const Category = ({ searchParams }) => {
   const page = parseInt(searchParams.page) || 1;
   const { cat } = searchParams;
 
@@ -17,4 +17,4 @@ const BlogPage = ({ searchParams }) => {
   );
 };
 
-export default BlogPage;
+export default Category;

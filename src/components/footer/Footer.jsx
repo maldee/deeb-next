@@ -12,12 +12,9 @@ const Footer = () => {
           <h1 className={styles.logoText}>deeflow</h1>
         </div>
         <p className={styles.desc}>
-        Deeflow is an Sri Lankan online education platform on which students can access tutorials and
-           lectures pre-recorded by experts in various fields. This site is developed & maintained by 
-           a small team with a passion for sharing knowledge with students in Sri Lanka. The purpose 
-           of this website is to help Sri Lankans as well as visitors to reach their educational goals. 
-           Therefore we have attempted to provide accurate & maximum details of each subject, lesson, 
-           and exam.
+           The largest online education platform in Sri Lanka on which students can access tutorials, 
+           lectures and pre-recorded videos by experts in various fields.  
+           
         </p>
         <div className={styles.icons}>
           <Image src="/facebook.png" alt="" width={18} height={18} />
@@ -30,9 +27,9 @@ const Footer = () => {
         <div className={styles.list}>
           <span className={styles.listTitle}>Links</span>
           <Link href="/">Homepage</Link>
-          <Link href="/">Blog</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/about">About</Link>
-          <Link href="/">Contact</Link>
+          <Link href="/contact">Contact</Link>
         </div>
         
         <div className={styles.list}>

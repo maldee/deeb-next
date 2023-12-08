@@ -28,6 +28,10 @@ const SlideMenu = () => {
       <button className={styles.slideMenuButton} >🛒 {'Store'}</button>
       </Link>
      
+      <Link  href="flips">
+      <button className={styles.slideMenuButton} >🤝 {'flips'}</button>
+      </Link>
+
       <Link  href="qlake">
       <button className={styles.slideMenuButton} >🤝 {'qLake'}</button>
       </Link>

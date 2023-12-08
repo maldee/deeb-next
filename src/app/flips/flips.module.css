@@ -1,0 +1,41 @@
+.container {
+    margin-top: 20px;
+}
+
+.front {
+    width: 300px;
+    height: 200px;
+}
+
+.flipList {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.selectInput{
+    width: 50%;
+    border: 2px solid #1f273a;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #0f172a;
+    color: #ddd;
+  }
+  
+
+
+@media screen and (max-width: 1536px) and (min-width: 1280px) {}
+
+@media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 640px) {
+    .flipList {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 1fr ;
+    }
+}

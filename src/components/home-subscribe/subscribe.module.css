@@ -1,0 +1,106 @@
+
+.subscribe {
+  margin-top: 100px;
+  background-color: #127C71;
+  color: #fff;
+
+  padding: 50px 25px 50px 25px;
+  border-radius: 50px;
+  border: none;
+}
+
+.subscribeHead {
+  text-align: center;
+
+  color: #fff;
+  padding: 40px;
+}
+
+.subscribeHead1 {
+  font-size: 30px;
+}
+
+.subscribeBody {
+  text-align: center;
+}
+
+.subscribeBtn {
+  background-color: chocolate;
+  color: #fff;
+  margin: 30px 30px 25px 20px;
+  padding: 15px 25px 15px 25px;
+  border-radius: 5px;
+  border: none;
+
+}
+
+.subscribeInput {
+  background-color: #f7f7f7;
+  color: #111;
+  width: 300px;
+  margin: 10px 10px 15px 50px;
+  padding: 15px 15px 15px 15px;
+  border-radius: 5px;
+  border: none;
+
+}
+
+
+@media screen and (max-width: 1536px) and (min-width: 1280px) {}
+
+@media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 640px) {
+
+ 
+  .subscribe {
+    margin-top: 100px;
+    background-color: #127C71;
+    color: #fff;
+
+    padding: 10px 25px 10px 25px;
+    border-radius: 50px;
+    border: none;
+  }
+
+  .subscribeHead {
+    text-align: center;
+
+    color: #fff;
+    padding: 20px;
+  }
+
+  .subscribeHead1 {
+    font-size: 30px;
+  }
+
+  .subscribeBody {
+    text-align: center;
+  }
+
+  .subscribeBtn {
+    background-color: chocolate;
+    color: #fff;
+    margin: 20px 20px 25px 10px;
+    padding: 15px 25px 15px 25px;
+    border-radius: 5px;
+    border: none;
+
+  }
+
+  .subscribeInput {
+    background-color: #f7f7f7;
+    color: #111;
+    width: 300px;
+    margin: 10px 10px 15px 1px;
+    padding: 15px 15px 15px 15px;
+    border-radius: 5px;
+    border: none;
+
+  }
+
+
+
+}

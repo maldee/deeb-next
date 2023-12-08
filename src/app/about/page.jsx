@@ -1,6 +1,11 @@
 import styles from "./about.module.css";
 import Image from "next/image";
 
+export const metadata = {
+  title: "About | Deeflow",
+  description: "About deeflow",
+};
+
 export default function Qlake({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
 

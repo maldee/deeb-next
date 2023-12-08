@@ -1,0 +1,91 @@
+
+.hero {
+ 
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.heroTitle {
+  padding: 80px 50px 5px 0px;
+  font-size: 72px;
+  color: #127C71;
+}
+
+.heroDes {
+  padding: 30px 50px 55px 0px;
+}
+
+.heroBtn1 {
+  background-color: #127C71;
+  color: #fff;
+  margin: 30px 20px 25px 0px;
+  padding: 15px 25px 15px 25px;
+  border-radius: 5px;
+  border: none;
+
+}
+
+.heroBtn2 {
+  background-color: transparent;
+  color: #fff;
+
+  padding: 15px 25px 15px 25px;
+  border-radius: 5px;
+  border-color: #127C71;
+  border-style: solid;
+
+}
+
+
+@media screen and (max-width: 1536px) and (min-width: 1280px) {}
+
+@media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 640px) {
+  .hero {
+    
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+  }
+  
+
+  .heroTitle {
+    padding: 20px 50px 5px 10px;
+    font-size: 42px;
+    color: #127C71;
+  }
+
+  .heroDes {
+    padding: 30px 30px 55px 10px;
+  }
+
+  .heroBtn1 {
+    background-color: #127C71;
+    color: #fff;
+    margin: 30px 20px 25px 10px;
+    padding: 15px 25px 15px 25px;
+    border-radius: 5px;
+    border: none;
+
+  }
+
+  .heroBtn2 {
+    background-color: transparent;
+    color: #fff;
+
+    padding: 15px 25px 15px 25px;
+    border-radius: 5px;
+    border-color: #127C71;
+    border-style: solid;
+
+  }
+
+  .heroImg {
+    margin-top: 50px;
+  }
+
+}

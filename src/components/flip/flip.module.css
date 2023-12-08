@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-top: 20px;
+
+}
+
+.imageFront {
+  width: 360px;
+  height: 260px;
+  border-radius: 4px;
+  text-align: center;
+
+}
+
+.back {
+  width: 360px;
+  height: 260px;
+  background-color: #1f273a;
+  color: #fff;
+  padding: 110px;
+  font-size: 24px;
+  border-radius: 4px;
+  text-align: center;
+
+}
+
+.textFront {
+  width: 360px;
+  height: 260px;
+  background-color: #1f273a;
+  color: #fff;
+  padding: 110px;
+  font-size: 24px;
+  border-radius: 4px;
+  text-align: center;
+
+}
+
+@media screen and (max-width: 1536px) and (min-width: 1280px) {}
+
+@media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 640px) {}

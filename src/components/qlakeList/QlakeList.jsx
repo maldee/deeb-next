@@ -8,36 +8,36 @@ import useSWR from "swr";
 import QlakeSkeleton from "./qLakeSkeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 
-export default function QlakeList ({ page }){
+export default function QlakeList({ page }) {
 
-  console.log("pageiss "+page)
+  console.log("pageiss " + page)
   // const page = parseInt(searchParams.page) || 1;
 
 
   const fetcher = async (url) => {
 
-  
-  const res = await fetch(url);
 
-  const data = await res.json();
+    const res = await fetch(url);
 
-  if (!res.ok) {
-    const error = new Error(data.message);
-    throw error;
-  }
+    const data = await res.json();
 
-  return data;
-};
+    if (!res.ok) {
+      const error = new Error(data.message);
+      throw error;
+    }
+
+    return data;
+  };
 
   const { data, mutate, isLoading } = useSWR(
     `/api/qlake?page=${page}`,
     fetcher
   );
 
-  const questions =  data?.questions;
-  
-  const count  =  data?.count;
- 
+  const questions = data?.questions;
+
+  const count = data?.count;
+
   const POST_PER_PAGE = 5;
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
@@ -48,27 +48,32 @@ export default function QlakeList ({ page }){
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
   return (
-    
-     <div className={styles.container}>
+
+    <div className={styles.container}>
       <div className={styles.paginationBar}>
         <h3 className={styles.title}>Questions</h3>
-        <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
+        {questions?.length > 0 ? (
+          <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
+      ):(null)}
+
       </div>
       <div className={styles.questions}>
-       {isLoading ? <QlakeSkeleton count={5}/>
-       
-        : questions?.map((item) => (
-          <div className={styles.card}>
-            <a href={`/qlake/${item.id}`} className={styles.qLink}>
-              {item.question}
-            </a>
-            <p className={styles.qParagraph}>{item.desc}</p>
-            <p className={styles.qParagraph}>
-            <Chip item={item.tags} key={item._id} />
-            </p>
-            <p className={styles.qViews}>{item.views} views</p>
-          </div>
-        ))}
+        {isLoading ? <QlakeSkeleton count={5} />
+          : questions?.length > 0 ? (
+            questions?.map((item) => (
+              <div className={styles.card}>
+                <a href={`/qlake/${item.id}`} className={styles.qLink}>
+                  {item.question}
+                </a>
+                <p className={styles.qParagraph}>{item.desc}</p>
+                <p className={styles.qParagraph}>
+                  <Chip item={item.tags} key={item._id} />
+                </p>
+                <p className={styles.qViews}>{item.views} views</p>
+              </div>
+            ))) : (
+            <h3>No results found</h3>
+          )}
       </div>
 
     </div>

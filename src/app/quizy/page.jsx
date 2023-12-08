@@ -9,6 +9,11 @@ import { ColorRing } from 'react-loader-spinner';
 import 'react-loading-skeleton/dist/skeleton.css'
 import QuizySkeleton from "./quizy.skeleton";
 
+// export const metadata = {
+//   title: "Quizy | Deeflow",
+//   description: "Realtime exam hub of deeflow",
+// };
+
 export default function Quizy() {
 
   const [query, setQuery] = useState('')
@@ -39,25 +44,27 @@ export default function Quizy() {
       <input className={styles.searchInput} type="text" placeholder="Search quiz..." onChange={(e) => setQuery(e.target.value)} />
 
       <div className={styles.quizyList}>
-        
-          {isLoading ? 
-           <QuizySkeleton count={5} />
-          :
+
+        {isLoading ?
+          <QuizySkeleton count={5} />
+          : data?.length > 0 ? (
             data?.map((item) => (
               <div className={styles.qCard}>
-              
+
                 <Link className={styles.quizLink} key={item.id} href={`/quizy/${item.id}`} >
                   <h4>{item.title}</h4>
                 </Link>
-             
+
               </div>
-            ))}
+            ))) : (
+            <h3>No results found</h3>
+          )}
 
 
-         
-        </div>
 
-     
+      </div>
+
+
 
     </div>
   );
