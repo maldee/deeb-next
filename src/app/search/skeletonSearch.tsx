@@ -9,10 +9,10 @@ const SkeletonSearch = () => {
         {Array(7)
             .fill(1, 2)
             .map((item, index) => (
-        <div className={styles.container}>
+        <div key={item.id} className={styles.container}>
             <div  >
                 <a >
-                    <Skeleton key={item.id} height={80} width={100} />
+                    <Skeleton  height={80} width={100} />
                 </a>
             </div>
             <div >

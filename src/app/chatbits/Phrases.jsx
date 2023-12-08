@@ -15,7 +15,7 @@ const Phrases = ({ key, item }) => {
         </tr>
         {data?.map((item) => (
 
-          <tr>
+          <tr key={item.id}>
             <td className={styles.td}>{item.eng_p}</td>
             <td className={styles.td}>{item.phrase}</td>
             <td className={styles.td}>{item.category}</td>

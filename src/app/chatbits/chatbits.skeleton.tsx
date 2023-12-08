@@ -10,10 +10,10 @@ const ChatbitsSkeleton = () => {
             .fill(1, 2)
             .map((item, index) => (
                 
-        <div className={styles.skeletonBody}>
-             <Skeleton key={item.id} className={styles.skeletonItem} height={20} width={100} />
-             <Skeleton key={item.id} className={styles.skeletonItem} height={20} width={150} />
-             <Skeleton key={item.id} className={styles.skeletonItem} height={20} width={300} />
+        <div key={item.id} className={styles.skeletonBody}>
+             <Skeleton  className={styles.skeletonItem} height={20} width={100} />
+             <Skeleton className={styles.skeletonItem} height={20} width={150} />
+             <Skeleton  className={styles.skeletonItem} height={20} width={300} />
              
                
             </div>

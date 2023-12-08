@@ -41,7 +41,7 @@ export default function Chatbits() {
         ? <ChatbitsSkeleton count={5} />
         : data?.length > 0 ? (
           data?.map((item) => (
-            <div className={styles.container}>
+            <div key={item.id} className={styles.container}>
               <ul>
                 <h3 key={item.id}>{item.phrase}</h3>
                 <h4>{item.eng_p}</h4>
