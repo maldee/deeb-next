@@ -62,7 +62,7 @@ function Search({ retryCount }) {
         {isLoading
           ? <SkeletonSearch count={5} />
           : data?.map((item) => (
-            <Posts item={item} key={item._id} />
+            <Posts item={item} key={item.id} />
           ))}
 
 
