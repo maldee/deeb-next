@@ -55,7 +55,7 @@ const Answers = ({ id }) => {
           colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
         />
           : data?.map((item) => (
-              <div className={styles.comment} key={item._id}>
+              <div className={styles.comment} key={item.id}>
                 <div className={styles.user}>
                   {item?.user?.image && (
                     <Image

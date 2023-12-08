@@ -67,7 +67,7 @@ export default function QlakeList({ page }) {
                 </a>
                 <p className={styles.qParagraph}>{item.desc}</p>
                 <p className={styles.qParagraph}>
-                  <Chip item={item.tags} key={item._id} />
+                  <Chip item={item.tags} key={item.id} />
                 </p>
                 <p className={styles.qViews}>{item.views} views</p>
               </div>

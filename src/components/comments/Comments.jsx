@@ -68,7 +68,7 @@ const Comments = ({ postSlug }) => {
           colors={['#775aec', '#775aec', '#775aec', '#775aec', '#775aec']}
         />
           : data?.map((item) => (
-              <div className={styles.comment} key={item._id}>
+              <div className={styles.comment} key={item.id}>
                 <div className={styles.user}>
                   {item?.user?.image && (
                     <Image
