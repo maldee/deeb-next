@@ -33,6 +33,8 @@ export default function Chatbits() {
     fetcher
   );
 
+  console.log("hello "+data);
+
   return (
     <div className={styles.search}>
       <input className={styles.searchInput} type="text" placeholder="Search phrase..." value={query} onChange={(e) => setQuery(e.target.value)} />
