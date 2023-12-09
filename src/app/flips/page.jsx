@@ -63,10 +63,13 @@ export default function Flips({ searchParams }) {
       <select className={styles.selectInput} name="lessons" id="lessons" onChange={e => setLesson(e.target.value)} value={selectedLesson}>
         <option value='Select Lesson'>Select Lesson</option>
         {isLoading ?
+
+
+
           <ColorRing
             visible={true}
-            height="40"
-            width="40"
+            height="80"
+            width="80"
             ariaLabel="blocks-loading"
             wrapperStyle={{}}
             wrapperClass="blocks-wrapper"
@@ -96,8 +99,8 @@ export default function Flips({ searchParams }) {
       </select>
 
       {data?.flips.length > 0 ? (
-          <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
-      ):(null)}
+        <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
+      ) : (null)}
 
 
       <div className={styles.flipList}>
