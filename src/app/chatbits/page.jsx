@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useState } from "react"
-import Phrases from './Phrases'
 import styles from "./chatbits.module.css";
 import useSWR from "swr";
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -14,7 +13,7 @@ import ChatbitsSkeleton from "./chatbits.skeleton";
 // };
 
 export default function Chatbits() {
-  
+
   const [query, setQuery] = useState('')
 
   const fetcher = async (url) => {
