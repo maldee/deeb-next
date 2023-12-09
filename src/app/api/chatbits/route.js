@@ -10,21 +10,23 @@ export const GET = async (req) => {
   try {
     const chatbits = await prisma.chatbits.findMany({
       where: {
-        OR: 
+        OR: [
           {
             phrase: {
               contains: searchQuery,
-              mode: 'insensitive', // Default value: default
-            },
-            eng_p: {
-              contains: searchQuery,
-              mode: 'insensitive', // Default value: default
-            },
-            language: {
-              contains: searchQuery,
-              mode: 'insensitive', // Default value: default
             },
           },
+          {
+            eng_p: {
+              contains: searchQuery,
+            },
+          },
+          {
+            language: {
+              contains: searchQuery,
+            },
+          },
+        ],
       }
     });
 
