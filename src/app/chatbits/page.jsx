@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useState } from "react"
-import Phrases from './Phrases'
 import styles from "./chatbits.module.css";
 import useSWR from "swr";
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -37,8 +36,8 @@ export default function Chatbits() {
   return (
     <div className={styles.search}>
       <input className={styles.searchInput} type="text" placeholder="Search phrase..." value={query} onChange={(e) => setQuery(e.target.value)} />
-      {isLoading
-        ? <ChatbitsSkeleton count={5} />
+      {isLoading ? 
+      <ChatbitsSkeleton count={5} />
         : data?.chatbits.length > 0 ? (
           data?.chatbits?.map((item) => (
             <div key={item.id} className={styles.container}>
