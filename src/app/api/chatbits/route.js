@@ -1,3 +1,4 @@
+import prisma from "../../../utils/connect";
 import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
@@ -6,8 +7,7 @@ export const GET = async (req) => {
 
   const searchQuery = searchParams.get('query');
 
-  try {
-    const chatbits = await prisma.chatbits.findMany({
+  const query = {
       where: {
         OR: [
           {
@@ -30,10 +30,13 @@ export const GET = async (req) => {
           },
         ],
       }
-    });
-console.log("gogo "+chatbits);
-console.log("gogo "+JSON.stringify(chatbits));
-    return new NextResponse(JSON.stringify(chatbits, { status: 200 }));
+    };
+
+try {
+  const [chatbits] = await prisma.$transaction([
+    prisma.chatbits.findMany(query),
+  ]);
+    return new NextResponse(JSON.stringify({chatbits}, { status: 200 }));
   } catch (err) {
 
     return new NextResponse(
