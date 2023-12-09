@@ -6,7 +6,7 @@ import Pagination from "./../../components/pagination/Pagination";
 import FlipsSkeleton from "./flips.skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 import useSWR from "swr";
-import { ColorRing } from 'react-loader-spinner';
+import { TailSpin } from 'react-loader-spinner';
 import Flip from "../../components/flip/Flip";
 
 // export const metadata = {
@@ -66,14 +66,15 @@ export default function Flips({ searchParams }) {
 
 
 
-          <ColorRing
-            visible={true}
-            height="80"
-            width="80"
-            ariaLabel="blocks-loading"
+          <TailSpin
+            height="40"
+            width="40"
+            color="#8a2be2"
+            ariaLabel="tail-spin-loading"
+            radius="1"
             wrapperStyle={{}}
-            wrapperClass="blocks-wrapper"
-            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+            wrapperClass=""
+            visible={true}
           />
           : data?.lessons?.map((item) => (
             <option key={item.id} value={item.lesson}>{item.lesson}</option>

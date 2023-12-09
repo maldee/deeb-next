@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useState } from "react"
+import Phrases from './Phrases'
 import styles from "./chatbits.module.css";
 import useSWR from "swr";
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -12,7 +13,7 @@ import ChatbitsSkeleton from "./chatbits.skeleton";
 //   description: "Word repository of deeflow",
 // };
 
-export default function Chatbits({ searchParams }) {
+export default function Chatbits() {
   const [query, setQuery] = useState('')
 
   const fetcher = async (url) => {
@@ -33,15 +34,15 @@ export default function Chatbits({ searchParams }) {
     fetcher
   );
 
-  console.log("hello "+data);
-
+  console.log("data is "+data)
+  
   return (
     <div className={styles.search}>
       <input className={styles.searchInput} type="text" placeholder="Search phrase..." value={query} onChange={(e) => setQuery(e.target.value)} />
-      {isLoading ? 
-      <ChatbitsSkeleton count={5} />
-        : data?.chatbits.length > 0 ? (
-          data?.chatbits?.map((item) => (
+      {isLoading
+        ? <ChatbitsSkeleton count={5} />
+        : data?.length > 0 ? (
+          data?.map((item) => (
             <div key={item.id} className={styles.container}>
               <ul>
                 <h3>{item.phrase}</h3>
