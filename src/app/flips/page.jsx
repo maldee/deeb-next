@@ -85,15 +85,16 @@ export default function Flips({ searchParams }) {
       <select className={styles.selectInput} name="types" id="types" onChange={e => setType(e.target.value)} value={selectedType}>
         <option value='Select Type'>Select Type</option>
         {isLoading ?
-          <ColorRing
-            visible={true}
-            height="40"
-            width="40"
-            ariaLabel="blocks-loading"
-            wrapperStyle={{}}
-            wrapperClass="blocks-wrapper"
-            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-          />
+          <TailSpin
+          height="40"
+          width="40"
+          color="#8a2be2"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
           : data?.types?.map((item) => (
             <option key={item.id} value={item.type}>{item.type}</option>
           ))}
@@ -106,15 +107,16 @@ export default function Flips({ searchParams }) {
 
       <div className={styles.flipList}>
         {isLoading ?
-          <ColorRing
-            visible={true}
-            height="40"
-            width="40"
-            ariaLabel="blocks-loading"
-            wrapperStyle={{}}
-            wrapperClass="blocks-wrapper"
-            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-          />
+          <TailSpin
+          height="40"
+          width="40"
+          color="#8a2be2"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
           : data?.flips.length > 0 ? (
 
             data?.flips?.map((item) => (
