@@ -14,6 +14,7 @@ import ChatbitsSkeleton from "./chatbits.skeleton";
 // };
 
 export default function Chatbits() {
+  
   const [query, setQuery] = useState('')
 
   const fetcher = async (url) => {
