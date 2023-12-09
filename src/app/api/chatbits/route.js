@@ -36,7 +36,7 @@ export const GET = async (req) => {
       prisma.chatbits.findMany(query)
     ]);
 
-    return new NextResponse(JSON.stringify({chatbits}, { status: 200 }));
+    return new NextResponse(JSON.stringify({ chatbits}, { status: 200 }));
   } catch (err) {
 
     return new NextResponse(
