@@ -7,7 +7,7 @@ export const GET = async (req) => {
   const searchQuery = searchParams.get('query');
 
   try {
-    const chatbits = await prisma.chatbits.findMany({
+    const [chatbits] = await prisma.chatbits.findMany({
       where: {
         OR: [
           {
