@@ -10,30 +10,25 @@ export const GET = async (req) => {
   try {
     const chatbits = await prisma.chatbits.findMany({
       where: {
-        OR: [
+        OR: 
           {
             phrase: {
               contains: searchQuery,
               mode: 'insensitive', // Default value: default
             },
-          },
-          {
             eng_p: {
               contains: searchQuery,
               mode: 'insensitive', // Default value: default
             },
-          },
-          {
             language: {
               contains: searchQuery,
               mode: 'insensitive', // Default value: default
             },
           },
-        ],
       }
     });
 
-    console.log("response "+chatbits);
+    console.log("response "+JSON.stringify(chatbits));
     return new NextResponse(JSON.stringify(chatbits, { status: 200 }));
   } catch (err) {
 
