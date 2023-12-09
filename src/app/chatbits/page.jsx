@@ -39,8 +39,8 @@ export default function Chatbits() {
       <input className={styles.searchInput} type="text" placeholder="Search phrase..." value={query} onChange={(e) => setQuery(e.target.value)} />
       {isLoading
         ? <ChatbitsSkeleton count={5} />
-        : data?.length > 0 ? (
-          data?.map((item) => (
+        : data?.chatbits?.length > 0 ? (
+          data?.chatbits?.map((item) => (
             <div key={item.id} className={styles.container}>
               <ul>
                 <h3>{item.phrase}</h3>
