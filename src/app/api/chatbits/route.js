@@ -7,7 +7,7 @@ export const GET = async (req) => {
   const searchQuery = searchParams.get('query');
 
   try {
-    const [chatbits] = await prisma.chatbits.findMany({
+    const query = {
       where: {
         OR: [
           {
@@ -30,7 +30,11 @@ export const GET = async (req) => {
           },
         ],
       }
-    });
+    };
+
+    const [chatbits] = await prisma.$transaction([
+      prisma.chatbits.findMany(query)
+    ]);
 
     return new NextResponse(JSON.stringify(chatbits, { status: 200 }));
   } catch (err) {
