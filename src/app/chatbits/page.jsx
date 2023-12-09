@@ -12,7 +12,7 @@ import ChatbitsSkeleton from "./chatbits.skeleton";
 //   description: "Word repository of deeflow",
 // };
 
-export default function Chatbits() {
+export default function Chatbits({ searchParams }) {
   const [query, setQuery] = useState('')
 
   const fetcher = async (url) => {
