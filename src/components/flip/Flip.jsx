@@ -18,8 +18,8 @@ const Flip = ({ key, item }) => {
             <Image src={item.front} alt="" fill className={styles.front} onClick={() => setFlip(!flip)} />
           </div>
         ) : (
-          <div className={styles.textFront} >
-            <h3 onClick={() => setFlip(!flip)} >{item.front} </h3>
+          <div className={styles.textFront} onClick={() => setFlip(!flip)}>
+            <h3  >{item.front} </h3>
           </div>
         )}
 
