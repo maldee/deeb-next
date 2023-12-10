@@ -50,7 +50,9 @@ const WritePage = () => {
               break;
           }
         },
-        (error) => {},
+        (error) => {
+          console.log(error.message)
+        },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setMedia(downloadURL);
