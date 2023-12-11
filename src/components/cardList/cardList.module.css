@@ -9,7 +9,26 @@
 }
 
 .paginationBar{
+  display: grid;
+}
+
+.skeletonCardContainer{
   display: flex;
+  margin-bottom: 30px;
+}
+
+.skeletonCardImage{
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.skeltongCardBody{
+  
+  margin-top: 50px;
+}
+
+.skeletonCardBodyDetails{
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1536px) and (min-width: 1280px)  {
@@ -31,6 +50,28 @@
 .posts{
 margin-top: -30px;
 }
+
+
+.skeletonCardContainer{
+  display: flex;
+  margin-top: 30px;
+  
+  
+}
+
+.skeletonCardImage{
+  width: 100% !important;
+}
+
+.skeltongCardBody{
+  display: none;
+  
+}
+
+.skeletonCardBodyDetails{
+  display: none;
+}
+
 
 
 }

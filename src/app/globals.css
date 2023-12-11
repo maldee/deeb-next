@@ -5,8 +5,29 @@
   --textColor: black;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
+  --pagination-color: #775aec;
+  --pagination-hover-color: #8a28a8;
+  --pagination-bg: #0f172a;
+  
+
 }
 
+.pagination{
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
+  justify-content: start !important;
+}
+
+.pagination .page-link {
+  border-radius: 20px !important;
+  border:none !important; 
+  color: #fff !important;
+  height: 35px !important;
+}
+
+.pagination .page-link:hover {
+  color: #0f172a !important;
+}
 * {
   padding: 0;
   margin: 0;

@@ -1,43 +1,78 @@
-import React from "react";
+"use client";
+
 import styles from "./cardList.module.css";
 import Pagination from "../pagination/Pagination";
 import Card from "../card/Card";
 
-const getData = async (page, cat) => {
-  const res = await fetch(
-    process.env.NEXTAUTH_URL + `/api/posts?page=${page}&cat=${cat || ""}`,
-    {
-      cache: "no-store",
-    }
-  );
+
+import React, { useState ,useEffect} from 'react';
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic.css'
+import useSWR from "swr";
+import 'react-loading-skeleton/dist/skeleton.css'
+import SkeletonCardList from "./skeletonCardList";
+
+const fetcher = async (url) => {
+  const res = await fetch(url);
+
+  const data = await res.json();
 
   if (!res.ok) {
-    throw new Error("Failed");
+    const error = new Error(data.message);
+    throw error;
   }
-
-  return res.json();
+  return data;
 };
 
-const CardList = async ({ page, cat }) => {
-  const { posts, count } = await getData(page, cat);
+const CardList = ({ page, cat }) => {
 
+  const [totlaPages, setData] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    // fetch data
+    const dataFetch = async () => {
+      const totlaPages = await (
+        await fetch("/api/posts/list",
+        )
+      ).json();
+
+      // set state when the data received
+      setData(totlaPages);
+    };
+
+    dataFetch();
+  }, []);
+
+  const { data, mutate, isLoading } = useSWR(
+    `/api/posts?page=${currentPage}&cat=${cat || ""}`,
+    fetcher
+  );
+
+  console.log("counter "+data?.posts)
+  const posts  = data?.posts;
+  
+  const count = totlaPages?.length;
+  
   const POST_PER_PAGE = 5;
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
 
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-
-  const hasPrev = POST_PER_PAGE * (page - 1) > 0;
-  const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
-
   return (
     <div className={styles.container}>
       <div className={styles.paginationBar}>
-        <h3 className={styles.title}>Posts</h3>
-        <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
+        <ResponsivePagination
+          maxWidth={`50px`}
+          current={currentPage}
+          total={totalPages}
+          onPageChange={setCurrentPage}
+        />
       </div>
       <div className={styles.posts}>
-        {posts?.map((item) => (
+        {isLoading ? 
+        
+        <SkeletonCardList count={5} />
+        : posts?.map((item) => (
           <Card item={item} key={item.id} />
         ))}
       </div>
