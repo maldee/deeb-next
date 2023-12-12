@@ -1,47 +1,79 @@
 'use client'
 
 import styles from "./quizyPage.module.css";
-import React from 'react';
-import useSWR from "swr";
-import { useState } from "react"
+
 import Link from "next/link";
 import { ColorRing } from 'react-loader-spinner';
 import 'react-loading-skeleton/dist/skeleton.css'
 import QuizySkeleton from "./quizy.skeleton";
+
+import React, { useState ,useEffect} from 'react';
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic.css'
+import useSWR from "swr";
 
 // export const metadata = {
 //   title: "Quizy | Deeflow",
 //   description: "Realtime exam hub of deeflow",
 // };
 
-export default function Quizy() {
+const fetcher = async (url) => {
+  const res = await fetch(url);
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    const error = new Error(data.message);
+    throw error;
+  }
+  return data;
+};
+
+const Quizy = () => {
 
   const [query, setQuery] = useState('')
+  const [postCount, setData] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const fetcher = async (url) => {
+  useEffect(() => {
+    // fetch data
+    const dataFetch = async () => {
+      const postCount = await (
+        await fetch("/api/quizy/list",
+        )
+      ).json();
 
-    const res = await fetch(url);
+      // set state when the data received
+      setData(postCount);
+    };
 
-    const data = await res.json();
-
-    if (!res.ok) {
-      const error = new Error(data.message);
-      throw error;
-    }
-
-    console.log(data)
-    return data;
-  };
+    dataFetch();
+  }, []);
 
   const { data, mutate, isLoading } = useSWR(
     `/api/quizy?query=${query}`,
     fetcher
   );
 
+  const count = postCount?.length;
+  
+  const POST_PER_PAGE = 5;
+
+  const totalPages = Math.ceil(count / POST_PER_PAGE);
+
   return (
 
     <div className={styles.container}>
       <input className={styles.searchInput} type="text" placeholder="Search quiz..." onChange={(e) => setQuery(e.target.value)} />
+
+      <div className={styles.paginationBar}>
+        <ResponsivePagination
+          maxWidth={`50px`}
+          current={currentPage}
+          total={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </div>
 
       <div className={styles.quizyList}>
 
@@ -69,7 +101,9 @@ export default function Quizy() {
     </div>
   );
 
-}
+};
+
+export default Quizy;
 
 
 

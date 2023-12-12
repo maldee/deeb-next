@@ -1,20 +1,37 @@
 'use client'
 
-import React, { useState } from "react";
+
 import styles from "./flips.module.css";
 import Pagination from "./../../components/pagination/Pagination";
 import FlipsSkeleton from "./flips.skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
-import useSWR from "swr";
+
 import { TailSpin } from 'react-loader-spinner';
 import Flip from "../../components/flip/Flip";
+
+import React, { useState ,useEffect} from 'react';
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic.css'
+import useSWR from "swr";
 
 // export const metadata = {
 //   title: "Flips | Deeflow",
 //   description: "Memorize anything with deeflow",
 // };
 
-export default function Flips({ searchParams }) {
+const fetcher = async (url) => {
+  const res = await fetch(url);
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    const error = new Error(data.message);
+    throw error;
+  }
+  return data;
+};
+
+const Flips = ({ searchParams }) => {
 
   const page = parseInt(searchParams.page) || 1;
 
@@ -22,40 +39,37 @@ export default function Flips({ searchParams }) {
 
   const [selectedType, setType] = useState('Select Type')
 
-  const fetcher = async (url) => {
+  const [postCount, setData] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
 
+  useEffect(() => {
+    // fetch data
+    const dataFetch = async () => {
+      const postCount = await (
+        await fetch("/api/flips/list",
+        )
+      ).json();
 
-    const res = await fetch(url);
+      // set state when the data received
+      setData(postCount);
+    };
 
-    const data = await res.json();
+    dataFetch();
+  }, []);
 
-    if (!res.ok) {
-      const error = new Error(data.message);
-      throw error;
-    }
-
-    return data;
-  };
-
+  
   const { data, mutate, isLoading } = useSWR(
     `/api/flips?page=${page}&lesson=${selectedLesson}&type=${selectedType}`,
     fetcher
   );
 
-
-  const count = data?.count;
-
-  const POST_PER_PAGE = 6;
+  const posts  = data?.posts;
+  
+  const count = postCount?.length;
+  
+  const POST_PER_PAGE = 5;
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
-
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-
-  const hasPrev = POST_PER_PAGE * (page - 1) > 0;
-  const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
-
-
-
 
   return (
     <div className={styles.container}>
@@ -101,7 +115,12 @@ export default function Flips({ searchParams }) {
       </select>
 
       {data?.flips.length > 0 ? (
-        <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
+        <ResponsivePagination
+        maxWidth={`50px`}
+        current={currentPage}
+        total={totalPages}
+        onPageChange={setCurrentPage}
+      />
       ) : (null)}
 
 
@@ -137,3 +156,5 @@ export default function Flips({ searchParams }) {
     </div>
   );
 }
+
+export default Flips;

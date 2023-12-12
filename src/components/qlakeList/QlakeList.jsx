@@ -1,33 +1,48 @@
 'use client'
 
-import React from "react";
 import styles from "./qlakeList.module.css";
 import Pagination from "../pagination/Pagination";
 import Chip from "../../components/chip/Chip";
-import useSWR from "swr";
+
 import QlakeSkeleton from "./qLakeSkeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 
-export default function QlakeList({ page }) {
+import React, { useState, useEffect } from 'react';
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic.css'
+import useSWR from "swr";
 
-  console.log("pageiss " + page)
-  // const page = parseInt(searchParams.page) || 1;
+const fetcher = async (url) => {
+  const res = await fetch(url);
 
+  const data = await res.json();
 
-  const fetcher = async (url) => {
+  if (!res.ok) {
+    const error = new Error(data.message);
+    throw error;
+  }
+  return data;
+};
 
+const QlakeList = ({ page }) => {
 
-    const res = await fetch(url);
+  const [postCount, setData] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
 
-    const data = await res.json();
+  useEffect(() => {
+    // fetch data
+    const dataFetch = async () => {
+      const postCount = await (
+        await fetch("/api/qlake/list",
+        )
+      ).json();
 
-    if (!res.ok) {
-      const error = new Error(data.message);
-      throw error;
-    }
+      // set state when the data received
+      setData(postCount);
+    };
 
-    return data;
-  };
+    dataFetch();
+  }, []);
 
   const { data, mutate, isLoading } = useSWR(
     `/api/qlake?page=${page}`,
@@ -36,16 +51,11 @@ export default function QlakeList({ page }) {
 
   const questions = data?.questions;
 
-  const count = data?.count;
+  const count = postCount?.length;
 
   const POST_PER_PAGE = 5;
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
-
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
-
-  const hasPrev = POST_PER_PAGE * (page - 1) > 0;
-  const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
 
   return (
 
@@ -53,8 +63,13 @@ export default function QlakeList({ page }) {
       <div className={styles.paginationBar}>
         <h3 className={styles.title}>Questions</h3>
         {questions?.length > 0 ? (
-          <Pagination page={page} pages={pages} hasPrev={hasPrev} hasNext={hasNext} />
-      ):(null)}
+          <ResponsivePagination
+            maxWidth={`50px`}
+            current={currentPage}
+            total={totalPages}
+            onPageChange={setCurrentPage}
+          />
+        ) : (null)}
 
       </div>
       <div className={styles.questions}>
@@ -79,4 +94,6 @@ export default function QlakeList({ page }) {
     </div>
   );
 };
+
+export default QlakeList;
 

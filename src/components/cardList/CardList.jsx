@@ -9,6 +9,7 @@ import React, { useState ,useEffect} from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
+
 import 'react-loading-skeleton/dist/skeleton.css'
 import SkeletonCardList from "./skeletonCardList";
 
