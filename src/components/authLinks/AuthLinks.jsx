@@ -48,11 +48,11 @@ const AuthLinks = () => {
           
           
           {status === "unauthenticated" ? (
-            <Link className={styles.authLinkBottom} onClick={toggle} href="/login">Login</Link>
+            <Link className={styles.authLinkMain} onClick={toggle} href="/login">Login</Link>
           ) : (
             <>
-              <Link className={styles.authLinkBottom} onClick={toggle} href="/write">✏️ Write</Link>
-              <span className={styles.authLink} onClick={toggle} >✖️ Logout</span>
+              <Link className={styles.authLinkMain} onClick={toggle} href="/write">✏️ Write</Link>
+              <span className={styles.authLinkLogout} onClick={toggle} >✖️ Logout</span>
             </>
           )}
         </div>
