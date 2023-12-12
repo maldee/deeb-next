@@ -32,19 +32,27 @@ const AuthLinks = () => {
       </div>
       {open && (
         <div className={styles.responsiveMenu}>
-          <Link onClick={toggle} href="/blog"> Blog</Link>
-          <Link onClick={toggle} href="/classroom"> Classroom</Link>
-          <Link onClick={toggle} href="/quizy"> Quizy</Link>
-          <Link onClick={toggle} href="/qlake"> Qlake</Link>
-          <Link onClick={toggle} href="/chatbits"> Chatbits</Link>
-          <Link onClick={toggle} href="/flips"> Flips</Link>
+          <div className={styles.col1}>
+          <p><Link className={styles.authLink} onClick={toggle} href="/blog">📕 Blog</Link></p><br/>
+          <p><Link className={styles.authLink} onClick={toggle} href="/classroom">👨‍🏫 Classroom</Link></p><br/>
+          <p><Link className={styles.authLink} onClick={toggle} href="/quizy">🏆 Quizy</Link></p><br/>
+          <p><Link className={styles.authLink} onClick={toggle} href="/chatbits">💬 Chatbits</Link></p><br/>
+          </div>
+          <div className={styles.col1}>
+          <p><Link className={styles.authLink} onClick={toggle} href="https://store.deeflow.com">🛒 Store</Link></p><br/>
+          <p><Link className={styles.authLink} onClick={toggle} href="/flips">🪐 Flips</Link></p><br/>
+          <p><Link className={styles.authLink} onClick={toggle} href="/qlake">🌀 Qlake</Link></p><br/>
+          <p><Link className={styles.authLink} onClick={toggle} href="/cloudy">☁️ Cloudy</Link></p><br/>
+          </div>
+          
+          
           
           {status === "unauthenticated" ? (
-            <Link onClick={toggle} href="/login">Login</Link>
+            <Link className={styles.authLinkBottom} onClick={toggle} href="/login">Login</Link>
           ) : (
             <>
-              <Link onClick={toggle} href="/write">Write</Link>
-              <span onClick={toggle} className={styles.linkLogout}>Logout</span>
+              <Link className={styles.authLinkBottom} onClick={toggle} href="/write">✏️ Write</Link>
+              <span className={styles.authLink} onClick={toggle} >✖️ Logout</span>
             </>
           )}
         </div>

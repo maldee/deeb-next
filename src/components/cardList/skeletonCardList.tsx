@@ -12,10 +12,10 @@ const SkeletonCardList = () => {
         <div key={item.id} className={styles.skeletonCardContainer}>
             <div className={styles.skeletonCardImage} >
                 
-                    <Skeleton height={250} width={350} />
+                    <Skeleton height={250} width={360} />
                 
             </div>
-            <div className={styles.skeltongCardBody} >
+            <div className={styles.skeletonCardBody} >
                 
                     <Skeleton className={styles.skeletonCardBodyDetails} height={50} width={350} />
                     <Skeleton className={styles.skeletonCardBodyDetails} height={20} width={180} />

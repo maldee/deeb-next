@@ -26,19 +26,19 @@ const fetcher = async (url) => {
 
 const CardList = ({ page, cat }) => {
 
-  const [totlaPages, setData] = useState();
+  const [postCount, setData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     // fetch data
     const dataFetch = async () => {
-      const totlaPages = await (
+      const postCount = await (
         await fetch("/api/posts/list",
         )
       ).json();
 
       // set state when the data received
-      setData(totlaPages);
+      setData(postCount);
     };
 
     dataFetch();
@@ -49,10 +49,10 @@ const CardList = ({ page, cat }) => {
     fetcher
   );
 
-  console.log("counter "+data?.posts)
+ 
   const posts  = data?.posts;
   
-  const count = totlaPages?.length;
+  const count = postCount?.length;
   
   const POST_PER_PAGE = 5;
 

@@ -9,31 +9,31 @@ const SlideMenu = () => {
      
 
       <Link  href="/">
-      <button className={styles.slideMenuButtonActivated} >🏠 {'Home'}</button>
+      <button className={styles.slideMenuButtonActivated} ><p className={styles.emojSize}>🏠</p> {'Home'}</button>
       </Link>
 
       <Link  href="classroom">
-      <button className={styles.slideMenuButton} >👨‍🏫 {'Classroom'}</button>
+      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>👨‍🏫</p> {'Classroom'}</button>
       </Link>
 
       <Link  href="quizy">
-      <button className={styles.slideMenuButton} >🙋 {'Quizy'}</button>
+      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>🏆</p> {'Quizy'}</button>
       </Link>
      
       <Link  href="chatbits">
-      <button className={styles.slideMenuButton} >💬 {'Chatbits'}</button>
+      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>💬</p> {'Chatbits'}</button>
       </Link>
 
       <Link  href="https://store.deeflow.com">
-      <button className={styles.slideMenuButton} >🛒 {'Store'}</button>
+      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>🛒</p> {'Store'}</button>
       </Link>
      
       <Link  href="flips">
-      <button className={styles.slideMenuButton} >🤝 {'flips'}</button>
+      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>🌀</p> {'Flips'}</button>
       </Link>
 
       <Link  href="qlake">
-      <button className={styles.slideMenuButton} >🤝 {'qLake'}</button>
+      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>🪐</p> {'QLake'}</button>
       </Link>
    
       <h1 className={styles.title}>Categories</h1>
