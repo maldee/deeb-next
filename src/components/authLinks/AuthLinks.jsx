@@ -40,8 +40,8 @@ const AuthLinks = () => {
           </div>
           <div className={styles.col1}>
           <p><Link className={styles.authLink} onClick={toggle} href="https://store.deeflow.com">🛒 Store</Link></p><br/>
-          <p><Link className={styles.authLink} onClick={toggle} href="/flips">🪐 Flips</Link></p><br/>
-          <p><Link className={styles.authLink} onClick={toggle} href="/qlake">🌀 Qlake</Link></p><br/>
+          <p><Link className={styles.authLink} onClick={toggle} href="/flips">💠 Flips</Link></p><br/>
+          <p><Link className={styles.authLink} onClick={toggle} href="/qlake">🪐 Qlake</Link></p><br/>
           <p><Link className={styles.authLink} onClick={toggle} href="/cloudy">☁️ Cloudy</Link></p><br/>
           </div>
           
