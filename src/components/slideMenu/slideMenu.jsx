@@ -29,7 +29,7 @@ const SlideMenu = () => {
       </Link>
      
       <Link  href="flips">
-      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>🌀</p> {'Flips'}</button>
+      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>➰</p> {'Flips'}</button>
       </Link>
 
       <Link  href="qlake">
