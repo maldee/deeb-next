@@ -83,9 +83,7 @@ const Cloudy = ({ searchParams }) => {
           />
         ) : (null)}
 
-        <br />
-
-        <div className={styles.videoList}>
+        <div className={styles.cloudyList}>
           {isLoading ?
             <CloudySkeleton count={5} />
             : data?.cloudy.length > 0 ? (

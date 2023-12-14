@@ -1,5 +1,7 @@
 
-
+.cloudyList{
+  margin-top: 30px;
+}
 .searchInput {
 margin-top: 30px;
   width: 50%;
@@ -7,7 +9,6 @@ margin-top: 30px;
   box-sizing: border-box;
   font-size: 18px;
   padding: 10px;
-  margin-bottom: 20px;
   background-color: #0f172a;
   color: #ddd;
 }
@@ -41,10 +42,23 @@ margin-top: 30px;
 @media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 640px) {
+ 
+  .searchInput {
+    width: 85%;
+  }
+
+  .searchIcon{
+    width: 15%;
+  }
   .cloudyGrid{
-    margin-top: 30px;
+    width: 100%;
+    margin-top: 5px;
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
+  }
+
+  .cloudyList{
+    margin-top: 20px;
   }
 }
