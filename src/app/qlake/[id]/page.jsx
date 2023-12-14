@@ -27,6 +27,8 @@ const QLakeQuestion = async ({ params }) => {
     <div className={styles.container}>
       <div className={styles.answerCard}>
         <h1 className={styles.qTitle}>{data?.question}</h1>
+        <p className={styles.qTitle}>{data?.desc}</p>
+        <br/>
         <div className={styles.user}>
          
             {data?.user?.image && (
@@ -41,17 +43,11 @@ const QLakeQuestion = async ({ params }) => {
         </div>
 
         <div className={styles.qDetails}>
-
+        <Chip item={data?.tags} key={data?.id} />
           <h4 className={styles.qContent}>views:
             <span className={styles.qViews}> {data?.views}</span>  </h4>
          
-            <Chip item={data?.tags} key={data?.id} />
-          
         </div>
-
-
-
-
 
         <div className={styles.comment}>
           <Answers qid={id} />
