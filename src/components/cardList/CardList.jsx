@@ -30,20 +30,40 @@ const CardList = ({ page, cat }) => {
   const [postCount, setData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    // fetch data
-    const dataFetch = async () => {
-      const postCount = await (
-        await fetch("/api/posts/list",
-        )
-      ).json();
-
-      // set state when the data received
-      setData(postCount);
-    };
-
-    dataFetch();
-  }, []);
+  if(cat){
+    console.log("cat have "+cat)
+    useEffect(() => {
+      // fetch data
+      const dataFetch = async () => {
+        const postCount = await (
+          await fetch(`/api/posts/listByCat?cat=${cat}`,
+          )
+        ).json();
+  
+        // set state when the data received
+        setData(postCount);
+      };
+  
+      dataFetch();
+    }, []);
+  }else{
+    console.log("cat not have "+cat)
+    useEffect(() => {
+      // fetch data
+      const dataFetch = async () => {
+        const postCount = await (
+          await fetch("/api/posts/list",
+          )
+        ).json();
+  
+        // set state when the data received
+        setData(postCount);
+      };
+  
+      dataFetch();
+    }, []);
+  }
+  
 
   const { data, mutate, isLoading } = useSWR(
     `/api/posts?page=${currentPage}&cat=${cat || ""}`,

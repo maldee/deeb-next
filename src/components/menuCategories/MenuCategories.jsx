@@ -19,9 +19,9 @@ const MenuCategories = async () => {
   return (
    
       <div className={styles.categoryList}>
-        {data?.map((item) => (
+        {data?.slice(0, 25).map((item) => (
           <Link
-            href={`/category?cat=${item.title}`}
+            href={`/category?cat=${item.slug}`}
             className={`${styles.categoryItem} ${styles[item.slug]}`}
             key={item.id}
           >

@@ -8,7 +8,7 @@ const Card = ({ key, item }) => {
  
       {item.img && (
         <div className={styles.imageContainer}>
-          <a href={`/pages/posts/${item.slug}`} className={styles.linkMuted}>
+          <a href={`/posts/${item.slug}`} className={styles.linkMuted}>
             <Image src={item.img} alt="" fill className={styles.image} />
           </a>
 

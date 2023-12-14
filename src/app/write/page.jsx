@@ -14,6 +14,25 @@ import {
 } from "firebase/storage";
 import { app } from "../../utils/firebase";
 import dynamic from "next/dynamic";
+import { TailSpin } from 'react-loader-spinner';
+
+
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic.css'
+import useSWR from "swr";
+
+const fetcher = async (url) => {
+  const res = await fetch(url);
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    const error = new Error(data.message);
+    throw error;
+  }
+  
+  return data;
+};
 
 const WritePage = () => {
   const { status } = useSession();
@@ -26,6 +45,11 @@ const WritePage = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
+
+  const { data, mutate, isLoading } = useSWR(
+    `/api/categories`,
+    fetcher
+  );
 
   useEffect(() => {
     const storage = getStorage(app);
@@ -107,12 +131,20 @@ const WritePage = () => {
         onChange={(e) => setTitle(e.target.value)}
       />
       <select className={styles.select} onChange={(e) => setCatSlug(e.target.value)}>
-        <option value="style">style</option>
-        <option value="fashion">fashion</option>
-        <option value="food">food</option>
-        <option value="culture">culture</option>
-        <option value="travel">travel</option>
-        <option value="coding">coding</option>
+      {isLoading ?
+          <TailSpin
+            height="40"
+            width="40"
+            color="#8a2be2"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+          : data?.map((item) => (
+            <option key={item.id} value={item.slug}>{item.title}</option>
+          ))}
       </select>
       <div className={styles.editor}>
         <button className={styles.button} onClick={() => setOpen(!open)}>

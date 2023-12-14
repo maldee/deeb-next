@@ -32,15 +32,6 @@ export const GET = async (req) => {
   }
 };
 
-
-
-
-
-
-
-
-
-
 // CREATE A POST
 export const POST = async (req) => {
   const session = await getAuthSession();
