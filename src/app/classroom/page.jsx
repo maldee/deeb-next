@@ -75,7 +75,7 @@ const Classroom = ({ searchParams }) => {
       <input className={styles.searchInput} type="text" placeholder="Search video..." onChange={(e) => setQuery(e.target.value)} />
       
       <select className={styles.selectInput} name="subjects" id="subjects" onChange={e => setSubject(e.target.value)} value={selectedSubject}>
-        <option value='Select Subject'>Select Subject</option>
+        
         {isLoading ?
           <TailSpin
             height="40"

@@ -70,7 +70,6 @@ const Quizy = ({ searchParams }) => {
       <input className={styles.searchInput} type="text" placeholder="Search quiz..." onChange={(e) => setQuery(e.target.value)} />
 
       <select className={styles.selectInput} name="subjects" id="subjects" onChange={e => setSubject(e.target.value)} value={selectedSubject}>
-        <option value='Select Subject'>Select Subject</option>
         {isLoading ?
           <TailSpin
             height="40"

@@ -9,8 +9,8 @@
 }
 
 .searchInput {
-  display: block;
-  width: 80%;
+  margin-right: 10px;
+  width: 60%;
   border: 2px solid #1f273a;
   box-sizing: border-box;
   font-size: 18px;
@@ -22,12 +22,12 @@
 
 .selectInput{
   width: 30%;
-  border: 2px solid #775aec;
+  border: 2px solid #0a0f1b;
   box-sizing: border-box;
   font-size: 16px;
-  padding: 7px;
+  padding: 10px;
   margin-bottom: 20px;
-  background-color:  #0f172a;
+  background-color:  #0a0f1b;
   color: #ddd;
 }
 

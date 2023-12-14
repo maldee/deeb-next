@@ -12,18 +12,19 @@
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
 }
-
-.selectInput{
-    width: 50%;
-    border: 2px solid #1f273a;
+  
+  
+  .selectInput{
+    margin-right: 10px;
+    width: 30%;
+    border: 2px solid #0a0f1b;
     box-sizing: border-box;
-    font-size: 18px;
+    font-size: 16px;
     padding: 10px;
     margin-bottom: 20px;
-    background-color: #0f172a;
+    background-color:  #0a0f1b;
     color: #ddd;
   }
-  
 
 
 @media screen and (max-width: 1536px) and (min-width: 1280px) {}
