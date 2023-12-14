@@ -88,7 +88,7 @@ const Cloudy = ({ searchParams }) => {
             <CloudySkeleton count={5} />
             : data?.cloudy.length > 0 ? (
               data?.cloudy?.map((item) => (
-                <div className={styles.cloudyGrid}>
+                <div key={item.id} className={styles.cloudyGrid}>
 
                   <h4>{item.doc}</h4>
                   <Link href={item.link} target="_blank">{item.link}</Link>
