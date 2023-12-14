@@ -9,22 +9,24 @@ import { FaSearch } from "react-icons/fa";
 import 'react-loading-skeleton/dist/skeleton.css'
 import SkeletonSearch from "./skeletonSearch";
 
+const fetcher = async (url) => {
+  const res = await fetch(url);
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    const error = new Error(data.message);
+    throw error;
+  }
+
+
+  return data;
+};
+
 const Search = () => {
+  
   const [query, setQuery] = useState('')
 
-  const fetcher = async (url) => {
-    const res = await fetch(url);
-
-    const data = await res.json();
-
-    if (!res.ok) {
-      // const error = new Error(data.message);
-      // throw error;
-    }
-
-
-    return data;
-  };
 
   const { data, mutate, isLoading } = useSWR(
     `/api/posts/search?query=${query}`,
@@ -43,7 +45,7 @@ const Search = () => {
         {isLoading
           ? <SkeletonSearch count={5} />
           : data?.map((item) => (
-            <Posts item={item} key={item.id} />
+            <Posts key={item.id} item={item}  />
           ))}
 
 
