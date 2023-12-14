@@ -151,5 +151,11 @@ model Chatbits {
   language      String
 }
 
+model cloudy {
+  id          Int      @id @default(autoincrement())
+  doc         String
+  link        String?
+  uploadedAt  DateTime  @default(now())
+}
 
 

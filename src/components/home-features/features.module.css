@@ -4,6 +4,14 @@
   background-color: #fff;
 }
 
+.feature{
+  font-size: 30px;
+}
+
+.featureLabel{
+  font-size: 18px;
+}
+
 .features {
   
   margin-top: 100px;

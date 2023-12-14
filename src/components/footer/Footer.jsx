@@ -34,10 +34,9 @@ const Footer = () => {
         
         <div className={styles.list}>
           <span className={styles.listTitle}>Social</span>
-          <Link href="/">Facebook</Link>
-          <Link href="/">Instagram</Link>
-          <Link href="/">Tiktok</Link>
-          <Link href="/">Youtube</Link>
+          <Link href="https://www.facebook.com/deeflowglobal">Facebook</Link>
+          <Link href="https://www.instagram.com/deeflowglobal">Instagram</Link>
+          <Link href="https://www.youtube.com/channel/UCOj6vB4yL9GLlIyvFl4HBZw">Youtube</Link>
         </div>
       </div>
     </div>

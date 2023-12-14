@@ -24,7 +24,7 @@ const Mentors = () => {
 
             <div className={styles.mentorDetails}>
                 <h4><b>Chanka</b></h4>
-                <p>Occult Science Engineer</p>
+                <p>Occult Science Writer</p>
             </div>
 
         </div>
@@ -33,7 +33,7 @@ const Mentors = () => {
             <Image className={styles.mentorImage} src="/dulani.jpg" alt="Avatar" width={300} height={260} />
             <div className={styles.mentorDetails}>
                 <h4><b>Dulani</b></h4>
-                <p>Social Engineer</p>
+                <p>Social Media Hunter</p>
             </div>
 
 

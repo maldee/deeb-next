@@ -1,8 +1,9 @@
 "use client";
+
 import { signIn, useSession } from "next-auth/react";
 import styles from "./loginPage.module.css";
 import { useRouter } from "next/navigation";
-import { ColorRing } from 'react-loader-spinner';
+import { TailSpin } from 'react-loader-spinner';
 
 const LoginPage = () => {
   const { status } = useSession();
@@ -11,14 +12,15 @@ const LoginPage = () => {
 
   if (status === "loading") {
     return <div className={styles.loading}>
-      <ColorRing
-        visible={true}
+      <TailSpin
         height="40"
         width="40"
-        ariaLabel="blocks-loading"
+        color="#8a2be2"
+        ariaLabel="tail-spin-loading"
+        radius="1"
         wrapperStyle={{}}
-        wrapperClass="blocks-wrapper"
-        colors={['#775aec', '#775aec', '#775aec', '#775aec', '#775aec']}
+        wrapperClass=""
+        visible={true}
       />
     </div>;
   }
@@ -33,7 +35,7 @@ const LoginPage = () => {
         <div className={styles.socialButton} onClick={() => signIn("google")}>
           <img width="50px" alt="Google sign-in"
             src="./btn_google.png" />
-          <spna className={styles.signLabel}>Sign in with Google</spna>
+          <span className={styles.signLabel}>Sign in with Google</span>
         </div>
 
       </div>

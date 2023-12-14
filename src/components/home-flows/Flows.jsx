@@ -8,7 +8,7 @@ const Flows = () => {
     <div className={styles.flows}>
 
                 <div className={styles.flowHeader}>
-                    <h3>Most Popular Flows</h3>
+                    <h3>Try our Popular Flows</h3>
                 </div>
 
                 <div className={styles.slider}>
@@ -48,6 +48,11 @@ const Flows = () => {
                         <div id="slide-7">
                             <a href={`https://store.deeflow.com`} className={styles.slideLink}>
                                 <Image src="/deestore.png" alt="" width={300} height={300} className={styles.slideImage} />
+                            </a>
+                        </div>
+                        <div id="slide-8">
+                            <a href={`/cloudy`} className={styles.slideLink}>
+                                <Image src="/cloudy.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
                         </div>
                     </div>

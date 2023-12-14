@@ -16,12 +16,13 @@ const Features = () => {
 
         <div>
           <div className={styles.featureGrid1}>
-            <p>Easy Accessable</p>
-            <p>More Affordable Cost</p>
+            <p className={styles.feature}>🤳<span className={styles.featureLabel}> Easy Accessable</span></p>
+            <p className={styles.feature}>💰<span className={styles.featureLabel}> More Affordable Cost</span></p>
+           
           </div>
           <div className={styles.featureGrid2}>
-            <p>Flexible Study Time</p>
-            <p>Consultation With Mentor</p>
+          <p className={styles.feature}>⏱<span className={styles.featureLabel}> Flexible Study Time</span></p>
+          <p className={styles.feature}>👨‍🎓<span className={styles.featureLabel}> Consultation With Mentor</span></p>
           </div>
         </div>
 
