@@ -2,9 +2,18 @@
   margin-top: 20px;
 }
 
+
+.searchIcon{
+  border: 2px solid #17A2B8;
+  background-color: #17A2B8;
+  font-size: 18px;
+  padding: 9px;
+  color: #fff;
+}
+
 .searchInput {
-  margin-right: 10px;
-  width: 60%;
+
+  width: 50%;
   border: 2px solid #1f273a;
   box-sizing: border-box;
   font-size: 18px;
@@ -15,6 +24,7 @@
 }
 
 .selectInput{
+  margin-left: 40px;
   width: 30%;
   border: 2px solid #0a0f1b;
   box-sizing: border-box;
@@ -70,9 +80,18 @@
 
 @media screen and (max-width: 640px) {
 
-  .searchInput {
+  .selectInput{
     width: 100%;
+    margin: 0;
   }
+  .searchInput {
+    width: 85%;
+  }
+
+  .searchIcon{
+    width: 15%;
+  }
+  
 
   .quizyList {
     grid-template-columns: 1fr;

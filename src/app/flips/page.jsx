@@ -94,6 +94,7 @@ const Flips = ({ searchParams }) => {
       </select>
 
       <select className={styles.selectInput} name="types" id="types" onChange={e => setType(e.target.value)} value={selectedType}>
+        <option value='Select Type'>Select Type</option>
         {isLoading ?
           <TailSpin
           height="40"

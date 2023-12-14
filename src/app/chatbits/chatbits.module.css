@@ -5,7 +5,17 @@
   margin-left: 10px;
 }
 
+
+.searchIcon{
+  border: 2px solid #17A2B8;
+  background-color: #17A2B8;
+  font-size: 18px;
+  padding: 9px;
+  color: #fff;
+}
+
 .searchInput {
+
   width: 50%;
   border: 2px solid #1f273a;
   box-sizing: border-box;
@@ -15,6 +25,7 @@
   background-color: #0f172a;
   color: #ddd;
 }
+
 
 .chatcat {
   color: darkkhaki;
@@ -45,14 +56,11 @@
 @media screen and (max-width: 640px) {
 
   .searchInput {
-    width: 100%;
-    border: 2px solid #1f273a;
-    box-sizing: border-box;
-    font-size: 18px;
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: #0f172a;
-    color: #ddd;
+    width: 85%;
+  }
+
+  .searchIcon{
+    width: 15%;
   }
 
   .container {

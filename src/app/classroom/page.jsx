@@ -4,13 +4,14 @@ import styles from "./classroomPage.module.css";
 import Image from "next/image";
 
 import YouTube from 'react-youtube';
-
+import { FaSearch } from "react-icons/fa";
+import Link from "next/link";
 import Pagination from "./../../components/pagination/Pagination";
 import { TailSpin } from 'react-loader-spinner';
 import ClassroomSkeleton from "./classroom.skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
@@ -57,14 +58,14 @@ const Classroom = ({ searchParams }) => {
     dataFetch();
   }, []);
 
-  
+
   const { data, mutate, isLoading } = useSWR(
     `/api/classroom?page=${page}&query=${query}&subject=${selectedSubject}`,
     fetcher
   );
-  
+
   const count = postCount?.length;
-  
+
   const POST_PER_PAGE = 5;
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
@@ -72,10 +73,14 @@ const Classroom = ({ searchParams }) => {
   return (
 
     <div className={styles.container}>
-      <input className={styles.searchInput} type="text" placeholder="Search video..." onChange={(e) => setQuery(e.target.value)} />
-      
+     
+        <input className={styles.searchInput} type="text" placeholder="Search video..." onChange={(e) => setQuery(e.target.value)} />
+        <button className={styles.searchIcon}>
+          <FaSearch />
+        </button>
+    
       <select className={styles.selectInput} name="subjects" id="subjects" onChange={e => setSubject(e.target.value)} value={selectedSubject}>
-        
+      <option value='Select Subject'>Select Subject</option>
         {isLoading ?
           <TailSpin
             height="40"
@@ -94,15 +99,15 @@ const Classroom = ({ searchParams }) => {
       </select>
 
       {data?.videos.length > 0 ? (
-         <ResponsivePagination
-         maxWidth={`50px`}
-         current={currentPage}
-         total={totalPages}
-         onPageChange={setCurrentPage}
-       />
-      ):(null)}
-      
-      
+        <ResponsivePagination
+          maxWidth={`50px`}
+          current={currentPage}
+          total={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      ) : (null)}
+
+
       <div className={styles.videoList}>
         {isLoading ?
           <ClassroomSkeleton count={5} />

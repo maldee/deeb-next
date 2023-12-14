@@ -6,7 +6,7 @@ import Chip from "../../components/chip/Chip";
 
 import QlakeSkeleton from "./qLakeSkeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
-
+import { FaSearch } from "react-icons/fa";
 import React, { useState, useEffect } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
@@ -62,6 +62,10 @@ const QlakeList = ({ page }) => {
 
     <div className={styles.container}>
       <input className={styles.searchInput} type="text" placeholder="Search question..." value={query} onChange={(e) => setQuery(e.target.value)} />
+      <button className={styles.searchIcon}>
+          <FaSearch />
+        </button>
+
       <div className={styles.paginationBar}>
         <h3 className={styles.title}>Questions</h3>
         {questions?.length > 0 ? (

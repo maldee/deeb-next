@@ -3,6 +3,7 @@
 import React from "react";
 import { useState } from "react"
 import styles from "./chatbits.module.css";
+import { FaSearch } from "react-icons/fa";
 import useSWR from "swr";
 import 'react-loading-skeleton/dist/skeleton.css'
 import ChatbitsSkeleton from "./chatbits.skeleton";
@@ -38,6 +39,11 @@ export default function Chatbits() {
   return (
     <div className={styles.search}>
       <input className={styles.searchInput} type="text" placeholder="Search phrase..." value={query} onChange={(e) => setQuery(e.target.value)} />
+
+      <button className={styles.searchIcon}>
+          <FaSearch />
+        </button>
+
       {isLoading
         ? <ChatbitsSkeleton count={5} />
         : data?.chatbits.length > 0 ? (
