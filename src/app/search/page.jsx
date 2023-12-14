@@ -18,8 +18,7 @@ const fetcher = async (url) => {
     const error = new Error(data.message);
     throw error;
   }
-
-
+  
   return data;
 };
 
