@@ -3,7 +3,8 @@ import { NextResponse } from "next/server";
 
 // GET SINGLE POST
 export const GET = async (req, { params }) => {
-  const { id } = params;
+  
+  const id  = parseInt(params.id);
 
   try {
     const question = await prisma.qlake.update({

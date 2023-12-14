@@ -6,7 +6,7 @@ import Image from "next/image";
 import YouTube from 'react-youtube';
 
 import Pagination from "./../../components/pagination/Pagination";
-import { ColorRing } from 'react-loader-spinner';
+import { TailSpin } from 'react-loader-spinner';
 import ClassroomSkeleton from "./classroom.skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -35,6 +35,7 @@ const fetcher = async (url) => {
 const Classroom = ({ searchParams }) => {
 
   const page = parseInt(searchParams.page) || 1;
+  const [selectedSubject, setSubject] = useState('Select Subject')
 
   const [query, setQuery] = useState('')
 
@@ -58,7 +59,7 @@ const Classroom = ({ searchParams }) => {
 
   
   const { data, mutate, isLoading } = useSWR(
-    `/api/classroom?page=${page}&query=${query}`,
+    `/api/classroom?page=${page}&query=${query}&subject=${selectedSubject}`,
     fetcher
   );
   
@@ -73,6 +74,25 @@ const Classroom = ({ searchParams }) => {
     <div className={styles.container}>
       <input className={styles.searchInput} type="text" placeholder="Search video..." onChange={(e) => setQuery(e.target.value)} />
       
+      <select className={styles.selectInput} name="subjects" id="subjects" onChange={e => setSubject(e.target.value)} value={selectedSubject}>
+        <option value='Select Subject'>Select Subject</option>
+        {isLoading ?
+          <TailSpin
+            height="40"
+            width="40"
+            color="#8a2be2"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+          : data?.subjects?.map((item) => (
+            <option key={item.id} value={item.subject}>{item.subject}</option>
+          ))}
+
+      </select>
+
       {data?.videos.length > 0 ? (
          <ResponsivePagination
          maxWidth={`50px`}

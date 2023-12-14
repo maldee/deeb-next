@@ -6,7 +6,7 @@ import Image from "next/image";
 import useSWR from "swr";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-import { ColorRing } from 'react-loader-spinner';
+import { TailSpin } from 'react-loader-spinner';
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -58,14 +58,15 @@ const Comments = ({ postSlug }) => {
       )}
       <div className={styles.comments}>
         {isLoading
-          ? <ColorRing
-          visible={true}
+          ? <TailSpin
           height="40"
           width="40"
-          ariaLabel="blocks-loading"
+          color="#8a2be2"
+          ariaLabel="tail-spin-loading"
+          radius="1"
           wrapperStyle={{}}
-          wrapperClass="blocks-wrapper"
-          colors={['#775aec', '#775aec', '#775aec', '#775aec', '#775aec']}
+          wrapperClass=""
+          visible={true}
         />
           : data?.map((item) => (
               <div className={styles.comment} key={item.id}>

@@ -4,9 +4,8 @@ import Answers from "../../../components/answers/Answers";
 import Chip from "../../../components/chip/Chip";
 
 
-const getData = async (id) => {
-
-  const res = await fetch(process.env.NEXTAUTH_URL + `/api/qlake/${id}`, {
+const getData = async (qid) => {
+  const res = await fetch(process.env.NEXTAUTH_URL + `/api/qlake/${qid}`, {
     cache: "no-store",
   });
 
@@ -17,36 +16,37 @@ const getData = async (id) => {
   return res.json();
 };
 
+
 const QLakeQuestion = async ({ params }) => {
 
-  const id = params.id;
+  const id  = params.id;
 
-  const data = await getData(params.id);
-  console.log("user " + JSON.stringify(data?.length))
+  const data = await getData(id);
 
   return (
     <div className={styles.container}>
       <div className={styles.answerCard}>
         <h1 className={styles.qTitle}>{data?.question}</h1>
         <div className={styles.user}>
-          {data?.user?.image && (
-            <div className={styles.userImageContainer}>
-              <Image src={data.user.image} alt="" fill className={styles.avatar} />
-            </div>
-          )}
+         
+            {data?.user?.image && (
+              <div className={styles.userImageContainer}>
+                <Image src={data.user.image} alt="" fill className={styles.avatar} />
+              </div>
+            )}
           <div className={styles.userTextContainer}>
             <span className={styles.username}>{data?.user.name}</span>
-            <span className={styles.date}> {data?.createdAt.substring(0, 10)} -{" "}</span>
+            <span className={styles.date}> {data?.createdAt.substring(0, 10)} {" "}</span>
           </div>
         </div>
 
         <div className={styles.qDetails}>
-        
 
           <h4 className={styles.qContent}>views:
             <span className={styles.qViews}> {data?.views}</span>  </h4>
-
-            <Chip item={data?.tags} key={data?._id} />
+         
+            <Chip item={data?.tags} key={data?.id} />
+          
         </div>
 
 
@@ -54,7 +54,7 @@ const QLakeQuestion = async ({ params }) => {
 
 
         <div className={styles.comment}>
-          <Answers questionId={id} />
+          <Answers qid={id} />
         </div>
       </div>
 
@@ -68,14 +68,13 @@ export async function generateMetadata({ params }) {
   const data = await getData(id);
 
   return {
+    metadataBase: new URL('https://deeflow.com'),
     openGraph: {
-      title: data?.title,
-      images: [{ url: data.img }],
+      title: data?.question,
       siteName: 'Next.js',
       type: 'website',
     }
   };
 }
-
 
 export default QLakeQuestion;

@@ -82,6 +82,16 @@ model Post {
   comments  Comment[]
 }
 
+model Comment {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  desc      String
+  userEmail String
+  user      User     @relation(fields: [userEmail], references: [email])
+  postSlug  String
+  post      Post     @relation(fields: [postSlug], references: [slug])
+}
+
 model Qlake {
   id        Int       @id @default(autoincrement())
   createdAt DateTime  @default(now())
@@ -141,13 +151,5 @@ model Chatbits {
   language      String
 }
 
-model Comment {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  desc      String
-  userEmail String
-  user      User     @relation(fields: [userEmail], references: [email])
-  postSlug  String
-  post      Post     @relation(fields: [postSlug], references: [slug])
-}
+
 

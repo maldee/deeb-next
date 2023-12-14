@@ -40,6 +40,7 @@ export const POST = async (req) => {
       data: { ...body, userEmail: session.user.email },
     });
 
+   
     return new NextResponse(JSON.stringify(comment, { status: 200 }));
   } catch (err) {
     console.log(err);

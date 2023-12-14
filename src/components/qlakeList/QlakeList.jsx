@@ -26,6 +26,7 @@ const fetcher = async (url) => {
 
 const QlakeList = ({ page }) => {
 
+  const [query, setQuery] = useState('')
   const [postCount, setData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -45,7 +46,7 @@ const QlakeList = ({ page }) => {
   }, []);
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/qlake?page=${page}`,
+    `/api/qlake?page=${page}&query=${query}`,
     fetcher
   );
 
@@ -60,6 +61,7 @@ const QlakeList = ({ page }) => {
   return (
 
     <div className={styles.container}>
+      <input className={styles.searchInput} type="text" placeholder="Search question..." value={query} onChange={(e) => setQuery(e.target.value)} />
       <div className={styles.paginationBar}>
         <h3 className={styles.title}>Questions</h3>
         {questions?.length > 0 ? (

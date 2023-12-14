@@ -10,8 +10,8 @@ import AuthProvider from "../providers/AuthProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Deeflow",
-  description: "Flow to the next world",
+  title: "Deeflow - Flow to the next world",
+  description: "The Largest Education Platform in Sri Lanka",
 };
 
 export default function RootLayout({ children }) {

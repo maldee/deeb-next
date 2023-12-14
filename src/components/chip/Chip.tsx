@@ -1,6 +1,6 @@
 import styles from "./chip.module.css";
 
-const Chip = ({ key, item }) => {
+const Chip = ({ item, key }) => {
 
     const chip = item.split(',');
 

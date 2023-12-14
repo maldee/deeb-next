@@ -3,7 +3,7 @@
 import styles from "./quizyPage.module.css";
 
 import Link from "next/link";
-import { ColorRing } from 'react-loader-spinner';
+import { TailSpin } from 'react-loader-spinner';
 import 'react-loading-skeleton/dist/skeleton.css'
 import QuizySkeleton from "./quizy.skeleton";
 
@@ -29,7 +29,10 @@ const fetcher = async (url) => {
   return data;
 };
 
-const Quizy = () => {
+const Quizy = ({ searchParams }) => {
+
+  const page = parseInt(searchParams.page) || 1;
+  const [selectedSubject, setSubject] = useState('Select Subject')
 
   const [query, setQuery] = useState('')
   const [postCount, setData] = useState();
@@ -51,7 +54,7 @@ const Quizy = () => {
   }, []);
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/quizy?query=${query}`,
+    `/api/quizy?page=${page}&query=${query}&subject=${selectedSubject}`,
     fetcher
   );
 
@@ -66,6 +69,25 @@ const Quizy = () => {
     <div className={styles.container}>
       <input className={styles.searchInput} type="text" placeholder="Search quiz..." onChange={(e) => setQuery(e.target.value)} />
 
+      <select className={styles.selectInput} name="subjects" id="subjects" onChange={e => setSubject(e.target.value)} value={selectedSubject}>
+        <option value='Select Subject'>Select Subject</option>
+        {isLoading ?
+          <TailSpin
+            height="40"
+            width="40"
+            color="#8a2be2"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+          : data?.subjects?.map((item) => (
+            <option key={item.id} value={item.subject}>{item.subject}</option>
+          ))}
+
+      </select>
+
       <div className={styles.paginationBar}>
         <ResponsivePagination
           maxWidth={`50px`}
@@ -79,8 +101,8 @@ const Quizy = () => {
 
         {isLoading ?
           <QuizySkeleton count={5} />
-          : data?.length > 0 ? (
-            data?.map((item) => (
+          : data?.quizes?.length > 0 ? (
+            data?.quizes?.map((item) => (
               <div key={item.id} className={styles.qCard}>
 
                 <Link className={styles.quizLink} key={item.id} href={`/quizy/${item.id}`} >

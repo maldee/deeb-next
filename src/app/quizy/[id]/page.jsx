@@ -1,11 +1,12 @@
 'use client'
+
 import styles from "./quizyPage.module.css";
 import React from 'react';
 import Quiz from 'react-quiz-component';
 import useSWR from "swr";
 import { useParams } from 'next/navigation'
 import Link from "next/link";
-import { ColorRing } from 'react-loader-spinner';
+import { TailSpin } from 'react-loader-spinner';
 
 const fetcher = async (url) => {
   
@@ -32,7 +33,7 @@ const QuizyStart = () => {
     fetcher
   );
 
-
+console.log("quizid "+data)
   return (
 
 
@@ -43,14 +44,16 @@ const QuizyStart = () => {
       </Link>
 
       {isLoading
-        ? <ColorRing
-        visible={true}
+        ? 
+        <TailSpin
         height="40"
         width="40"
-        ariaLabel="blocks-loading"
+        color="#8a2be2"
+        ariaLabel="tail-spin-loading"
+        radius="1"
         wrapperStyle={{}}
-        wrapperClass="blocks-wrapper"
-        colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+        wrapperClass=""
+        visible={true}
       />
         : <Quiz className={styles.quizContainer} quiz={data?.quiz} shuffleAnswer={true} />}
     </div>
