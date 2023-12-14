@@ -1,6 +1,15 @@
 
-.searchInput{
-  width: 100%;
+
+.searchIcon{
+  border: 2px solid #17A2B8;
+  background-color: #17A2B8;
+  font-size: 18px;
+  padding: 9px;
+  color: #fff;
+}
+
+.searchInput {
+  width: 50%;
   border: 2px solid #1f273a;
   box-sizing: border-box;
   font-size: 18px;
@@ -9,7 +18,6 @@
   background-color: #0f172a;
   color: #ddd;
 }
-
 .container {
   display: flex;
   gap: 20px;
@@ -161,6 +169,14 @@ margin-bottom: 100px;
 
 @media screen and (max-width: 640px) {
 
+  .searchInput {
+    width: 85%;
+  }
+
+  .searchIcon{
+    width: 15%;
+  }
+  
   .container{
     margin-top: 10px;
   }

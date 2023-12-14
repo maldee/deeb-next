@@ -5,33 +5,11 @@ import { useState, useEffect } from "react"
 import Posts from './Posts'
 import styles from "./searchPage.module.css";
 import useSWR from "swr";
-
+import { FaSearch } from "react-icons/fa";
 import 'react-loading-skeleton/dist/skeleton.css'
 import SkeletonSearch from "./skeletonSearch";
-import { ErrorBoundary } from 'react-error-boundary'
 
-// export const metadata = {
-//   title: "Search | Deeflow",
-//   description: "Search in deeflow",
-// };
-
-function refreshPage() {
-  
-  window.location.reload(false);
-}
-
-function ErrorFallback({ error, resetErrorBoundary }) {
-
-  return (
-    <div role="alert" className={styles.errorContent}>
-      <h2 className={styles.errorTopic}>Something went wrong</h2>
-      <h3 className={styles.errorMessage}>Please check your network connection</h3>
-      <button className={styles.errorButton} onClick={refreshPage}>Try again</button>
-    </div>
-  )
-}
-
-function Search({ retryCount }) {
+const Search = () => {
   const [query, setQuery] = useState('')
 
   const fetcher = async (url) => {
@@ -58,6 +36,9 @@ function Search({ retryCount }) {
 
       <input className={styles.searchInput} type="text" placeholder="Search post..." value={query} onChange={(e) => setQuery(e.target.value)} />
 
+      <button className={styles.searchIcon}>
+          <FaSearch />
+        </button>
       
         {isLoading
           ? <SkeletonSearch count={5} />
@@ -70,17 +51,4 @@ function Search({ retryCount }) {
   )
 }
 
-export default function App() {
-
-  const [retryCount, setRetryCount] = React.useState(0)
-
-  return (
-    <ErrorBoundary
-      FallbackComponent={ErrorFallback}
-      onReset={() => setRetryCount(retryCount + 1)} // increment the retry count on reset
-      resetKeys={[retryCount]} // reset the error boundary when `retryCount` changes
-    >
-      <Search someKey={retryCount} />
-    </ErrorBoundary>
-  )
-}
+export default Search;
