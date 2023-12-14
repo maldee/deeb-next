@@ -34,6 +34,9 @@
 @media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 640px) {
+    .selectInput{
+        width: 45%;
+    }
     .flipList {
         display: grid;
         grid-gap: 10px;
