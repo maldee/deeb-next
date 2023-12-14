@@ -14,7 +14,7 @@ const Testimonial = () => {
                     <p className={styles.testimonialDes}>Detailed learning materials <span className={styles.emoj}>🌟</span></p>
 
                     <div>
-                    <p>"Classes that provide very detailed material in term of making UI UX Design starting team making low and hight quality, system designs, using data layout and make prototypes and testing."</p>
+                    <p>&quot;Classes that provide very detailed material in term of making UI UX Design starting team making low and hight quality, system designs, using data layout and make prototypes and testing.&quot;</p>
                         <div className={styles.testimonialGrid}>
                             <Image
                                 src="/student.jpg"
