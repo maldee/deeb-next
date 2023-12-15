@@ -34,7 +34,7 @@ const QlakeList = ({ page }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch("/api/qlake/list",
+        await fetch(`/api/qlake/list?page=${currentPage}&query=${query}`,
         )
       ).json();
 
@@ -46,7 +46,7 @@ const QlakeList = ({ page }) => {
   }, []);
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/qlake?page=${page}&query=${query}`,
+    `/api/qlake?page=${currentPage}&query=${query}`,
     fetcher
   );
 
@@ -68,7 +68,7 @@ const QlakeList = ({ page }) => {
 
       <div className={styles.paginationBar}>
         <h3 className={styles.title}>Questions</h3>
-        {questions?.length > 0 ? (
+        {count > 0 ? (
           <ResponsivePagination
             maxWidth={`50px`}
             current={currentPage}

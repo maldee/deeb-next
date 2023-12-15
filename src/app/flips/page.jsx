@@ -46,7 +46,7 @@ const Flips = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch("/api/flips/list",
+        await fetch( `/api/flips/list?page=${currentPage}&lesson=${selectedLesson}&type=${selectedType}`,
         )
       ).json();
 
@@ -55,22 +55,23 @@ const Flips = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, []);
+  }, [selectedLesson,selectedType]);
 
   
   const { data, mutate, isLoading } = useSWR(
-    `/api/flips?page=${page}&lesson=${selectedLesson}&type=${selectedType}`,
+    `/api/flips?page=${currentPage}&lesson=${selectedLesson}&type=${selectedType}`,
     fetcher
   );
 
   const posts  = data?.posts;
   
-  const count = postCount?.length;
+  const count = postCount?.count;
   
   const POST_PER_PAGE = 5;
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
 
+  
   return (
     <div className={styles.container}>
 
@@ -111,7 +112,7 @@ const Flips = ({ searchParams }) => {
           ))}
       </select>
 
-      {data?.flips.length > 0 ? (
+      {postCount?.count > 0 ? (
         <ResponsivePagination
         maxWidth={`50px`}
         current={currentPage}
@@ -133,7 +134,7 @@ const Flips = ({ searchParams }) => {
           wrapperClass=""
           visible={true}
         />
-          : data?.flips.length > 0 ? (
+          : data?.count > 0 ? (
 
             data?.flips?.map((item) => (
 

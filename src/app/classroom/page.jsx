@@ -47,7 +47,7 @@ const Classroom = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch("/api/classroom/list",
+        await fetch(`/api/classroom/list?page=${currentPage}&query=${query}&subject=${selectedSubject}`,
         )
       ).json();
 
@@ -56,11 +56,11 @@ const Classroom = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, []);
+  }, [query,selectedSubject]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/classroom?page=${page}&query=${query}&subject=${selectedSubject}`,
+    `/api/classroom?page=${currentPage}&query=${query}&subject=${selectedSubject}`,
     fetcher
   );
 
@@ -98,7 +98,7 @@ const Classroom = ({ searchParams }) => {
 
       </select>
 
-      {data?.videos.length > 0 ? (
+      {postCount?.length > 0 ? (
         <ResponsivePagination
           maxWidth={`50px`}
           current={currentPage}
@@ -113,7 +113,7 @@ const Classroom = ({ searchParams }) => {
           <ClassroomSkeleton count={5} />
           : data?.videos.length > 0 ? (
             data?.videos?.map((item) => (
-              <YouTube key={item.id} className={styles.videoList} videoId={item.link} />
+              <YouTube key={item.id} className={styles.videoList} videoId={item.link.split('be/')[1]} />
 
             ))) : (
             <h3>No results found</h3>
