@@ -11,11 +11,7 @@ const ChatbitsSkeleton = () => {
             .map((item, index) => (
                 
         <div key={item.id} className={styles.skeletonBody}>
-             <Skeleton className={styles.skeletonItem} height={20} width={100} />
-             <Skeleton className={styles.skeletonItem} height={20} width={150} />
-             <Skeleton className={styles.skeletonItem} height={20} width={300} />
-             
-               
+             <Skeleton className={styles.skeletonItem} height={80} />
             </div>
      
         ))}

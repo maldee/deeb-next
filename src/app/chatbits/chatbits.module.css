@@ -41,6 +41,7 @@
 }
 
 .skeletonItem{
+  width: 50%;
   padding-top: 15px;
 }
 
@@ -78,4 +79,7 @@
     
   }
 
+  .skeletonItem{
+    width: 100%;
+  }
 }
