@@ -19,6 +19,7 @@ const Testimonial = () => {
                             <Image
                                 src="/student.jpg"
                                 alt=""
+                                layout="responsive"
                                 width={50}
                                 height={50}
                                 className={styles.studentImage}
