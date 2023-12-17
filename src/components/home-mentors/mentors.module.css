@@ -32,7 +32,7 @@
 }
 
 .mentorsCard:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 26px 0 rgb(135 189 255 / 20%)
 }
 
 .mentorDetails {
@@ -49,10 +49,10 @@
 @media screen and (max-width: 640px) {
 
   .mentorsGrid {
-    padding: 10px 10px 25px 10px;
+    padding: 0px 0px 25px 0px;
     margin-top: 20px;
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 30px;
     grid-template-columns: 1fr;
   }
 

@@ -17,8 +17,8 @@ const Testimonial = () => {
                     <p>&quot;Classes that provide very detailed material in term of making UI UX Design starting team making low and hight quality, system designs, using data layout and make prototypes and testing.&quot;</p>
                         <div className={styles.testimonialGrid}>
                             <Image
-                                src="/student.jpg"
-                                alt=""
+                                src="/student.png"
+                                alt="student"
                                 layout="responsive"
                                 width={50}
                                 height={50}
