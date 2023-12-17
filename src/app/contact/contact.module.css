@@ -36,4 +36,8 @@
 
 @media screen and (max-width: 1024px) {}
 
-@media screen and (max-width: 640px) {}
+@media screen and (max-width: 640px) {
+    .contactInput {
+        width: 100%;
+    }
+}
