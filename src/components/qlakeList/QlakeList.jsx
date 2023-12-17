@@ -93,7 +93,7 @@ const QlakeList = ({ page }) => {
                 <p className={styles.qViews}>{item.views} views</p>
               </div>
             ))) : (
-            <h3>🙄 No results found</h3>
+              <h3> 🙄 No results. Try different selection</h3>
           )}
       </div>
 
