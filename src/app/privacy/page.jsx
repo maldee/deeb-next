@@ -29,16 +29,16 @@ export default function Qlake({ searchParams }) {
       <br />
 
       <p class="pcolor"><b>Use of Cookies</b></p>
-      <p>This website uses cookies to better the user's experience while visiting the website.</p>
+      <p>This website uses cookies to better the user&apos;s experience while visiting the website.</p>
       <p>This website uses tracking software to monitor its visitors to better understand how they use it. This software is provided by Google Analytics which uses cookies to track visitor usage. You can read the privacy policies of this software on the respective websites.</p>
       <p>http://www.google.com/privacy.html</p>
-      <p>Users are advised that if they wish to deny the use and saving of cookies from this website onto their computer's hard drive they should take necessary steps within their web browser's security settings to block all cookies from this website and its external serving vendors.</p>
+      <p>Users are advised that if they wish to deny the use and saving of cookies from this website onto their computer&apos;s hard drive they should take necessary steps within their web browser&apos;s security settings to block all cookies from this website and its external serving vendors.</p>
 
       <br />
 
       <p class="pcolor"><b>External Links</b></p>
       <p>The owners of this website cannot guarantee or verify the contents or the security of any externally linked website. Users are advised to adopt a policy of caution before clicking any external web links mentioned throughout this website.</p>
-      <p>This website also uses its own youtube channel 'Dee Classroom' to play video lessons.</p>
+      <p>This website also uses its own youtube channel &apos;Dee Classroom&apos; to play video lessons.</p>
       <p>Users should therefore note they click on external links at their own risk and this website and its owners cannot be held liable for any damages or implications caused by visiting any external links mentioned.</p>
 
       <br />
