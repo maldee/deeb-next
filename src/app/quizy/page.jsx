@@ -54,7 +54,7 @@ const Quizy = ({ searchParams }) => {
   }, [query,selectedSubject]);
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/quizy?page=${page}&query=${query}&subject=${selectedSubject}`,
+    `/api/quizy?page=${currentPage}&query=${query}&subject=${selectedSubject}`,
     fetcher
   );
 
@@ -111,6 +111,7 @@ const Quizy = ({ searchParams }) => {
 
                 <Link className={styles.quizLink} key={item.id} href={`/quizy/${item.id}`} >
                   <h4>{item.title}</h4>
+                  <h5>{item.quiz.quizSynopsis}</h5>
                 </Link>
 
               </div>

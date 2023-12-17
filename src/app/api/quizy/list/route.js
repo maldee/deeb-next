@@ -15,20 +15,14 @@ export const GET = async (req) => {
     take: POST_PER_PAGE,
     skip: POST_PER_PAGE * (page - 1),
     where: {
-      OR: [
-        {
-          title: {
-            contains: searchQuery,
-            mode: 'insensitive', // Default value: default
-          },
-        },
-        {
-          subject: {
-            contains: subject,
-            mode: 'insensitive', // Default value: default
-          },
-        }
-      ]
+      title: {
+        contains: searchQuery,
+        mode: 'insensitive', // Default value: default
+      },
+      subject: {
+        contains: subject,
+        mode: 'insensitive', // Default value: default
+      },
     },
   };
 

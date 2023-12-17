@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./quizyPage.module.css";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-const ClassroomSkeleton = () => {
+const QuizySkeleton = () => {
     return (
         <SkeletonTheme baseColor="#1f273a" highlightColor="#0F1729">
         <ul className="list">
@@ -19,4 +19,4 @@ const ClassroomSkeleton = () => {
           </SkeletonTheme>
     );
 };
-export default ClassroomSkeleton;
+export default QuizySkeleton;
