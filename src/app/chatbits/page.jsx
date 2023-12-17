@@ -49,11 +49,10 @@ export default function Chatbits() {
         : data?.chatbits.length > 0 ? (
           data?.chatbits?.map((item) => (
             <div key={item.id} className={styles.container}>
-              <ul>
+              <ul className={styles.chatCard}>
                 <h3 key={item.id}>{item.phrase}</h3>
                 <h4>{item.eng_p}</h4>
-                <span className={styles.chatcat}>Category - {item.category} </span>
-                <span className={styles.chatlang}>Language - {item.language}</span>
+                <h6 className={styles.chatcat}>{item.category} | {item.language}</h6>
               </ul>
             </div>
 
