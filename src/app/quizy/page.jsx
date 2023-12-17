@@ -7,7 +7,7 @@ import { TailSpin } from 'react-loader-spinner';
 import 'react-loading-skeleton/dist/skeleton.css'
 import QuizySkeleton from "./quizy.skeleton";
 import { FaSearch } from "react-icons/fa";
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
@@ -51,7 +51,7 @@ const Quizy = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query,selectedSubject]);
+  }, [query, selectedSubject]);
 
   const { data, mutate, isLoading } = useSWR(
     `/api/quizy?page=${currentPage}&query=${query}&subject=${selectedSubject}`,
@@ -59,7 +59,7 @@ const Quizy = ({ searchParams }) => {
   );
 
   const count = postCount?.count;
-  
+
   const POST_PER_PAGE = 5;
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
@@ -70,11 +70,11 @@ const Quizy = ({ searchParams }) => {
       <input className={styles.searchInput} type="text" placeholder="Search quiz..." onChange={(e) => setQuery(e.target.value)} />
 
       <button className={styles.searchIcon}>
-          <FaSearch />
-        </button>
+        <FaSearch />
+      </button>
 
       <select className={styles.selectInput} name="subjects" id="subjects" onChange={e => setSubject(e.target.value)} value={selectedSubject}>
-      <option value='Select Subject'>Select Subject</option>
+        <option value='Select Subject'>Select Subject</option>
         {isLoading ?
           <TailSpin
             height="40"
@@ -116,7 +116,10 @@ const Quizy = ({ searchParams }) => {
 
               </div>
             ))) : (
-            <h3>No results found</h3>
+            <div className={styles.noResults}>
+              <h3>No results found</h3>
+            </div>
+
           )}
 
 

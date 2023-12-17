@@ -64,6 +64,10 @@
   height: 60px;
 }
 
+.noResults{
+  margin-top: 20px;
+}
+
 @media screen and (max-width: 1536px) and (min-width: 1280px) {
 
 
