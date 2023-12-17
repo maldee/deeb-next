@@ -116,7 +116,7 @@ const Classroom = ({ searchParams }) => {
               <YouTube key={item.id} className={styles.videoList} videoId={item.link.split('be/')[1]} />
 
             ))) : (
-            <h3>🙄 No results found</h3>
+              <h3> 🙄 No results. Try different selection</h3>
           )}
 
       </div>
