@@ -117,7 +117,7 @@ const Quizy = ({ searchParams }) => {
               </div>
             ))) : (
             <div className={styles.noResults}>
-              <h3>No results found</h3>
+              <h3>🙄 No results found</h3>
             </div>
 
           )}

@@ -133,7 +133,7 @@ const Flips = ({ searchParams }) => {
             ))
 
           ) : (
-            <h3>No results found</h3>
+            <h3>🙄 No results found</h3>
           )}
 
 
