@@ -10,7 +10,7 @@ const Mentors = () => {
     <div className={styles.mentorsGrid}>
         <div className={styles.mentorsCard}>
 
-            <Image className={styles.mentorImage} src="/gihan.jpg" alt="Avatar" width={300} height={260} />
+            <Image className={styles.mentorImage} src="/gihan.jpg" alt="Avatar" width={300} height={230} />
             <div className={styles.mentorDetails}>
                 <h4><b>Gihan</b></h4>
                 <p>Architect & Engineer</p>
@@ -20,7 +20,7 @@ const Mentors = () => {
         </div>
         <div className={styles.mentorsCard}>
 
-            <Image className={styles.mentorImage} src="/chanaka.jpg" alt="Avatar" width={300} height={260} />
+            <Image className={styles.mentorImage} src="/chanaka.jpg" alt="Avatar" width={300} height={230} />
 
             <div className={styles.mentorDetails}>
                 <h4><b>Chanka</b></h4>
@@ -30,7 +30,7 @@ const Mentors = () => {
         </div>
         <div className={styles.mentorsCard}>
 
-            <Image className={styles.mentorImage} src="/dulani.jpg" alt="Avatar" width={300} height={260} />
+            <Image className={styles.mentorImage} src="/dulani.jpg" alt="Avatar" width={300} height={230} />
             <div className={styles.mentorDetails}>
                 <h4><b>Dulani</b></h4>
                 <p>Social Media Hunter</p>

@@ -11,7 +11,7 @@ const Testimonial = () => {
                 <h3 className={styles.testimonialTitle}>What our Students Say </h3>
                 <div className={styles.testiBox}>
                   
-                    <p className={styles.testimonialDes}>Detailed learning materials <span className={styles.emoj}>🌟</span></p>
+                    <p className={styles.testimonialDes}>Detailed learning materials </p>
 
                     <div>
                     <p>&quot;Classes that provide very detailed material in term of making UI UX Design starting team making low and hight quality, system designs, using data layout and make prototypes and testing.&quot;</p>
@@ -24,7 +24,10 @@ const Testimonial = () => {
                                 height={50}
                                 className={styles.studentImage}
                             />
-                            <span className={styles.student}>Nethsara Ekanayake - Student at University of Peradeniya | Software Engineering </span>
+                            <span className={styles.student}>Nethsara Ekanayake - Student at NSBM
+                            <h5 >| Software Engineering </h5>
+                            </span>
+                            
                         </div>
 
                     </div>

@@ -1,6 +1,6 @@
 
 .testimonial {
-  margin-top: 100px;
+  margin-top: 80px;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 2fr 1fr;
@@ -9,16 +9,18 @@
   font-size: 30px;
 }
 .testiBox{
+  width: 90%;
   margin-top: 20px;
   margin-right: 50px;
-  background-color: #0a0f1b;
-  border-radius: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: #0b0e14;
+  box-shadow: 20px 20px #161f35;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
+  margin-bottom: 10px;
+  font-style: italic;
 }
-
 .testimonialTitle {
   
   padding: 80px 50px 5px 0px;
@@ -58,8 +60,10 @@
 }
 
 .student{
+  margin-top: 40px;
+ 
+  text-align: right;
   width: 80%;
-  margin-top: 20px;
 }
 
 
@@ -92,7 +96,7 @@
 
   .testimonialDes {
     font-size: 16px;
-    padding: 30px 30px 15px 10px;
+    padding: 10px 10px 20px 0px;
   }
 
   .testimonialBtn {
@@ -116,13 +120,14 @@
     width: 100%;
     margin-top: 20px;
     margin-right: 50px;
-    background-color: #1f273a;
-    border-radius: 50px;
+    background-color: #0b0e14;
+    box-shadow: 10px 10px #161f35;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 30px;
     padding-right: 30px;
     margin-bottom: 10px;
+    font-style: italic;
   }
   
   .studentImage {
@@ -132,9 +137,12 @@
   }
   .student{
     margin-top: 20px;
-    font-weight: 600;
     font-size: 12px;
+    text-align: right;
+    width: 90%;
   }
 
+
+  
 
 }
