@@ -6,7 +6,7 @@
 
 }
 
-.flip{
+.flip {
   cursor: pointer;
 }
 
@@ -15,7 +15,7 @@
   height: 260px;
   border-radius: 4px;
   text-align: center;
-cursor: pointer;
+  cursor: pointer;
 }
 
 .back {
@@ -48,4 +48,22 @@ cursor: pointer;
 
 @media screen and (max-width: 1024px) {}
 
-@media screen and (max-width: 640px) {}
+@media screen and (max-width: 640px) {
+  .imageFront {
+    width: 370px;
+    height: 260px;
+   
+  }
+  
+  .back {
+    width: 370px;
+    height: 260px;
+   
+  }
+  
+  .textFront {
+    width: 370px;
+    height: 260px;
+   
+  }
+}
