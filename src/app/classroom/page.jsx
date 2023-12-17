@@ -64,7 +64,7 @@ const Classroom = ({ searchParams }) => {
     fetcher
   );
 
-  const count = postCount?.length;
+  const count = postCount?.count;
 
   const POST_PER_PAGE = 5;
 
@@ -98,7 +98,7 @@ const Classroom = ({ searchParams }) => {
 
       </select>
 
-      {postCount?.length > 0 ? (
+      {postCount?.count > 0 ? (
         <ResponsivePagination
           maxWidth={`50px`}
           current={currentPage}

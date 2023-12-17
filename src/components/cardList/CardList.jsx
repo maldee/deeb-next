@@ -34,7 +34,7 @@ const CardList = ({ page, cat }) => {
       // fetch data
 
       if(cat){
-        console.log("cat have "+cat)
+        
 
         const dataFetch = async () => {
           const postCount = await (
@@ -49,7 +49,7 @@ const CardList = ({ page, cat }) => {
         dataFetch();
 
       }else{
-        console.log("cat not have "+cat)
+        
 
         const dataFetch = async () => {
           const postCount = await (

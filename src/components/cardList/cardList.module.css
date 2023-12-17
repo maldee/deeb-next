@@ -31,7 +31,11 @@
   margin-bottom: 10px;
 }
 
-
+.skeletonCard{
+  width: 370px;
+  height: 250px;
+  
+}
 
 @media screen and (max-width: 1536px) and (min-width: 1280px)  {
 
@@ -65,7 +69,7 @@ margin-top: -30px;
   width: 360px !important;
 }
 
-.skeltongCardBody{
+.skeletonCardBody{
   display: none;
   
 }

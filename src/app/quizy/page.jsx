@@ -42,7 +42,7 @@ const Quizy = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch("/api/quizy/list",
+        await fetch(`/api/quizy/list?page=${currentPage}&query=${query}&subject=${selectedSubject}`,
         )
       ).json();
 
@@ -51,14 +51,14 @@ const Quizy = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, []);
+  }, [query,selectedSubject]);
 
   const { data, mutate, isLoading } = useSWR(
     `/api/quizy?page=${page}&query=${query}&subject=${selectedSubject}`,
     fetcher
   );
 
-  const count = postCount?.length;
+  const count = postCount?.count;
   
   const POST_PER_PAGE = 5;
 
@@ -92,20 +92,20 @@ const Quizy = ({ searchParams }) => {
 
       </select>
 
-      <div className={styles.paginationBar}>
+      {postCount?.count > 0 ? (
         <ResponsivePagination
           maxWidth={`50px`}
           current={currentPage}
           total={totalPages}
           onPageChange={setCurrentPage}
         />
-      </div>
+      ) : (null)}
 
       <div className={styles.quizyList}>
 
         {isLoading ?
           <QuizySkeleton count={5} />
-          : data?.quizes?.length > 0 ? (
+          : data?.quizes.length > 0 ? (
             data?.quizes?.map((item) => (
               <div key={item.id} className={styles.qCard}>
 

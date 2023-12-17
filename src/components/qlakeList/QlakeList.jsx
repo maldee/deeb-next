@@ -43,7 +43,7 @@ const QlakeList = ({ page }) => {
     };
 
     dataFetch();
-  }, []);
+  }, [query]);
 
   const { data, mutate, isLoading } = useSWR(
     `/api/qlake?page=${currentPage}&query=${query}`,
@@ -52,7 +52,7 @@ const QlakeList = ({ page }) => {
 
   const questions = data?.questions;
 
-  const count = postCount?.length;
+  const count = postCount?.count;
 
   const POST_PER_PAGE = 5;
 
@@ -68,7 +68,7 @@ const QlakeList = ({ page }) => {
 
       <div className={styles.paginationBar}>
         <h3 className={styles.title}>Questions</h3>
-        {count > 0 ? (
+        {postCount?.count > 0 ? (
           <ResponsivePagination
             maxWidth={`50px`}
             current={currentPage}

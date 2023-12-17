@@ -1,11 +1,47 @@
 import prisma from "../../../../utils/connect";
 import { NextResponse } from "next/server";
 
-export const GET = async () => {
-  try {
-    const quizes = await prisma.quizy.findMany();
+export const GET = async (req) => {
 
-    return new NextResponse(JSON.stringify(quizes, { status: 200 }));
+  const { searchParams } = new URL(req.url);
+
+  const page = searchParams.get("page");
+  const subject = searchParams.get('subject');
+  const searchQuery = searchParams.get('query');
+
+  const POST_PER_PAGE = 6;
+
+  const query = {
+    take: POST_PER_PAGE,
+    skip: POST_PER_PAGE * (page - 1),
+    where: {
+      OR: [
+        {
+          title: {
+            contains: searchQuery,
+            mode: 'insensitive', // Default value: default
+          },
+        },
+        {
+          subject: {
+            contains: subject,
+            mode: 'insensitive', // Default value: default
+          },
+        }
+      ]
+    },
+  };
+
+  try {
+    const [quizes, count, subjects] = await prisma.$transaction([
+      prisma.quizy.findMany(query),
+      prisma.quizy.count({ where: query.where }),
+      prisma.quizy.findMany({
+        where: {},
+        distinct: ['subject']
+      }),
+    ]);
+    return new NextResponse(JSON.stringify({ quizes, count, subjects }, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(
@@ -13,3 +49,4 @@ export const GET = async () => {
     );
   }
 };
+

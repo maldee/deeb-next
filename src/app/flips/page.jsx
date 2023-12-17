@@ -124,16 +124,7 @@ const Flips = ({ searchParams }) => {
 
       <div className={styles.flipList}>
         {isLoading ?
-          <TailSpin
-          height="40"
-          width="40"
-          color="#8a2be2"
-          ariaLabel="tail-spin-loading"
-          radius="1"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
+         <FlipsSkeleton count={5} />
           : data?.count > 0 ? (
 
             data?.flips?.map((item) => (
