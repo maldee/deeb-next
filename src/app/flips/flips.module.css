@@ -14,7 +14,7 @@
 }
   
   
-  .selectInput{
+.selectInputLesson{
     margin-right: 10px;
     width: 30%;
     border: 2px solid #0a0f1b;
@@ -26,6 +26,17 @@
     color: #ddd;
   }
 
+  .selectInputType{
+    margin-right: 10px;
+    width: 30%;
+    border: 2px solid #0a0f1b;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color:  #0a0f1b;
+    color: #ddd;
+  }
   
 .skeletonBody{
     margin-top: 15px;
@@ -61,9 +72,13 @@
 @media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 640px) {
-    .selectInput{
-        width: 45%;
+    .selectInputLesson{
+        width: 60%;
     }
+
+    .selectInputType{
+      width: 30%;
+  }
     .flipList {
         width: 100%;
         display: grid;

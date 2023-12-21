@@ -35,7 +35,7 @@ const Flips = ({ searchParams }) => {
 
   const page = parseInt(searchParams.page) || 1;
 
-  const [selectedLesson, setLesson] = useState('EPS B1 Lesson 3')
+  const [selectedLesson, setLesson] = useState('EPS B1 Lesson 03')
 
   const [selectedType, setType] = useState('VERB')
 
@@ -75,8 +75,8 @@ const Flips = ({ searchParams }) => {
   return (
     <div className={styles.container}>
 
-      <select className={styles.selectInput} name="lessons" id="lessons" onChange={e => setLesson(e.target.value)} value={selectedLesson}>
-        <option value='Select Lesson'>Select Lesson</option>
+      <select className={styles.selectInputLesson} name="lessons" id="lessons" onChange={e => setLesson(e.target.value)} value={selectedLesson}>
+        <option value='Select Lesson'>Lesson</option>
         {isLoading ?
           <TailSpin
             height="40"
@@ -94,8 +94,8 @@ const Flips = ({ searchParams }) => {
 
       </select>
 
-      <select className={styles.selectInput} name="types" id="types" onChange={e => setType(e.target.value)} value={selectedType}>
-        <option value='Select Type'>Select Type</option>
+      <select className={styles.selectInputType} name="types" id="types" onChange={e => setType(e.target.value)} value={selectedType}>
+        <option value='Select Type'>Type</option>
         {isLoading ?
           <TailSpin
           height="40"
