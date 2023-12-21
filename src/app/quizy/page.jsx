@@ -32,7 +32,7 @@ const fetcher = async (url) => {
 const Quizy = ({ searchParams }) => {
 
   const page = parseInt(searchParams.page) || 1;
-  const [selectedSubject, setSubject] = useState('Select Subject')
+  const [selectedSubject, setSubject] = useState('Korean')
 
   const [query, setQuery] = useState('')
   const [postCount, setData] = useState();

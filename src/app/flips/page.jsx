@@ -35,9 +35,9 @@ const Flips = ({ searchParams }) => {
 
   const page = parseInt(searchParams.page) || 1;
 
-  const [selectedLesson, setLesson] = useState('Select Lesson')
+  const [selectedLesson, setLesson] = useState('EPS B1 Lesson 3')
 
-  const [selectedType, setType] = useState('Select Type')
+  const [selectedType, setType] = useState('VERB')
 
   const [postCount, setData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
