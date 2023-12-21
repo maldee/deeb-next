@@ -56,6 +56,8 @@ a {
   --textColor: black;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
+  --textColorOpposite: #ddd;
+  --softBgInput: #c5c0c0;
 }
 
 .container {

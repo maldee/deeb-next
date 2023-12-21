@@ -44,7 +44,7 @@
   width: 60%;
   border-radius: 5px;
   padding: 20px;
-  background-color:#1D1D2D ;
+  background-color: var(--softBg) ;
   margin-bottom: 20px;
 }
 

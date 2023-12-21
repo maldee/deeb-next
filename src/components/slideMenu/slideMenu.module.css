@@ -9,7 +9,7 @@
 
 .slideMenuButtonActivated {
   width: 100%;
-  color: white;
+  color: var(--textColor);
   text-align: inherit;
   background-color: #775aec;
   border: none;
@@ -21,7 +21,7 @@
 
 .slideMenuButton {
   width: 100%;
-  color: white;
+  color: var(--textColor);
   text-align: inherit;
   background-color: transparent;
   border: none;

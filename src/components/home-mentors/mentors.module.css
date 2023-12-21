@@ -36,6 +36,7 @@
 }
 
 .mentorDetails {
+  color: var(--textColorOpposite);
   margin: 20px;
 }
 
