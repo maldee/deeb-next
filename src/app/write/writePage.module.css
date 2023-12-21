@@ -5,14 +5,18 @@
 }
 
 .select{
-  margin-bottom: 50px;
-  padding: 10px 20px;
-  margin-left: 50px;
-  width: max-content;
+  width: 50%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color:  #0a0f1b;
+  color: #ddd;
 }
 
 .editor {
-  display: flex;
+  display: block;
   gap: 20px;
   height: 700px;
   position: relative;
@@ -29,6 +33,8 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  margin-top: 10px;
+  margin-left: 10px
 }
 
 .addButton {
@@ -47,8 +53,9 @@
 }
 
 .input{
-  padding: 50px;
-  font-size: 64px;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 34px;
   border: none;
   outline: none;
   background-color: transparent;
@@ -60,6 +67,7 @@
 }
 
 .textArea {
+  margin-top: 10px;
   width: 100%;
 }
 
@@ -73,4 +81,37 @@
   color: white;
   cursor: pointer;
   border-radius: 20px;
+}
+@media screen and (max-width: 1536px) and (min-width: 1280px) {}
+
+@media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 640px) {
+
+  .select{
+    width: 100%;
+    border: 2px solid #0a0f1b;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color:  #0a0f1b;
+    color: #ddd;
+  }
+
+  .input{
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 34px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--textColor);
+  }
+
+  .textArea {
+    margin-top: 10px;
+  }
 }

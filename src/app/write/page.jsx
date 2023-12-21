@@ -89,7 +89,18 @@ const WritePage = () => {
   }, [file]);
 
   if (status === "loading") {
-    return <div className={styles.loading}>Loading...</div>;
+    return <div className={styles.loading}>
+      <TailSpin
+        height="40"
+        width="40"
+        color="#8a2be2"
+        ariaLabel="tail-spin-loading"
+        radius="1"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+      </div>;
   }
 
   if (status === "unauthenticated") {
@@ -130,6 +141,7 @@ const WritePage = () => {
         className={styles.input}
         onChange={(e) => setTitle(e.target.value)}
       />
+     
       <select className={styles.select} onChange={(e) => setCatSlug(e.target.value)}>
       {isLoading ?
           <TailSpin
@@ -147,30 +159,18 @@ const WritePage = () => {
           ))}
       </select>
       <div className={styles.editor}>
-        <button className={styles.button} onClick={() => setOpen(!open)}>
-          <Image src="/plus.png" alt="" width={16} height={16} />
-        </button>
-        {open && (
-          <div className={styles.add}>
-            <input
+      <input
               type="file"
               id="image"
               onChange={(e) => setFile(e.target.files[0])}
               style={{ display: "none" }}
             />
-            <button className={styles.addButton}>
-              <label htmlFor="image">
+        <button className={styles.button}>
+        <label htmlFor="image">
                 <Image src="/image.png" alt="" width={16} height={16} />
               </label>
-            </button>
-            <button className={styles.addButton}>
-              <Image src="/external.png" alt="" width={16} height={16} />
-            </button>
-            <button className={styles.addButton}>
-              <Image src="/video.png" alt="" width={16} height={16} />
-            </button>
-          </div>
-        )}
+        </button>
+        
         <ReactQuill
           className={styles.textArea}
           theme="bubble"
