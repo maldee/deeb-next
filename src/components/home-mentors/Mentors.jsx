@@ -13,7 +13,7 @@ const Mentors = () => {
             <Image className={styles.mentorImage} src="/gihan.jpg" alt="Avatar" width={300} height={230} />
             <div className={styles.mentorDetails}>
                 <h4><b>Gihan</b></h4>
-                <p>Architect & Engineer</p>
+                <p>Founder & CEO</p>
             </div>
 
 
