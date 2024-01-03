@@ -37,7 +37,7 @@ const Flips = ({ searchParams }) => {
 
   const [selectedLesson, setLesson] = useState('EPS B1 Lesson 03')
 
-  const [selectedType, setType] = useState('VERB')
+  const [selectedType, setType] = useState('VOCABULARY')
 
   const [postCount, setData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
