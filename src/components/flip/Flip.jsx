@@ -23,7 +23,7 @@ const Flip = ({ key, item }) => {
           </div>
         )}
 
-        {item.front.includes('http') ? (
+        {item.back.includes('http') ? (
           <div className={styles.imageBack} >
             <Image src={item.back} alt="" fill className={styles.front} onClick={() => setFlip(!flip)} />
           </div>
