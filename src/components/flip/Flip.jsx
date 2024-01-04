@@ -23,11 +23,17 @@ const Flip = ({ key, item }) => {
           </div>
         )}
 
-        <div className={styles.back} onClick={() => setFlip(!flip)}>
-          {item.back}
-          <br />
+        {item.front.includes('http') ? (
+          <div className={styles.imageBack} >
+            <Image src={item.back} alt="" fill className={styles.front} onClick={() => setFlip(!flip)} />
+          </div>
+        ) : (
+          <div className={styles.back} onClick={() => setFlip(!flip)}>
+            {item.back}
+            <br />
 
-        </div>
+          </div>
+        )}
       </ReactCardFlip>
 
     </div>
