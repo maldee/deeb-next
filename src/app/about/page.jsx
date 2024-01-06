@@ -13,7 +13,7 @@ export default function Qlake({ searchParams }) {
     <div className={styles.container}>
       <div className={styles.logoContainer}>
         <img className={styles.logo} src="./deeflow_logo.jpg" />
-        <h2 className={styles.vision}>The Best Online Education Platform</h2>
+        <h4 className={styles.vision}>The Best Online Education Platform</h4>
         <span className={styles.sections}>Powered by world&apos;s top JavaScript frameworks</span>
       </div>
       <br/>
