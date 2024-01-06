@@ -14,7 +14,6 @@ export default function Qlake({ searchParams }) {
       <div className={styles.logoContainer}>
         <img className={styles.logo} src="./deeflow_logo.jpg" />
         <h4 className={styles.vision}>Flow to the next world</h4>
-        <span className={styles.sections}>Powered by world&apos;s top JavaScript frameworks</span>
       </div>
       <br/>
       <div className={styles.container}>
