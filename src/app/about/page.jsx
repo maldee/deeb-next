@@ -13,11 +13,10 @@ export default function Qlake({ searchParams }) {
     <div className={styles.container}>
       <div className={styles.logoContainer}>
         <img className={styles.logo} src="./deeflow_logo.jpg" />
-        <h1 className={styles.vision}>The Best Online Education Platform</h1>
-
-        <h2 className={styles.sections}>🏹 🎨 🎬 🏈 👩‍🎓 👨‍🏫 👩‍🍳 👪 💼</h2>
+        <h2 className={styles.vision}>The Best Online Education Platform</h2>
         <span className={styles.sections}>Powered by world&apos;s top JavaScript frameworks</span>
       </div>
+      <br/>
       <div className={styles.container}>
         <h1 className={styles.subTitle}>About Deeflow</h1>
         <span className={styles.aboutDesc} >Deeflow is an Sri Lankan online education platform on which students can access tutorials and lectures pre-recorded by experts in various fields. This site is developed & maintained by a small team with a passion for sharing knowledge with students in Sri Lanka. The purpose of this website is to help Sri Lankans as well as visitors to reach their educational goals. Therefore we have attempted to provide accurate & maximum details of each subject, lesson, and exam.</span>
