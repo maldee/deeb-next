@@ -27,7 +27,7 @@ const Chatbits = ({ searchParams }) => {
 
   const page = parseInt(searchParams.page) || 1;
 
-  const [selectedCategory, setCategory] = useState('NOUN')
+  const [selectedCategory, setCategory] = useState('Select Category')
   const [query, setQuery] = useState('')
 
   const [postCount, setData] = useState();
@@ -60,16 +60,25 @@ const Chatbits = ({ searchParams }) => {
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
 
+  function handleCategory(e){
+    setCategory(e.target.value)
+    setQuery(null)
+  }
+
+  function handleSearch(e){
+    setQuery(e.target.value)
+    setCategory('Select Category')
+  }
 
   return (
     <div className={styles.container}>
-      <input className={styles.searchInput} type="text" placeholder="Search phrase..." value={query} onChange={(e) => setQuery(e.target.value)} />
+      <input className={styles.searchInput} type="text" placeholder="Search phrase..." value={query} onChange={handleSearch} />
 
       <button className={styles.searchIcon}>
         <FaSearch />
       </button>
 
-      <select className={styles.selectInput} name="categories" id="categories" onChange={e => setCategory(e.target.value)} value={selectedCategory}>
+      <select className={styles.selectInput} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
         <option value='Select Category'>Select Category</option>
         {isLoading ?
           <TailSpin

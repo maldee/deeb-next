@@ -33,20 +33,18 @@ export const GET = async (req) => {
             mode: 'insensitive', // Default value: default
           },
         },
-      ],
-      AND:[
         {
-        category: {
-          contains: category,
-          mode: 'insensitive', 
+          category: {
+            contains: category,
+            mode: 'insensitive',
+          }
         }
-      }
-    ]
+      ]
     },
   };
 
   try {
-    const [phrases, count,categories] = await prisma.$transaction([
+    const [phrases, count, categories] = await prisma.$transaction([
       prisma.chatbits.findMany(query),
       prisma.chatbits.count({ where: query.where }),
       prisma.chatbits.findMany({
@@ -54,7 +52,7 @@ export const GET = async (req) => {
         distinct: ['category']
       }),
     ]);
-    return new NextResponse(JSON.stringify({ phrases, count,categories }, { status: 200 }));
+    return new NextResponse(JSON.stringify({ phrases, count, categories }, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(
