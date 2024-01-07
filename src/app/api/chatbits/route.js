@@ -33,15 +33,15 @@ export const GET = async (req) => {
             mode: 'insensitive', // Default value: default
           },
         },
+      ],
+      OR:[
         {
-          category: {
-            contains: category,
-            mode: 'insensitive', 
-          }
+        category: {
+          contains: category,
+          mode: 'insensitive', 
         }
-        
-      ]
-      
+      }
+    ]
     },
   };
 

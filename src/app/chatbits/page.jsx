@@ -27,7 +27,7 @@ const Chatbits = ({ searchParams }) => {
 
   const page = parseInt(searchParams.page) || 1;
 
-  const [selectedCategory, setCategory] = useState('Select Category')
+  const [selectedCategory, setCategory] = useState('NOUN')
   const [query, setQuery] = useState('')
 
   const [postCount, setData] = useState();
