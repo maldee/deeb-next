@@ -34,7 +34,7 @@ export const GET = async (req) => {
           },
         },
       ],
-      OR:[
+      AND:[
         {
         category: {
           contains: category,
