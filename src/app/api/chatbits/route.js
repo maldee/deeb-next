@@ -34,6 +34,12 @@ export const GET = async (req) => {
           },
         },
         {
+          example: {
+            contains: searchQuery,
+            mode: 'insensitive', // Default value: default
+          },
+        },
+        {
           category: {
             contains: category,
             mode: 'insensitive',
