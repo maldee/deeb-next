@@ -146,6 +146,7 @@ model Chatbits {
   eng_p         String
   phrase        String
   note          String
+  example       String   
   category      String
   situation     String
   language      String

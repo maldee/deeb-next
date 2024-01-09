@@ -114,7 +114,10 @@ const Chatbits = ({ searchParams }) => {
               <div key={item.id} className={styles.container}>
                 <ul className={styles.chatCard}>
                   <h3 key={item.id}>{item.phrase}</h3>
-                  <h4>{item.eng_p}</h4>
+                  <h4 className={styles.engp}>{item.eng_p}</h4>
+                  <hr className={styles.horiLine}/>
+                  <h4 className={styles.example}>{item.example.split('-')[0]}</h4>
+                  <h4 className={styles.example}>{item.example.split('-')[1]}</h4>
                   <h6 className={styles.chatcat}>{item.category} | {item.language}</h6>
                 </ul>
               </div>
