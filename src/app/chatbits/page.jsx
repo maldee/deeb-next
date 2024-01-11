@@ -158,8 +158,6 @@ const Chatbits = ({ searchParams }) => {
                     </div>
                     : null
                   }
-
-
                 </ul>
               </div>
 
