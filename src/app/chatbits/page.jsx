@@ -11,6 +11,7 @@ import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
 
+
 const fetcher = async (url) => {
   const res = await fetch(url);
 
@@ -34,6 +35,8 @@ const Chatbits = ({ searchParams }) => {
   const [postCount, setData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
+
+
   useEffect(() => {
     // fetch data
     const dataFetch = async () => {
@@ -47,7 +50,7 @@ const Chatbits = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedCategory,selectedAbbreviation]);
+  }, [query, selectedCategory, selectedAbbreviation]);
 
 
   const { data, mutate, isLoading } = useSWR(
@@ -61,19 +64,19 @@ const Chatbits = ({ searchParams }) => {
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
 
-  function handleCategory(e){
+  function handleCategory(e) {
     setCategory(e.target.value)
     setAbbreviation('Select Abbreviation')
     setQuery(null)
   }
 
-  function handleAbbreviation(e){
+  function handleAbbreviation(e) {
     setAbbreviation(e.target.value)
     setCategory('Select Category')
     setQuery(null)
   }
 
-  function handleSearch(e){
+  function handleSearch(e) {
     setQuery(e.target.value)
     setCategory('Select Category')
     setAbbreviation('Select Abbreviation')
@@ -143,10 +146,20 @@ const Chatbits = ({ searchParams }) => {
                 <ul className={styles.chatCard}>
                   <h3 key={item.id}>{item.phrase}</h3>
                   <h4 className={styles.engp}>{item.eng_p}</h4>
-                  <hr className={styles.horiLine}/>
+                  <hr className={styles.horiLine} />
                   <h4 className={styles.example}>{item.example.split('-')[0]}</h4>
                   <h4 className={styles.example}>{item.example.split('-')[1]}</h4>
                   <h6 className={styles.chatcat}>{item.category} | {item.language}</h6>
+
+                  {item.note != 'None' ?
+                    <div>
+                      <p className={styles.diff}>{'Differences ❕'}</p>
+                      <p className={styles.diffText}>{item.note}</p>
+                    </div>
+                    : null
+                  }
+
+
                 </ul>
               </div>
 

@@ -8,6 +8,27 @@
   grid-template-columns: 1fr;
 }
 
+.diffText{
+  background-color: rgba(220, 20, 60, 0.178);
+  font-size: small;
+ 
+  padding: 5px;
+  color: #fff;
+  width: fit-content;
+ 
+  
+}
+.diff{
+  background-color: crimson;
+  font-size: small;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 5px;
+  color: #fff;
+  width: fit-content;
+  margin-top: 15px;
+ 
+}
 .searchIcon {
   border: 2px solid #17A2B8;
   background-color: #17A2B8;
