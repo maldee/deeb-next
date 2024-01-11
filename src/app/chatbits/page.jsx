@@ -28,6 +28,7 @@ const Chatbits = ({ searchParams }) => {
   const page = parseInt(searchParams.page) || 1;
 
   const [selectedCategory, setCategory] = useState('Select Category')
+  const [selectedAbbreviation, setAbbreviation] = useState('Select Abbreviation')
   const [query, setQuery] = useState('')
 
   const [postCount, setData] = useState();
@@ -37,7 +38,7 @@ const Chatbits = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}`,
+        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}`,
         )
       ).json();
 
@@ -46,11 +47,11 @@ const Chatbits = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedCategory]);
+  }, [query, selectedCategory,selectedAbbreviation]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}`,
+    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}`,
     fetcher
   );
 
@@ -62,6 +63,11 @@ const Chatbits = ({ searchParams }) => {
 
   function handleCategory(e){
     setCategory(e.target.value)
+    setQuery(null)
+  }
+
+  function handleAbbreviation(e){
+    setAbbreviation(e.target.value)
     setQuery(null)
   }
 
@@ -78,7 +84,7 @@ const Chatbits = ({ searchParams }) => {
         <FaSearch />
       </button>
 
-      <select className={styles.selectInput} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
+      <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
         <option value='Select Category'>Select Category</option>
         {isLoading ?
           <TailSpin
@@ -93,6 +99,25 @@ const Chatbits = ({ searchParams }) => {
           />
           : data?.categories?.map((item) => (
             <option key={item.id} value={item.category}>{item.category}</option>
+          ))}
+
+      </select>
+
+      <select className={styles.selectInputAbbreviation} name="abbreviations" id="abbreviations" onChange={handleAbbreviation} value={selectedAbbreviation}>
+        <option value='Select Abbreviation'>Select Abbreviation</option>
+        {isLoading ?
+          <TailSpin
+            height="40"
+            width="40"
+            color="#8a2be2"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+          : data?.abbreviations?.map((item) => (
+            <option key={item.id} value={item.abbreviation}>{item.abbreviation}</option>
           ))}
 
       </select>

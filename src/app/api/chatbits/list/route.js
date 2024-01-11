@@ -7,6 +7,7 @@ export const GET = async (req) => {
   const page = searchParams.get("page");
   const searchQuery = searchParams.get('query');
   const category = searchParams.get('category');
+  const abbreviation = searchParams.get('abbreviation');
 
   const POST_PER_PAGE = 10;
 
@@ -44,6 +45,12 @@ export const GET = async (req) => {
             contains: category,
             mode: 'insensitive',
           }
+        },
+        {
+          abbreviation: {
+            contains: abbreviation,
+            mode: 'insensitive',
+          }
         }
       ]
 
@@ -51,15 +58,19 @@ export const GET = async (req) => {
   };
 
   try {
-    const [phrases, count, categories] = await prisma.$transaction([
+    const [phrases, count, categories,abbreviations] = await prisma.$transaction([
       prisma.chatbits.findMany(query),
       prisma.chatbits.count({ where: query.where }),
       prisma.chatbits.findMany({
         where: {},
         distinct: ['category']
       }),
+      prisma.chatbits.findMany({
+        where: {},
+        distinct: ['abbreviation']
+      }),
     ]);
-    return new NextResponse(JSON.stringify({ phrases, count, categories }, { status: 200 }));
+    return new NextResponse(JSON.stringify({ phrases, count, categories,abbreviations }, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(
