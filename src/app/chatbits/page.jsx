@@ -63,17 +63,20 @@ const Chatbits = ({ searchParams }) => {
 
   function handleCategory(e){
     setCategory(e.target.value)
+    setAbbreviation('Select Abbreviation')
     setQuery(null)
   }
 
   function handleAbbreviation(e){
     setAbbreviation(e.target.value)
+    setCategory('Select Category')
     setQuery(null)
   }
 
   function handleSearch(e){
     setQuery(e.target.value)
     setCategory('Select Category')
+    setAbbreviation('Select Abbreviation')
   }
 
   return (
