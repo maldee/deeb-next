@@ -5,10 +5,9 @@ import Footer from "../components/footer/Footer";
 import { ThemeContextProvider } from "../context/ThemeContext";
 import ThemeProvider from "../providers/ThemeProvider";
 import AuthProvider from "../providers/AuthProvider";
-import ReactGA from 'react-ga4'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ["latin"] });
-ReactGA.initialize("G-LFHZ053M0Z");
 
 export const metadata = {
   title: "Deeflow - Flow to the next world",
@@ -18,6 +17,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-LFHZ053M0Z" />
       <body className={inter.className}>
         <AuthProvider>
           <ThemeContextProvider>
