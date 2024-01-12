@@ -73,11 +73,11 @@
 
 @media screen and (max-width: 640px) {
     .selectInputLesson{
-        width: 60%;
+        width: 100%;
     }
 
     .selectInputType{
-      width: 30%;
+      width: 100%;
   }
     .flipList {
         width: 100%;

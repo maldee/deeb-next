@@ -76,7 +76,7 @@ const Flips = ({ searchParams }) => {
     <div className={styles.container}>
 
       <select className={styles.selectInputLesson} name="lessons" id="lessons" onChange={e => setLesson(e.target.value)} value={selectedLesson}>
-        <option value='Select Lesson'>Lesson</option>
+        <option value='Select Lesson'>Select Lesson</option>
         {isLoading ?
           <TailSpin
             height="40"
@@ -95,7 +95,7 @@ const Flips = ({ searchParams }) => {
       </select>
 
       <select className={styles.selectInputType} name="types" id="types" onChange={e => setType(e.target.value)} value={selectedType}>
-        <option value='Select Type'>Type</option>
+        <option value='Select Type'>Select Type</option>
         {isLoading ?
           <TailSpin
           height="40"
