@@ -10,7 +10,7 @@ export default function Blog({ searchParams }) {
 
   return (
     <div className={styles.container}>
-      <GoogleTagManager gaId="G-LFHZ053M0Z" />
+      <GoogleTagManager gtmId="G-LFHZ053M0Z" />
       <div className={styles.postList}>
         <SlideMenu />
         <div className={styles.postGrid}>
