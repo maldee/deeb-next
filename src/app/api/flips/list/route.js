@@ -32,7 +32,13 @@ export const GET = async (req) => {
       prisma.flips.count({ where: query.where }),
       prisma.flips.findMany({
         where: {},
-        distinct: ['lesson']
+        distinct: ['lesson'],
+        orderBy: [
+          {
+            lesson: 'asc',
+          },
+        ],
+        
       }),
       prisma.flips.findMany({
         where: {},
