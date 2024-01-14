@@ -3,7 +3,7 @@ import Featured from "../../components/featured/Featured";
 import CardList from "../../components/cardList/CardList";
 import Menu from "../../components/Menu/Menu";
 import SlideMenu from "../../components/slideMenu/slideMenu";
-import { GoogleTagManager  } from '@next/third-parties/google'
+import { GoogleTagManager  } from "@next/third-parties/google";
 
 export default function Blog({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;

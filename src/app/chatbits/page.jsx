@@ -10,7 +10,7 @@ import React, { useState, useEffect } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
-
+import { GoogleTagManager  } from "@next/third-parties/google";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -84,6 +84,7 @@ const Chatbits = ({ searchParams }) => {
 
   return (
     <div className={styles.container}>
+      <GoogleTagManager gtmId="G-LFHZ053M0Z" />
       <input className={styles.searchInput} type="text" placeholder="Search phrase..." value={query} onChange={handleSearch} />
 
       <button className={styles.searchIcon}>

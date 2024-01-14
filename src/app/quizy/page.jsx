@@ -11,6 +11,7 @@ import React, { useState, useEffect } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
+import { GoogleTagManager  } from "@next/third-parties/google";
 
 // export const metadata = {
 //   title: "Quizy | Deeflow",
@@ -67,6 +68,7 @@ const Quizy = ({ searchParams }) => {
   return (
 
     <div className={styles.container}>
+      <GoogleTagManager gtmId="G-LFHZ053M0Z" />
       <input className={styles.searchInput} type="text" placeholder="Search quiz..." onChange={(e) => setQuery(e.target.value)} />
 
       <button className={styles.searchIcon}>
