@@ -54,7 +54,7 @@ const QlakeList = ({ page }) => {
 
   const count = postCount?.count;
 
-  const POST_PER_PAGE = 5;
+  const POST_PER_PAGE = 6;
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
 
