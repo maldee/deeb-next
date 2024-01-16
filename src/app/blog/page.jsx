@@ -5,6 +5,11 @@ import Menu from "../../components/Menu/Menu";
 import SlideMenu from "../../components/slideMenu/slideMenu";
 import { GoogleTagManager  } from "@next/third-parties/google";
 
+export const metadata = {
+  title: "Blog | Deeflow",
+  description: "Discover and read articles from writers on any topic",
+};
+
 export default function Blog({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
 

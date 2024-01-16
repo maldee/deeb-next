@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export const metadata = {
   title: "About | Deeflow",
-  description: "About deeflow",
+  description: "The largest online education platform in Sri lanka",
 };
 
-export default function Qlake({ searchParams }) {
+export default function About({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
 
   return (
