@@ -11,9 +11,10 @@ const Card = ({ key, item }) => {
           <a href={`/posts/${item.slug}`} className={styles.linkMuted}>
             <Image src={item.img} alt="" fill className={styles.image} />
           </a>
-
         </div>
       )}
+
+
       <div className={styles.textContainer}>
        
         <Link key={key} href={`/posts/${item.slug}`}>
@@ -42,6 +43,7 @@ const Card = ({ key, item }) => {
             <a href={`/posts/${item.slug}`} className={styles.linkMuted}>
               <Image src={item.img} alt="" fill className={styles.image} />
             </a>
+           
           </div>
         )}
 
