@@ -74,10 +74,9 @@ const CardList = ({ page, cat }) => {
     fetcher
   );
 
- 
   const posts  = data?.posts;
   
-  const count = postCount?.length;
+  const count = postCount?.count;
   
   const POST_PER_PAGE = 5;
 
@@ -86,12 +85,14 @@ const CardList = ({ page, cat }) => {
   return (
     <div className={styles.container}>
       <div className={styles.paginationBar}>
+      {postCount?.count > 0 ? (
         <ResponsivePagination
           maxWidth={`50px`}
           current={currentPage}
           total={totalPages}
           onPageChange={setCurrentPage}
         />
+        ) : (null)}
       </div>
       <div className={styles.posts}>
         {isLoading ? 
