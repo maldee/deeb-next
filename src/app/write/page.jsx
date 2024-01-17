@@ -122,7 +122,7 @@ const WritePage = () => {
         title,
         desc: value,
         img: media,
-        slug: slugify(title),
+        slug: title.replace(/ /g, '-'),
         catSlug: catSlug || "style", //If not selected, choose the general category
       }),
     });
