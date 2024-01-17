@@ -7,7 +7,7 @@ export const GET = async (req) => {
 
   const cat = searchParams.get("cat");
  
-  const posts = await prisma.post.findMany({
+  const count = await prisma.post.count({
     where: {
       catSlug: {
         equals: cat, // Default mode
@@ -17,7 +17,7 @@ export const GET = async (req) => {
 
   try {
    
-    return new NextResponse(JSON.stringify(posts, { status: 200 }));
+    return new NextResponse(JSON.stringify({count}, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(
