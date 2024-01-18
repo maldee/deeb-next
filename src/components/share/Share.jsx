@@ -1,13 +1,13 @@
-'use client'
+"use client";
 
-import styles from "./socialshare.module.css";
+import styles from "./share.module.css";
 import {
     FacebookShareButton, FacebookIcon, LinkedinShareButton,
     LinkedinIcon, WhatsappShareButton,
     WhatsappIcon,
 } from 'next-share'
 
-const SocialShare = ({ slug, catSlug }) => {
+const Share = ({ slug, catSlug }) => {
 
     return (
 
@@ -33,4 +33,4 @@ const SocialShare = ({ slug, catSlug }) => {
     );
 };
 
-export default SocialShare;
+export default Share;

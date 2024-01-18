@@ -1,7 +1,7 @@
 import styles from "./viewPostPage.module.css";
 import Image from "next/image";
 import Comments from "../../../components/comments/Comments";
-import SocialShare from "../../../components/socialShare/SocialShare";
+import SocialShare from "../../../components/share/Share";
 
 const getData = async (slug) => {
   const res = await fetch(process.env.NEXTAUTH_URL + `/api/posts/${slug}`, {
