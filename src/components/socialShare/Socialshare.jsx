@@ -7,7 +7,7 @@ import {
     WhatsappIcon,
 } from 'next-share'
 
-export default function SocialShare({ slug, catSlug }) {
+const SocialShare = ({ slug, catSlug }) => {
 
     return (
 
@@ -33,3 +33,4 @@ export default function SocialShare({ slug, catSlug }) {
     );
 };
 
+export default SocialShare;
