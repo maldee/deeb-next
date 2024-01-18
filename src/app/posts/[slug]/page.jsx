@@ -1,6 +1,7 @@
 import styles from "./viewPostPage.module.css";
 import Image from "next/image";
 import Comments from "../../../components/comments/Comments";
+import SocialShare from "../../../components/socialShare/SocialShare";
 
 const getData = async (slug) => {
   const res = await fetch(process.env.NEXTAUTH_URL + `/api/posts/${slug}`, {
@@ -15,7 +16,7 @@ const getData = async (slug) => {
 };
 
 const SinglePage = async ({ params }) => {
- 
+
   const { slug } = params;
 
   const data = await getData(slug);
@@ -51,9 +52,12 @@ const SinglePage = async ({ params }) => {
           />
         </div>
       </div>
+
+      <SocialShare slug={data.slug} catSlug={data.catSlug}  />
+
       <div className={styles.comment}>
-            <Comments postSlug={slug} />
-          </div>
+        <Comments postSlug={slug} />
+      </div>
     </div>
   );
 };
@@ -67,7 +71,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: data?.title,
       images: [{ url: data.img }],
-      siteName: 'Next.js',
+      siteName: 'deeflow.com',
       type: 'website',
     }
   };
