@@ -10,6 +10,7 @@
 
 .quizyList div {
   max-width: 800px;
+  margin: 1px;
 }
 
 .quizyList div div {
