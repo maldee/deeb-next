@@ -113,7 +113,7 @@ const Quizy = ({ searchParams }) => {
 
                 <Link className={styles.quizLink} key={item.id} href={`/quizy/${item.id}`} >
                   <h4>{item.title}</h4>
-                  <h5>{item.quiz.quizSynopsis}</h5>
+                  <h5 className={styles.qCategory}>{item.quiz.quizSynopsis}</h5>
                 </Link>
 
               </div>
