@@ -5,7 +5,42 @@
 .quizyList {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 1fr ;
+  grid-template-columns: 1fr;
+}
+
+.quizyList div {
+  max-width: 800px;
+}
+
+.quizyList div div {
+  border: 0px solid #e8e8e8 !important;
+}
+
+.quizyList div div h3 {
+  background-color: #0a0f1b !important;
+  color: #fff !important;
+  margin: 0px !important;
+  margin-top: 10px !important;
+  padding: 10px !important;
+}
+
+.quizyList div div button {
+  border: 0px solid #e8e8e8 !important;
+
+}
+
+.quizyList div div {
+  
+  
+}
+
+.quizyList .react-quiz-container .result-answer-wrapper h3 {
+  background-color: transparent;
+  color: #fff;
+}
+
+.quizyList h3 {
+  margin-top: 15px;
 }
 
 .slideMenuButtonActivated {
@@ -20,14 +55,14 @@
   cursor: pointer;
 }
 
-.react-quiz-container{
+.react-quiz-container {
   padding: 20px;
   border-radius: 10px;
   background-color: #1f273a;
-  }
+}
 
-  
-.skeletonBody{
+
+.skeletonBody {
   margin-top: 15px;
   display: grid;
   grid-gap: 50px;
@@ -35,21 +70,21 @@
   padding-bottom: 10px;
 }
 
-.skeletonItem{
+.skeletonItem {
   width: 350px;
   height: 250px;
 }
 
-@media screen and (max-width: 1536px) and (min-width: 1280px)  {
- 
+@media screen and (max-width: 1536px) and (min-width: 1280px) {
 
-  .quizyList iframe{
+
+  .quizyList iframe {
     width: 600px;
     height: 330px;
-   
+
   }
 
-  .skeletonBody{
+  .skeletonBody {
     margin-top: 15px;
     display: grid;
     grid-gap: 50px;
@@ -57,7 +92,7 @@
     padding-bottom: 10px;
   }
 
-  .skeletonItem{
+  .skeletonItem {
     width: 350px !important;
     height: 250px;
   }
@@ -65,39 +100,38 @@
 }
 
 
-@media screen and (max-width: 1280px) {
-  
+@media screen and (max-width: 1280px) {}
 
-}
-
-@media screen and (max-width: 1024px) {
- 
-}
+@media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 640px) {
 
-  
+
   .quizyList {
-    grid-template-columns: 1fr ;
-    
+    grid-template-columns: 1fr;
+
 
   }
 
-  .quizyList iframe{
+  .quizyList div div h2 {
+    font-size: 18px;
+  }
+
+  .quizyList iframe {
     width: 100%;
     height: 200px;
-   
+
   }
 
-  .skeletonItem{
+  .skeletonItem {
     width: 100%;
     height: 250px;
   }
-  
-  .skeletonBody{
+
+  .skeletonBody {
     display: grid;
     grid-gap: 30px;
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
     padding-bottom: 10px;
   }
 
