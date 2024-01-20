@@ -114,9 +114,14 @@
 
   .quizyList {
     grid-template-columns: 1fr;
-
-
   }
+
+  .quizyList div div img {
+    height: fit-content !important;
+    width: fit-content !important;
+    margin-top: 10px;
+  }
+  
 
   .quizyList div div h2 {
     font-size: 18px;
