@@ -39,8 +39,8 @@ console.log("quizid "+data)
 
     <div className={styles.quizyList}>
 
-      <Link href="/quizy">
-        <button className={styles.slideMenuButtonActivated} >{'Back to Quizes'}</button>
+      <Link href="/quizy" className={styles.slideMenuButtonActivated}>
+        {'< Back to Quizes'}
       </Link>
 
       {isLoading
