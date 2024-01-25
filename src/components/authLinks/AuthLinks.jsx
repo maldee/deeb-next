@@ -25,8 +25,6 @@ const AuthLinks = () => {
           wrapperStyle={{}}
           wrapperClass=""
         />
-
-
         : status === "unauthenticated" ? (
           <Link href="/login" className={styles.link}>
             Login
