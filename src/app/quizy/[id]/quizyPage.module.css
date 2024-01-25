@@ -52,13 +52,13 @@
 
 .slideMenuButtonActivated {
   margin-top: 10px !important;
-  margin-bottom: 40px !important;
+  margin-bottom: 30px !important;
   width: 150px;
   color: white;
   text-align: inherit;
   background-color: #775aec;
   border: none;
-  border-radius: 5px;
+  border-radius: 7px;
   margin: 5px;
   padding: 5px;
   cursor: pointer;
