@@ -23,7 +23,7 @@ const AuthLinks = () => {
           radius="9"
           ariaLabel="three-dots-loading"
           wrapperStyle={{}}
-          wrapperClass=""
+          wrapperClass={styles.threedots}
         />
         : status === "unauthenticated" ? (
           <Link href="/login" className={styles.link}>
@@ -63,18 +63,28 @@ const AuthLinks = () => {
           </div>
 
 
+          {status === "loading" ?
+            <ThreeDots
+              visible={true}
+              height="20"
+              width="50"
+              color="#5778AC"
+              radius="9"
+              ariaLabel="three-dots-loading"
+              wrapperStyle={{}}
+              wrapperClass={styles.threedotsmobile}
+            />
+            : status === "unauthenticated" ? (
+              <Link className={styles.authLinkMain} onClick={toggle} href="/login">Login</Link>
+            ) : (
+              <>
+                <Link className={styles.authLinkMain} onClick={toggle} href="/write">✏️ Write</Link>
+                <Link href="/" className={styles.authLinkLogout} onClick={signOut}>
+                  Logout
+                </Link>
 
-          {status === "unauthenticated" ? (
-            <Link className={styles.authLinkMain} onClick={toggle} href="/login">Login</Link>
-          ) : (
-            <>
-              <Link className={styles.authLinkMain} onClick={toggle} href="/write">✏️ Write</Link>
-              <Link href="/" className={styles.authLinkLogout} onClick={signOut}>
-                Logout
-              </Link>
-
-            </>
-          )}
+              </>
+            )}
         </div>
       )}
     </>
