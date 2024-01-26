@@ -33,7 +33,6 @@ const QuizyStart = () => {
     fetcher
   );
 
-console.log("quizid "+data)
   return (
 
 
