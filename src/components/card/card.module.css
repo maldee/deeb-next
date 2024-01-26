@@ -133,10 +133,6 @@
     padding: 20px;
   }
 
-  .mobileImageContainer{
-    width: 360px;
-  }
-
   .mobileImageContainer img{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px
