@@ -44,22 +44,7 @@
   padding: 2px 0px;
 }
 
-.mobileCard {
-  display: flex;
-  flex-direction: column;
-}
 
-.mobileImageContainer {
-  flex-wrap: wrap;
-  height: 250px;
-  position: relative;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.mobileTextContainer {
-  flex: 2;
-}
 
 .linkMuted{
   text-decoration: none;
@@ -116,6 +101,22 @@
     color: #fff;
   }
 
+  .mobileCard {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mobileImageContainer {
+    flex-wrap: wrap;
+    height: 250px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .mobileTextContainer {
+    flex: 2;
+  }
   
   .imageContainer {
     display: none;
@@ -143,4 +144,15 @@
   }
 
 
+}
+
+@media screen and (max-width: 390px) {
+  .container{
+    margin-top: 40px;
+    background-color: #1f273a;
+    border-radius: 10px;
+    max-width: 345px;
+  }
+
+  
 }

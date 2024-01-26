@@ -95,3 +95,22 @@
   }
 
 }
+
+@media screen and (max-width: 390px) {
+  .paginationBar{
+    margin-left: -10px;
+  }
+
+  .skeletonBody {
+    margin-top: 50px;
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: 1fr 1fr afr;
+    padding-bottom: 10px;
+  }
+
+  .skeletonItem {
+    width: 345px;
+    height: 250px;
+  }
+}
