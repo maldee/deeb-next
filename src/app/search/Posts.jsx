@@ -57,7 +57,7 @@ const Posts = ({ key, item }) => {
               <span className={styles.categoryMobile}>{item.catSlug}</span>
             </div>
            
-            <span className={styles.views}>{item.viewsMobile} views</span>
+            <span className={styles.views}>{item.views} views</span>
             </div>
           </div>
 
