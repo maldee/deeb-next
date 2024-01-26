@@ -22,23 +22,19 @@
   margin-right: 20px;
 }
 
+.skeletonCardBody{
+  
+  margin-top: 50px;
+}
+
 .skeletonCardBodyDetails{
   margin-bottom: 10px;
 }
 
-
-
-.skeletonBody{
-  margin-top: 50px;
-  display: grid;
-  grid-gap: 50px;
-  grid-template-columns: 1fr 1fr afr;
-  padding-bottom: 10px;
-}
-
-.skeletonItem{
-  width: 360px;
+.skeletonCard{
+  width: 370px;
   height: 250px;
+  
 }
 
 @media screen and (max-width: 1536px) and (min-width: 1280px)  {
@@ -82,17 +78,10 @@ margin-top: -30px;
   display: none;
 }
 
-.skeletonBody{
-  margin-top: 50px;
-  display: grid;
-  grid-gap: 50px;
-  grid-template-columns: 1fr 1fr afr;
-  padding-bottom: 10px;
-}
-
-.skeletonItem{
-  width: 360px;
+.skeletonCard{
+  width: 360px !important;
   height: 250px;
+  
 }
 
 }
