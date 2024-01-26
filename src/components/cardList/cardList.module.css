@@ -37,9 +37,13 @@
   
 }
 
+
+
 @media screen and (max-width: 1536px) and (min-width: 1280px)  {
 
- 
+  .skeletonItem{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1280px) {
@@ -59,14 +63,13 @@ margin-top: -30px;
 
 
 .skeletonCardContainer{
-  display: flex;
-  margin-top: 30px;
+  display: none;
   
   
 }
 
 .skeletonCardImage{
-  width: 360px !important;
+  display: none;
 }
 
 .skeletonCardBody{
@@ -79,9 +82,21 @@ margin-top: -30px;
 }
 
 .skeletonCard{
+  display: none;
+  
+}
+
+.skeletonBody{
+  margin-top: 50px;
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: 1fr 1fr afr;
+  padding-bottom: 10px;
+}
+
+.skeletonItem{
   width: 100%;
   height: 250px;
-  
 }
 
 }
