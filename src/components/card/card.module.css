@@ -48,7 +48,11 @@
 
 .linkMuted{
   text-decoration: none;
-  cursor: default;
+  cursor: pointer;
+}
+
+.detail{
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1536px) and (min-width: 1280px)  {
