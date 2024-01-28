@@ -33,7 +33,7 @@ const fetcher = async (url) => {
 const Quizy = ({ searchParams }) => {
 
   const page = parseInt(searchParams.page) || 1;
-  const [selectedSubject, setSubject] = useState('Korean')
+  const [selectedSubject, setSubject] = useState('EPS TOPIK Grammar')
 
   const [query, setQuery] = useState('')
   const [postCount, setData] = useState();
