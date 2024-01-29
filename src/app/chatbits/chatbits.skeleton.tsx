@@ -11,7 +11,7 @@ const ChatbitsSkeleton = () => {
             .map((item, index) => (
                 
         <div key={item.id} className={styles.skeletonBody}>
-             <Skeleton className={styles.skeletonItem} height={80} />
+             <Skeleton className={styles.skeletonItem} height={130} />
             </div>
      
         ))}
