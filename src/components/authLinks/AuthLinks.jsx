@@ -52,11 +52,12 @@ const AuthLinks = () => {
           <div className={styles.col1}>
             <p><Link className={styles.authLink} onClick={toggle} href="/blog">📕 Blog</Link></p><br /><br />
             <p><Link className={styles.authLink} onClick={toggle} href="/classroom">👨‍🏫 Classroom</Link></p><br /><br />
-            <p><Link className={styles.authLink} onClick={toggle} href="/quizy">🏆 Quizy</Link></p><br /><br />
+            <p><Link className={styles.authLink} onClick={toggle} href="/dictionary">📚 Dictionary</Link></p><br /><br />
+
             <p><Link className={styles.authLink} onClick={toggle} href="/chatbits">💬 Chatbits</Link></p><br /><br />
           </div>
           <div className={styles.col1}>
-            <p><Link className={styles.authLink} onClick={toggle} href="https://store.deeflow.com">🛒 Store</Link></p><br /><br />
+            <p><Link className={styles.authLink} onClick={toggle} href="/quizy">🏆 Quizy</Link></p><br /><br />
             <p><Link className={styles.authLink} onClick={toggle} href="/flips">➰ Flips</Link></p><br /><br />
             <p><Link className={styles.authLink} onClick={toggle} href="/qlake">🪐 Qlake</Link></p><br /><br />
             <p><Link className={styles.authLink} onClick={toggle} href="/cloudy">☁️ Cloudy</Link></p><br /><br />

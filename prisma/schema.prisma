@@ -153,6 +153,14 @@ model Chatbits {
   language      String
 }
 
+model Dictionary {
+  id            Int      @id @default(autoincrement())
+  word          String
+  sin_w         String
+  category      String
+  language      String
+}
+
 model cloudy {
   id          Int      @id @default(autoincrement())
   doc         String

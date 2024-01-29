@@ -24,8 +24,8 @@ const SlideMenu = () => {
       <button className={styles.slideMenuButton} ><p className={styles.emojSize}>💬</p> {'Chatbits'}</button>
       </Link>
 
-      <Link  href="https://store.deeflow.com">
-      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>🛒</p> {'Store'}</button>
+      <Link  href="dictionary">
+      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>📚</p> {'Dictionary'}</button>
       </Link>
      
       <Link  href="flips">
