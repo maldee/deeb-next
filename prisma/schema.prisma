@@ -161,7 +161,7 @@ model Dictionary {
   language      String
 }
 
-model cloudy {
+model Cloudy {
   id          Int      @id @default(autoincrement())
   doc         String
   link        String?

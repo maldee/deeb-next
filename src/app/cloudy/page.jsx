@@ -64,7 +64,6 @@ const Cloudy = ({ searchParams }) => {
   return (
     <div className={styles.container}>
 
-      <h1 className={styles.vision}>-Cloudy</h1>
       <h4 className={styles.vision}>Digital assests repository</h4>
 
       <div className={styles.container}>
@@ -90,13 +89,17 @@ const Cloudy = ({ searchParams }) => {
               data?.cloudy?.map((item) => (
                 <div key={item.id} className={styles.cloudyGrid}>
 
-                  <h4>{item.doc}</h4>
-                  <Link href={item.link} target="_blank">{item.link}</Link>
+                  <ul className={styles.chatCard}>
+                    <h4>{item.doc}</h4>
+                    <hr className={styles.horiLine} />
+                    <Link className={styles.docLink} href={item.link} target="_blank">{item.link}</Link>
+                  </ul>
+
                 </div>
 
 
               ))) : (
-                <h3> 🙄 No results. Try different selection</h3>
+              <h3> 🙄 No results. Try different selection</h3>
             )}
 
         </div>
