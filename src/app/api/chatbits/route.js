@@ -63,7 +63,12 @@ export const GET = async (req) => {
       prisma.chatbits.count({ where: query.where }),
       prisma.chatbits.findMany({
         where: {},
-        distinct: ['category']
+        distinct: ['category'],
+        orderBy: [
+          {
+            category: 'asc',
+          },
+        ],
       }),
       prisma.chatbits.findMany({
         where: {},
