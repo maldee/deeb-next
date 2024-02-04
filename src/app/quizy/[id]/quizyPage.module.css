@@ -38,7 +38,12 @@
   margin-top: 10px;
 }
 
-
+.quizyList div div div.img {
+  height: fit-content !important;
+  width: fit-content !important;
+  margin-top: 10px;
+ 
+}
 
 
 .quizyList .react-quiz-container .result-answer-wrapper h3 {
@@ -151,5 +156,17 @@
     padding-bottom: 10px;
   }
 
+  .quizyList div div div{
+    max-width: 330px;
+  }
+  
+  .quizyList div div div img {
+    max-width: 330px !important;
+    height: fit-content !important;
+    width: fit-content !important;
+    margin-top: 10px;
+    
+  }
+  
 
 }
