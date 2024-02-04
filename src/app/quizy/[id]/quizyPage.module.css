@@ -157,11 +157,11 @@
   }
 
   .quizyList div div div{
-    max-width: 350px;
+    max-width: 360px;
   }
   
   .quizyList div div div img {
-    max-width: 350px !important;
+    max-width: 360px !important;
     height: fit-content !important;
     width: fit-content !important;
     margin-top: 10px;
@@ -169,4 +169,19 @@
   }
   
 
+}
+
+@media screen and (max-width: 390px) {
+
+  .quizyList div div div{
+    max-width: 330px;
+  }
+  
+  .quizyList div div div img {
+    max-width: 330px !important;
+    height: fit-content !important;
+    width: fit-content !important;
+    margin-top: 10px;
+    
+  }
 }
