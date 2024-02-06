@@ -11,11 +11,10 @@
 .diffText{
   background-color: rgba(220, 20, 60, 0.178);
   font-size: small;
- 
   padding: 5px;
   color: #fff;
   width: fit-content;
- 
+  white-space: pre-line;
   
 }
 .diff{
