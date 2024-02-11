@@ -64,7 +64,7 @@ const Cloudy = ({ searchParams }) => {
   return (
     <div className={styles.container}>
 
-      <h4 className={styles.vision}>Digital assests repository</h4>
+      <h4 className={styles.vision}>Downloads</h4>
 
       <div className={styles.container}>
 
