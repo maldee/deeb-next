@@ -8,6 +8,14 @@
   grid-template-columns: 1fr;
 }
 
+.quizDetails {
+  margin-left: 5px;
+  background-color: chocolate;
+  border-radius: 5px;
+  padding: 7px;
+  max-width: fit-content;
+}
+
 .quizyList div {
   max-width: 800px;
   margin: 2px;
@@ -42,7 +50,7 @@
   height: fit-content !important;
   width: fit-content !important;
   margin-top: 10px;
- 
+
 }
 
 
@@ -54,7 +62,7 @@
 .quizyList h3 {
   margin-top: 15px;
   white-space: pre-line;
-  
+
 }
 
 .slideMenuButtonActivated {
@@ -63,7 +71,7 @@
   width: 150px;
   color: white;
   text-align: inherit;
-  background-color: #775aec;
+  /* background-color: #775aec; */
   border: none;
   border-radius: 15px;
   margin: 5px;
@@ -137,7 +145,7 @@
     font-size: 18px;
   }
 
- 
+
   .quizyList iframe {
     width: 100%;
     height: 200px;
@@ -156,32 +164,32 @@
     padding-bottom: 10px;
   }
 
-  .quizyList div div div{
+  .quizyList div div div {
     max-width: 360px;
   }
-  
+
   .quizyList div div div img {
     max-width: 360px !important;
     height: fit-content !important;
     width: fit-content !important;
     margin-top: 10px;
-    
+
   }
-  
+
 
 }
 
 @media screen and (max-width: 390px) {
 
-  .quizyList div div div{
+  .quizyList div div div {
     max-width: 330px;
   }
-  
+
   .quizyList div div div img {
     max-width: 330px !important;
     height: fit-content !important;
     width: fit-content !important;
     margin-top: 10px;
-    
+
   }
 }

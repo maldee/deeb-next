@@ -42,6 +42,8 @@ const QuizyStart = () => {
         {'< Back to Quizes'}
       </Link>
 
+      <h5 className={styles.quizDetails} >{data?.title} | {  data?.note}</h5>
+
       {isLoading
         ? 
         <TailSpin

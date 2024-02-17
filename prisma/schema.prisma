@@ -131,6 +131,7 @@ model Quizy {
   grade     String
   subject   String
   quiz      Json?
+  note      String   @default("note")
 }
 
 model Flips {
