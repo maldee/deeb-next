@@ -9,11 +9,12 @@
 }
 
 .quizDetails {
-  margin-left: 5px;
+  margin-left: 4px;
   background-color: chocolate;
   border-radius: 5px;
   padding: 7px;
   max-width: fit-content;
+  margin-bottom: 15px;
 }
 
 .quizyList div {
