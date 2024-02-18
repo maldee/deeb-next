@@ -61,6 +61,18 @@
   color: #ddd;
 }
 
+.selectInputNote {
+ 
+  width: 20%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0a0f1b;
+  color: #ddd;
+}
+
 .selectInputCategory {
   margin-right: 10px;
   width: 30%;
@@ -204,6 +216,10 @@ hr.horiLine {
   }
 
   .selectInputAbbreviation {
+    width: 100%;
+  }
+
+  .selectInputNote {
     width: 100%;
   }
 

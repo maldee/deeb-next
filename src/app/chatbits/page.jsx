@@ -30,6 +30,7 @@ const Chatbits = ({ searchParams }) => {
 
   const [selectedCategory, setCategory] = useState('Select Category')
   const [selectedAbbreviation, setAbbreviation] = useState('Select Abbreviation')
+  const [selectedNote, setNote] = useState('Select Note')
   const [query, setQuery] = useState('')
 
   const [postCount, setData] = useState();
@@ -41,7 +42,7 @@ const Chatbits = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}`,
+        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}&note=${selectedNote}`,
         )
       ).json();
 
@@ -50,11 +51,11 @@ const Chatbits = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedCategory, selectedAbbreviation]);
+  }, [query, selectedCategory, selectedAbbreviation, selectedNote]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}`,
+    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}&note=${selectedNote}`,
     fetcher
   );
 
@@ -80,6 +81,13 @@ const Chatbits = ({ searchParams }) => {
     setQuery(e.target.value)
     setCategory('Select Category')
     setAbbreviation('Select Abbreviation')
+  }
+
+  function handleNote(e) {
+    setNote(e.target.value)
+    setCategory('Select Category')
+    setAbbreviation('Select Abbreviation')
+    setQuery(null)
   }
 
   return (
@@ -110,23 +118,9 @@ const Chatbits = ({ searchParams }) => {
 
       </select>
 
-      <select className={styles.selectInputAbbreviation} name="abbreviations" id="abbreviations" onChange={handleAbbreviation} value={selectedAbbreviation}>
-        <option value='Select Abbreviation'>Select Abbreviation</option>
-        {isLoading ?
-          <TailSpin
-            height="40"
-            width="40"
-            color="#8a2be2"
-            ariaLabel="tail-spin-loading"
-            radius="1"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-          />
-          : data?.abbreviations?.map((item) => (
-            <option key={item.id} value={item.abbreviation}>{item.abbreviation}</option>
-          ))}
-
+      <select className={styles.selectInputNote} name="note" id="note" onChange={handleNote} value={selectedNote}>
+        <option value='Select Note'>Select Note</option>
+        <option value='None'>Difference</option>
       </select>
 
       {postCount?.count > 0 ? (
