@@ -30,7 +30,7 @@ const Chatbits = ({ searchParams }) => {
 
   const [selectedCategory, setCategory] = useState('Select Category')
   const [selectedAbbreviation, setAbbreviation] = useState('Select Abbreviation')
-  const [selectedNote, setNote] = useState('Select Note')
+  const [selectedComparison, setComparison] = useState('Select Comparison')
   const [query, setQuery] = useState('')
 
   const [postCount, setData] = useState();
@@ -42,7 +42,7 @@ const Chatbits = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}&note=${selectedNote}`,
+        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}&comparison=${selectedComparison}`,
         )
       ).json();
 
@@ -51,11 +51,11 @@ const Chatbits = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedCategory, selectedAbbreviation, selectedNote]);
+  }, [query, selectedCategory, selectedAbbreviation, selectedComparison]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}&note=${selectedNote}`,
+    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}&comparison=${selectedComparison}`,
     fetcher
   );
 
@@ -67,24 +67,27 @@ const Chatbits = ({ searchParams }) => {
 
   function handleCategory(e) {
     setCategory(e.target.value)
+    setComparison('Select Comparison')
     setAbbreviation('Select Abbreviation')
     setQuery(null)
   }
 
   function handleAbbreviation(e) {
     setAbbreviation(e.target.value)
+    setComparison('Select Comparison')
     setCategory('Select Category')
     setQuery(null)
   }
 
   function handleSearch(e) {
     setQuery(e.target.value)
+    setComparison('Select Comparison')
     setCategory('Select Category')
     setAbbreviation('Select Abbreviation')
   }
 
-  function handleNote(e) {
-    setNote(e.target.value)
+  function handleComparison(e) {
+    setComparison(e.target.value)
     setCategory('Select Category')
     setAbbreviation('Select Abbreviation')
     setQuery(null)
@@ -118,9 +121,9 @@ const Chatbits = ({ searchParams }) => {
 
       </select>
 
-      <select className={styles.selectInputNote} name="note" id="note" onChange={handleNote} value={selectedNote}>
-        <option value='Select Note'>Select Note</option>
-        <option value='None'>Difference</option>
+      <select className={styles.selectInputComparison} name="comparison" id="comparison" onChange={handleComparison} value={selectedComparison}>
+        <option value='Select Comparison'>Select Comparison</option>
+        <option value='true'>Comparisons</option>
       </select>
 
       {postCount?.count > 0 ? (

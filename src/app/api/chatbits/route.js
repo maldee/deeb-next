@@ -8,8 +8,8 @@ export const GET = async (req) => {
   const searchQuery = searchParams.get('query');
   const category = searchParams.get('category');
   const abbreviation = searchParams.get('abbreviation');
-  const note = searchParams.get('note');
-  
+  const comparison = searchParams.get('comparison');
+
   const POST_PER_PAGE = 10;
 
   const query = {
@@ -54,17 +54,19 @@ export const GET = async (req) => {
           }
         },
         {
-          note: {
-            not: note
+          comparison: {
+            contains: comparison,
+            mode: 'insensitive',
           }
-        }
+        },
 
-      ]
+      ],
+
     },
   };
 
   try {
-    const [phrases, count, categories,abbreviations] = await prisma.$transaction([
+    const [phrases, count, categories, abbreviations] = await prisma.$transaction([
       prisma.chatbits.findMany(query),
       prisma.chatbits.count({ where: query.where }),
       prisma.chatbits.findMany({
@@ -81,7 +83,7 @@ export const GET = async (req) => {
         distinct: ['abbreviation']
       }),
     ]);
-    return new NextResponse(JSON.stringify({ phrases, count, categories,abbreviations }, { status: 200 }));
+    return new NextResponse(JSON.stringify({ phrases, count, categories, abbreviations }, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(

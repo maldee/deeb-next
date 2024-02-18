@@ -8,7 +8,8 @@ export const GET = async (req) => {
   const searchQuery = searchParams.get('query');
   const category = searchParams.get('category');
   const abbreviation = searchParams.get('abbreviation');
-  const note = searchParams.get('note');
+  const comparison = searchParams.get('comparison');
+
 
   const POST_PER_PAGE = 10;
 
@@ -54,10 +55,11 @@ export const GET = async (req) => {
           }
         },
         {
-          note: {
-            not: note
+          comparison: {
+            contains: comparison,
+            mode: 'insensitive',
           }
-        }
+        },
       ]
 
     },

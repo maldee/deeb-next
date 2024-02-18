@@ -147,6 +147,7 @@ model Chatbits {
   eng_p         String
   phrase        String
   abbreviation  String   @default("abb")
+  comparison    String   @default("false")
   note          String
   example       String   
   category      String
