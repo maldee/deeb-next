@@ -149,6 +149,7 @@ model Chatbits {
   abbreviation  String   @default("abb")
   comparison    String   @default("false")
   note          String
+  pronounce     String   @default("pronounce")
   example       String   
   category      String
   situation     String

@@ -43,6 +43,12 @@ export const GET = async (req) => {
           },
         },
         {
+          pronounce: {
+            contains: searchQuery,
+            mode: 'insensitive', // Default value: default
+          },
+        },
+        {
           category: {
             contains: category,
             mode: 'insensitive',
