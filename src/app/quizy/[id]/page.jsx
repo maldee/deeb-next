@@ -57,7 +57,7 @@ const QuizyStart = () => {
         :
         <div >
           <h5 className={styles.quizDetails} >{data?.title} | {data?.note}</h5>
-          <Quiz className={styles.quizContainer} quiz={data?.quiz} shuffleAnswer={true} />
+          <Quiz className={styles.quizContainer} quiz={data?.quiz} shuffleAnswer={true} timer={300} allowPauseTimer={true} />
         </div>
       }
     </div>

@@ -12,6 +12,20 @@
 
 }
 
+.filter-dropdown-select {
+  height: 40px !important;
+  margin-top: 20px !important;
+}
+
+.timerPauseScreen {
+  font-size: medium !important;
+  color: crimson !important;
+}
+
+.timerBtn{
+width: fit-content !important;
+}
+
 .pagination{
   margin-top: 20px !important;
   margin-bottom: 10px !important;

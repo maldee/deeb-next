@@ -17,6 +17,11 @@
   margin-bottom: 15px;
 }
 
+.quizyList div div div div b{ 
+  color: crimson;
+
+}
+
 .quizyList div {
   max-width: 800px;
   margin: 2px;
