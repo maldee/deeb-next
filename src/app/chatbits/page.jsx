@@ -10,7 +10,8 @@ import React, { useState, useEffect } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
-import { GoogleTagManager  } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
+import Checkbox from "../../components/checkbox/checkbox";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -29,12 +30,13 @@ const Chatbits = ({ searchParams }) => {
   const page = parseInt(searchParams.page) || 1;
 
   const [selectedCategory, setCategory] = useState('Select Category')
-  const [selectedAbbreviation, setAbbreviation] = useState('Select Abbreviation')
-  const [selectedComparison, setComparison] = useState('Select Comparison')
+  const [selectedGroup, setGroup] = useState('Select Group')
+
   const [query, setQuery] = useState('')
 
   const [postCount, setData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+  const [checked, setChecked] = useState(false);
 
 
 
@@ -42,7 +44,7 @@ const Chatbits = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}&comparison=${selectedComparison}`,
+        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&group=${selectedGroup}`,
         )
       ).json();
 
@@ -51,11 +53,11 @@ const Chatbits = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedCategory, selectedAbbreviation, selectedComparison]);
+  }, [query, selectedCategory, selectedGroup]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}&comparison=${selectedComparison}`,
+    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&group=${selectedGroup}`,
     fetcher
   );
 
@@ -67,30 +69,20 @@ const Chatbits = ({ searchParams }) => {
 
   function handleCategory(e) {
     setCategory(e.target.value)
-    setComparison('Select Comparison')
-    setAbbreviation('Select Abbreviation')
+    setGroup('Select Group')
     setQuery(null)
   }
 
-  function handleAbbreviation(e) {
-    setAbbreviation(e.target.value)
-    setComparison('Select Comparison')
+  function handleGroup(e) {
+    setGroup(e.target.value)
     setCategory('Select Category')
     setQuery(null)
   }
 
   function handleSearch(e) {
     setQuery(e.target.value)
-    setComparison('Select Comparison')
     setCategory('Select Category')
-    setAbbreviation('Select Abbreviation')
-  }
-
-  function handleComparison(e) {
-    setComparison(e.target.value)
-    setCategory('Select Category')
-    setAbbreviation('Select Abbreviation')
-    setQuery(null)
+    setGroup('Select Group')
   }
 
   return (
@@ -119,12 +111,26 @@ const Chatbits = ({ searchParams }) => {
             <option key={item.id} value={item.category}>{item.category}</option>
           ))}
 
-      </select>
+      </select>   
 
-      <select className={styles.selectInputComparison} name="comparison" id="comparison" onChange={handleComparison} value={selectedComparison}>
-        <option value='Select Comparison'>Select Comparison</option>
-        <option value='true'>Comparisons</option>
-      </select>
+      <select className={styles.selectInputGroup} name="groups" id="groups" onChange={handleGroup} value={selectedGroup}>
+        <option value='Select Group'>Select Group</option>
+        {isLoading ?
+          <TailSpin
+            height="40"
+            width="40"
+            color="#8a2be2"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+          : data?.groups?.map((item) => (
+            <option key={item.id} value={item.group}>{item.group}</option>
+          ))}
+
+      </select>     
 
       {postCount?.count > 0 ? (
         <ResponsivePagination

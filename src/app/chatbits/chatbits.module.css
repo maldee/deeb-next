@@ -49,19 +49,7 @@
   color: #ddd;
 }
 
-.selectInputAbbreviation {
- 
-  width: 20%;
-  border: 2px solid #0a0f1b;
-  box-sizing: border-box;
-  font-size: 16px;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: #0a0f1b;
-  color: #ddd;
-}
-
-.selectInputComparison {
+.selectInputGroup {
  
   width: 20%;
   border: 2px solid #0a0f1b;
@@ -125,6 +113,7 @@ hr.horiLine {
 
 
 .skeletonBody {
+  margin-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -215,7 +204,7 @@ hr.horiLine {
     width: 100%;
   }
 
-  .selectInputAbbreviation {
+  .selectInputGroup {
     width: 100%;
   }
 

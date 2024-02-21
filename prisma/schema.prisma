@@ -146,8 +146,7 @@ model Chatbits {
   id            Int      @id @default(autoincrement())
   eng_p         String
   phrase        String
-  abbreviation  String   @default("abb")
-  comparison    String   @default("false")
+  group         String   @default("group")
   note          String
   pronounce     String   @default("pronounce")
   example       String   
