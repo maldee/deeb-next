@@ -11,7 +11,7 @@ import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
 import { GoogleTagManager } from "@next/third-parties/google";
-import Checkbox from "../../components/checkbox/checkbox";
+
 
 const fetcher = async (url) => {
   const res = await fetch(url);
