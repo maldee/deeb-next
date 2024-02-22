@@ -79,7 +79,12 @@ export const GET = async (req) => {
       }),
       prisma.chatbits.findMany({
         where: {},
-        distinct: ['group']
+        distinct: ['group'],
+        orderBy: [
+          {
+            group: 'asc',
+          },
+        ],
       }),
     ]);
     return new NextResponse(JSON.stringify({ phrases, count, categories,groups }, { status: 200 }));
