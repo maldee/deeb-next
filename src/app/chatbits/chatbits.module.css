@@ -8,16 +8,17 @@
   grid-template-columns: 1fr;
 }
 
-.diffText{
+.diffText {
   background-color: rgba(220, 20, 60, 0.178);
   font-size: medium;
   padding: 5px;
   color: #fff;
   width: auto;
   white-space: pre-line;
-  
+
 }
-.diff{
+
+.diff {
   background-color: crimson;
   font-size: small;
   border-top-right-radius: 5px;
@@ -26,8 +27,22 @@
   color: #fff;
   width: fit-content;
   margin-top: 15px;
- 
+
 }
+
+.mobFilters{
+  display: none;
+}
+
+.filterbtn {
+  border: 2px solid #17A2B8;
+  background-color: #17A2B8;
+  border-radius: 20px;
+  font-size: 12px;
+  padding: 9px;
+  color: #fff;
+}
+
 .searchIcon {
   border: 2px solid #17A2B8;
   background-color: #17A2B8;
@@ -38,8 +53,7 @@
 }
 
 .searchInput {
-
-  width: 40%;
+  width: 60%;
   border: 2px solid #1f273a;
   box-sizing: border-box;
   font-size: 18px;
@@ -49,8 +63,45 @@
   color: #ddd;
 }
 
-.selectInputUsage {
- 
+
+.selectInputFormality {
+  margin-right: 10px;
+  width: 15%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0a0f1b;
+  color: #ddd;
+}
+
+.selectInputPlacement {
+
+  width: 20%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0a0f1b;
+  color: #ddd;
+}
+
+.selectInputTense {
+  margin-right: 10px;
+  width: 20%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0a0f1b;
+  color: #ddd;
+}
+
+.selectInputType {
+  margin-right: 10px;
   width: 20%;
   border: 2px solid #0a0f1b;
   box-sizing: border-box;
@@ -63,7 +114,7 @@
 
 .selectInputCategory {
   margin-right: 10px;
-  width: 30%;
+  width: 20%;
   border: 2px solid #0a0f1b;
   box-sizing: border-box;
   font-size: 16px;
@@ -199,12 +250,42 @@ hr.horiLine {
 
 @media screen and (max-width: 640px) {
 
+  .webFilters{
+    display: none;
+  }
+
+  .mobFilters{
+    display: inline;
+  }
+
+  .filterbtn {
+    border: 2px solid #17A2B8;
+    background-color: #17A2B8;
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 9px;
+    color: #fff;
+  }
+
   .selectInputCategory {
+    margin-top: 20px;
     margin-right: 0;
     width: 100%;
   }
 
-  .selectInputUsage {
+  .selectInputFormality {
+    width: 100%;
+  }
+
+  .selectInputType {
+    width: 100%;
+  }
+
+  .selectInputTense {
+    width: 100%;
+  }
+
+  .selectInputPlacement {
     width: 100%;
   }
 

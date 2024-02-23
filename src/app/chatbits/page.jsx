@@ -11,7 +11,7 @@ import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
 import { GoogleTagManager } from "@next/third-parties/google";
-
+import { useCollapse } from 'react-collapsed'
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -29,8 +29,16 @@ const Chatbits = ({ searchParams }) => {
 
   const page = parseInt(searchParams.page) || 1;
 
+  const [isExpanded, setExpanded] = useState(false)
+  const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded })
+
   const [selectedCategory, setCategory] = useState('Select Category')
-  const [selectedUsage, setUsage] = useState('Select Usage')
+
+
+  const [selectedFormality, setFormality] = useState('Select Formality')
+  const [selectedType, setType] = useState('Select Type')
+  const [selectedTense, setTense] = useState('Select Tense')
+  const [selectedPlacement, setPlacement] = useState('Select Placement')
 
   const [query, setQuery] = useState('')
 
@@ -44,7 +52,7 @@ const Chatbits = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&usage=${selectedUsage}`,
+        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&formality=${selectedFormality}&type=${selectedType}&tense=${selectedTense}&placement=${selectedPlacement}`,
         )
       ).json();
 
@@ -53,11 +61,11 @@ const Chatbits = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedCategory, selectedUsage]);
+  }, [query, selectedCategory, selectedFormality, selectedType, selectedTense, selectedPlacement]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&usage=${selectedUsage}`,
+    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&formality=${selectedFormality}&type=${selectedType}&tense=${selectedTense}&placement=${selectedPlacement}`,
     fetcher
   );
 
@@ -69,20 +77,36 @@ const Chatbits = ({ searchParams }) => {
 
   function handleCategory(e) {
     setCategory(e.target.value)
-    setUsage('Select Usage')
-    setQuery(null)
-  }
-
-  function handleUsage(e) {
-    setUsage(e.target.value)
-    setCategory('Select Category')
     setQuery(null)
   }
 
   function handleSearch(e) {
     setQuery(e.target.value)
     setCategory('Select Category')
-    setUsage('Select Usage')
+  }
+
+  function handleFormality(e) {
+    setFormality(e.target.value)
+    setCategory('Select Category')
+    setQuery(null)
+  }
+
+  function handleType(e) {
+    setType(e.target.value)
+    setCategory('Select Category')
+    setQuery(null)
+  }
+
+  function handleTense(e) {
+    setTense(e.target.value)
+    setCategory('Select Category')
+    setQuery(null)
+  }
+
+  function handlePlacement(e) {
+    setPlacement(e.target.value)
+    setCategory('Select Category')
+    setQuery(null)
   }
 
   return (
@@ -94,43 +118,213 @@ const Chatbits = ({ searchParams }) => {
         <FaSearch />
       </button>
 
-      <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
-        <option value='Select Category'>Select Category</option>
-        {isLoading ?
-          <TailSpin
-            height="40"
-            width="40"
-            color="#8a2be2"
-            ariaLabel="tail-spin-loading"
-            radius="1"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-          />
-          : data?.categories?.map((item) => (
-            <option key={item.id} value={item.category}>{item.category}</option>
-          ))}
+      <br />
 
-      </select>   
+      <div className={styles.mobFilters}>
+        <button className={styles.filterbtn}
+          {...getToggleProps({
+            onClick: () => setExpanded((prevExpanded) => !prevExpanded),
+          })}
+        >
+          {isExpanded ? 'Hide Filters' : 'Show Filters'}
+        </button>
+        <section {...getCollapseProps()}>
+          <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
+            <option value='Select Category'>Select Category</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.categories?.map((item) => (
+                <option key={item.id} value={item.category}>{item.category}</option>
+              ))}
 
-      <select className={styles.selectInputUsage} name="usages" id="usages" onChange={handleUsage} value={selectedUsage}>
-        <option value='Select Usage'>Select Usage</option>
-        {isLoading ?
-          <TailSpin
-            height="40"
-            width="40"
-            color="#8a2be2"
-            ariaLabel="tail-spin-loading"
-            radius="1"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-          />
-          : data?.usages?.map((item) => (
-            <option key={item.id} value={item.usage}>{item.usage}</option>
-          ))}
+          </select>
 
-      </select>     
+          <select className={styles.selectInputFormality} name="formalities" id="formalities" onChange={handleFormality} value={selectedFormality}>
+            <option value='Select Formality'>Select Formality</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.formalities?.map((item) => (
+                <option key={item.id} value={item.formality}>{item.formality}</option>
+              ))}
+
+          </select>
+
+          <select className={styles.selectInputType} name="types" id="types" onChange={handleType} value={selectedType}>
+            <option value='Select Type'>Select Type</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.types?.map((item) => (
+                <option key={item.id} value={item.type}>{item.type}</option>
+              ))}
+
+          </select>
+
+          <select className={styles.selectInputTense} name="tenses" id="tenses" onChange={handleTense} value={selectedTense}>
+            <option value='Select Tense'>Select Tense</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.tenses?.map((item) => (
+                <option key={item.id} value={item.tense}>{item.tense}</option>
+              ))}
+
+          </select>
+
+          <select className={styles.selectInputPlacement} name="placements" id="placements" onChange={handlePlacement} value={selectedPlacement}>
+            <option value='Select Placement'>Select Placement</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.placements?.map((item) => (
+                <option key={item.id} value={item.placement}>{item.placement}</option>
+              ))}
+
+          </select>
+
+        </section>
+      </div>
+
+      <div className={styles.webFilters}>
+
+        <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
+          <option value='Select Category'>Select Category</option>
+          {isLoading ?
+            <TailSpin
+              height="40"
+              width="40"
+              color="#8a2be2"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+            : data?.categories?.map((item) => (
+              <option key={item.id} value={item.category}>{item.category}</option>
+            ))}
+
+        </select>
+
+        <select className={styles.selectInputFormality} name="formalities" id="formalities" onChange={handleFormality} value={selectedFormality}>
+          <option value='Select Formality'>Select Formality</option>
+          {isLoading ?
+            <TailSpin
+              height="40"
+              width="40"
+              color="#8a2be2"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+            : data?.formalities?.map((item) => (
+              <option key={item.id} value={item.formality}>{item.formality}</option>
+            ))}
+
+        </select>
+
+        <select className={styles.selectInputType} name="types" id="types" onChange={handleType} value={selectedType}>
+          <option value='Select Type'>Select Type</option>
+          {isLoading ?
+            <TailSpin
+              height="40"
+              width="40"
+              color="#8a2be2"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+            : data?.types?.map((item) => (
+              <option key={item.id} value={item.type}>{item.type}</option>
+            ))}
+
+        </select>
+
+        <select className={styles.selectInputTense} name="tenses" id="tenses" onChange={handleTense} value={selectedTense}>
+          <option value='Select Tense'>Select Tense</option>
+          {isLoading ?
+            <TailSpin
+              height="40"
+              width="40"
+              color="#8a2be2"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+            : data?.tenses?.map((item) => (
+              <option key={item.id} value={item.tense}>{item.tense}</option>
+            ))}
+
+        </select>
+
+        <select className={styles.selectInputPlacement} name="placements" id="placements" onChange={handlePlacement} value={selectedPlacement}>
+          <option value='Select Placement'>Select Placement</option>
+          {isLoading ?
+            <TailSpin
+              height="40"
+              width="40"
+              color="#8a2be2"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+            : data?.placements?.map((item) => (
+              <option key={item.id} value={item.placement}>{item.placement}</option>
+            ))}
+
+        </select>
+
+      </div>
 
       {postCount?.count > 0 ? (
         <ResponsivePagination

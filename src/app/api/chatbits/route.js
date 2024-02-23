@@ -7,7 +7,11 @@ export const GET = async (req) => {
   const page = searchParams.get("page");
   const searchQuery = searchParams.get('query');
   const category = searchParams.get('category');
-  const usage = searchParams.get('usage');
+
+  const formality = searchParams.get('formality');
+  const type = searchParams.get('type');
+  const tense = searchParams.get('tense');
+  const placement = searchParams.get('placement');
 
   const POST_PER_PAGE = 10;
 
@@ -53,19 +57,36 @@ export const GET = async (req) => {
           }
         },
         {
-          usage: {
-            contains: usage,
+          formality: {
+            contains: formality,
             mode: 'insensitive',
           }
         },
-
+        {
+          type: {
+            contains: type,
+            mode: 'insensitive',
+          }
+        },
+        {
+          tense: {
+            contains: tense,
+            mode: 'insensitive',
+          }
+        },
+        {
+          placement: {
+            contains: placement,
+            mode: 'insensitive',
+          }
+        },
       ],
 
     },
   };
 
   try {
-    const [phrases, count, categories, usages] = await prisma.$transaction([
+    const [phrases, count, categories,formalities,types,tenses,placements] = await prisma.$transaction([
       prisma.chatbits.findMany(query),
       prisma.chatbits.count({ where: query.where }),
       prisma.chatbits.findMany({
@@ -79,15 +100,42 @@ export const GET = async (req) => {
       }),
       prisma.chatbits.findMany({
         where: {},
-        distinct: ['usage'],
+        distinct: ['formality'],
         orderBy: [
           {
-            usage: 'asc',
+            formality: 'asc',
+          },
+        ],
+      }),
+      prisma.chatbits.findMany({
+        where: {},
+        distinct: ['type'],
+        orderBy: [
+          {
+            type: 'asc',
+          },
+        ],
+      }),
+      prisma.chatbits.findMany({
+        where: {},
+        distinct: ['tense'],
+        orderBy: [
+          {
+            tense: 'asc',
+          },
+        ],
+      }),
+      prisma.chatbits.findMany({
+        where: {},
+        distinct: ['placement'],
+        orderBy: [
+          {
+            placement: 'asc',
           },
         ],
       }),
     ]);
-    return new NextResponse(JSON.stringify({ phrases, count, categories, usages }, { status: 200 }));
+    return new NextResponse(JSON.stringify({ phrases, count, categories,formalities,types,tenses,placements}, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(
