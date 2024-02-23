@@ -77,35 +77,58 @@ const Chatbits = ({ searchParams }) => {
 
   function handleCategory(e) {
     setCategory(e.target.value)
+    setFormality("Select Formality")
+    setType("select Type")
+    setTense("Select Tense")
+    setPlacement("Select Placement")
     setQuery(null)
   }
 
   function handleSearch(e) {
     setQuery(e.target.value)
     setCategory('Select Category')
+    setFormality("Select Formality")
+    setType("select Type")
+    setTense("Select Tense")
+    setPlacement("Select Placement")
   }
 
   function handleFormality(e) {
     setFormality(e.target.value)
     setCategory('Select Category')
+    setType("select Type")
+    setTense("Select Tense")
+    setPlacement("Select Placement")
     setQuery(null)
   }
 
   function handleType(e) {
     setType(e.target.value)
     setCategory('Select Category')
+    setFormality("Select Formality")
+    setTense("Select Tense")
+    setPlacement("Select Placement")
     setQuery(null)
+    
+    
   }
 
   function handleTense(e) {
     setTense(e.target.value)
     setCategory('Select Category')
+    setFormality("Select Formality")
+    setType("select Type")
+    setPlacement("Select Placement")
     setQuery(null)
+  
   }
 
   function handlePlacement(e) {
     setPlacement(e.target.value)
     setCategory('Select Category')
+    setFormality("Select Formality")
+    setType("select Type")
+    setTense("Select Tense")
     setQuery(null)
   }
 
