@@ -30,7 +30,7 @@ const Chatbits = ({ searchParams }) => {
   const page = parseInt(searchParams.page) || 1;
 
   const [selectedCategory, setCategory] = useState('Select Category')
-  const [selectedGroup, setGroup] = useState('Select Group')
+  const [selectedUsage, setUsage] = useState('Select Usage')
 
   const [query, setQuery] = useState('')
 
@@ -44,7 +44,7 @@ const Chatbits = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&group=${selectedGroup}`,
+        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&usage=${selectedUsage}`,
         )
       ).json();
 
@@ -53,11 +53,11 @@ const Chatbits = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedCategory, selectedGroup]);
+  }, [query, selectedCategory, selectedUsage]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&group=${selectedGroup}`,
+    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&usage=${selectedUsage}`,
     fetcher
   );
 
@@ -69,12 +69,12 @@ const Chatbits = ({ searchParams }) => {
 
   function handleCategory(e) {
     setCategory(e.target.value)
-    setGroup('Select Group')
+    setUsage('Select Usage')
     setQuery(null)
   }
 
-  function handleGroup(e) {
-    setGroup(e.target.value)
+  function handleUsage(e) {
+    setUsage(e.target.value)
     setCategory('Select Category')
     setQuery(null)
   }
@@ -82,7 +82,7 @@ const Chatbits = ({ searchParams }) => {
   function handleSearch(e) {
     setQuery(e.target.value)
     setCategory('Select Category')
-    setGroup('Select Group')
+    setUsage('Select Usage')
   }
 
   return (
@@ -113,8 +113,8 @@ const Chatbits = ({ searchParams }) => {
 
       </select>   
 
-      <select className={styles.selectInputGroup} name="groups" id="groups" onChange={handleGroup} value={selectedGroup}>
-        <option value='Select Group'>Select Group</option>
+      <select className={styles.selectInputUsage} name="usages" id="usages" onChange={handleUsage} value={selectedUsage}>
+        <option value='Select Usage'>Select Usage</option>
         {isLoading ?
           <TailSpin
             height="40"
@@ -126,8 +126,8 @@ const Chatbits = ({ searchParams }) => {
             wrapperClass=""
             visible={true}
           />
-          : data?.groups?.map((item) => (
-            <option key={item.id} value={item.group}>{item.group}</option>
+          : data?.usages?.map((item) => (
+            <option key={item.id} value={item.usage}>{item.usage}</option>
           ))}
 
       </select>     
