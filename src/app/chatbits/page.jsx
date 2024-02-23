@@ -44,7 +44,6 @@ const Chatbits = ({ searchParams }) => {
 
   const [postCount, setData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const [checked, setChecked] = useState(false);
 
 
 
@@ -82,6 +81,7 @@ const Chatbits = ({ searchParams }) => {
     setTense("Select Tense")
     setPlacement("Select Placement")
     setQuery(null)
+    setCurrentPage(1)
   }
 
   function handleSearch(e) {
@@ -91,6 +91,7 @@ const Chatbits = ({ searchParams }) => {
     setType("select Type")
     setTense("Select Tense")
     setPlacement("Select Placement")
+    setCurrentPage(1)
   }
 
   function handleFormality(e) {
@@ -100,6 +101,7 @@ const Chatbits = ({ searchParams }) => {
     setTense("Select Tense")
     setPlacement("Select Placement")
     setQuery(null)
+    setCurrentPage(1)
   }
 
   function handleType(e) {
@@ -109,8 +111,7 @@ const Chatbits = ({ searchParams }) => {
     setTense("Select Tense")
     setPlacement("Select Placement")
     setQuery(null)
-    
-    
+    setCurrentPage(1)
   }
 
   function handleTense(e) {
@@ -120,7 +121,7 @@ const Chatbits = ({ searchParams }) => {
     setType("select Type")
     setPlacement("Select Placement")
     setQuery(null)
-  
+    setCurrentPage(1)
   }
 
   function handlePlacement(e) {
@@ -130,6 +131,7 @@ const Chatbits = ({ searchParams }) => {
     setType("select Type")
     setTense("Select Tense")
     setQuery(null)
+    setCurrentPage(1)
   }
 
   return (
@@ -370,7 +372,14 @@ const Chatbits = ({ searchParams }) => {
                   <hr className={styles.horiLine} />
                   <h4 className={styles.example}>{item.example.split('-')[0]}</h4>
                   <h4 className={styles.example}>{item.example.split('-')[1]}</h4>
-                  <h6 className={styles.chatcat}>{item.usage} | {item.language}</h6>
+                  <div className={styles.details}>
+                    <span className={styles.formality}>Formality: {item.formality} | </span>
+                    <span className={styles.tense}>Tense: {item.tense} | </span>
+                    <span className={styles.type}>Type: {item.type} | </span>
+                    <span className={styles.placement}>Placement: {item.placement} | </span>
+                    <span className={styles.usage}>Usage: {item.usage} | </span>
+                    <span className={styles.language}>Language: {item.language}</span>
+                  </div>
 
                   {item.note != 'None' ?
                     <div>

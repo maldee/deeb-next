@@ -65,17 +65,27 @@ const Quizy = ({ searchParams }) => {
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
 
+  function handleSearch(e) {
+    setQuery(e.target.value)
+    setCurrentPage(1)
+  }
+
+  function handleSubject(e) {
+    setSubject(e.target.value)
+    setCurrentPage(1)
+  }
+
   return (
 
     <div className={styles.container}>
       <GoogleTagManager gtmId="G-LFHZ053M0Z" />
-      <input className={styles.searchInput} type="text" placeholder="Search quiz..." onChange={(e) => setQuery(e.target.value)} />
+      <input className={styles.searchInput} type="text" placeholder="Search quiz..." onChange={handleSearch} />
 
       <button className={styles.searchIcon}>
         <FaSearch />
       </button>
 
-      <select className={styles.selectInput} name="subjects" id="subjects" onChange={e => setSubject(e.target.value)} value={selectedSubject}>
+      <select className={styles.selectInput} name="subjects" id="subjects" onChange={handleSubject} value={selectedSubject}>
         <option value='Select Subject'>Select Subject</option>
         {isLoading ?
           <TailSpin

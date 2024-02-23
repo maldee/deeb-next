@@ -8,6 +8,36 @@
   grid-template-columns: 1fr;
 }
 
+.formality{
+  font-size: small;
+color: #17A2B8;
+}
+
+.tense{
+  font-size: small;
+color:lightpink;
+}
+
+.type{
+  font-size: small;
+color:lightseagreen;
+}
+
+.placement{
+  font-size: small;
+color:lightskyblue;
+}
+
+.usage{
+  font-size: small;
+color:lightcoral;
+}
+
+.language{
+  font-size: small;
+color:lightsalmon;
+}
+
 .diffText {
   background-color: rgba(220, 20, 60, 0.178);
   font-size: medium;

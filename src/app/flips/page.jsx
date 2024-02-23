@@ -72,11 +72,21 @@ const Flips = ({ searchParams }) => {
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
 
+  function handleLesson(e) {
+    setLesson(e.target.value)
+    setCurrentPage(1)
+    
+  }
+
+  function handleType(e) {
+    setType(e.target.value)
+    setCurrentPage(1)
+  }
 
   return (
     <div className={styles.container}>
       <GoogleTagManager gtmId="G-LFHZ053M0Z" />
-      <select className={styles.selectInputLesson} name="lessons" id="lessons" onChange={e => setLesson(e.target.value)} value={selectedLesson}>
+      <select className={styles.selectInputLesson} name="lessons" id="lessons" onChange={handleLesson} value={selectedLesson}>
         <option value='Select Lesson'>Select Lesson</option>
         {isLoading ?
           <TailSpin
@@ -95,7 +105,7 @@ const Flips = ({ searchParams }) => {
 
       </select>
 
-      <select className={styles.selectInputType} name="types" id="types" onChange={e => setType(e.target.value)} value={selectedType}>
+      <select className={styles.selectInputType} name="types" id="types" onChange={handleType} value={selectedType}>
         <option value='Select Type'>Select Type</option>
         {isLoading ?
           <TailSpin
