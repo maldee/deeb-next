@@ -6,7 +6,7 @@ export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
   const page = searchParams.get("page");
   const searchQuery = searchParams.get('query');
-  const category = searchParams.get('category');
+  const usage = searchParams.get('usage');
   
 
   const formality = searchParams.get('formality');
@@ -52,8 +52,8 @@ export const GET = async (req) => {
           },
         },
         {
-          category: {
-            contains: category,
+          usage: {
+            contains: usage,
             mode: 'insensitive',
           }
         },
@@ -87,15 +87,15 @@ export const GET = async (req) => {
   };
 
   try {
-    const [phrases, count, categories,formalities,types,tenses,placements] = await prisma.$transaction([
+    const [phrases, count, usages,formalities,types,tenses,placements] = await prisma.$transaction([
       prisma.chatbits.findMany(query),
       prisma.chatbits.count({ where: query.where }),
       prisma.chatbits.findMany({
         where: {},
-        distinct: ['category'],
+        distinct: ['usage'],
         orderBy: [
           {
-            category: 'asc',
+            usage: 'asc',
           },
         ],
       }),
@@ -136,7 +136,7 @@ export const GET = async (req) => {
         ],
       }),
     ]);
-    return new NextResponse(JSON.stringify({ phrases, count, categories,formalities,types,tenses,placements }, { status: 200 }));
+    return new NextResponse(JSON.stringify({ phrases, count, usages,formalities,types,tenses,placements }, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(

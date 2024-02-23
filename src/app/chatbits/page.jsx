@@ -32,7 +32,7 @@ const Chatbits = ({ searchParams }) => {
   const [isExpanded, setExpanded] = useState(false)
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded })
 
-  const [selectedCategory, setCategory] = useState('Select Category')
+  const [selectedUsage, setUsage] = useState('Select Usage')
 
 
   const [selectedFormality, setFormality] = useState('Select Formality')
@@ -52,7 +52,7 @@ const Chatbits = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&category=${selectedCategory}&formality=${selectedFormality}&type=${selectedType}&tense=${selectedTense}&placement=${selectedPlacement}`,
+        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&usage=${selectedUsage}&formality=${selectedFormality}&type=${selectedType}&tense=${selectedTense}&placement=${selectedPlacement}`,
         )
       ).json();
 
@@ -61,11 +61,11 @@ const Chatbits = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedCategory, selectedFormality, selectedType, selectedTense, selectedPlacement]);
+  }, [query, selectedUsage, selectedFormality, selectedType, selectedTense, selectedPlacement]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/chatbits?page=${currentPage}&query=${query}&category=${selectedCategory}&formality=${selectedFormality}&type=${selectedType}&tense=${selectedTense}&placement=${selectedPlacement}`,
+    `/api/chatbits?page=${currentPage}&query=${query}&usage=${selectedUsage}&formality=${selectedFormality}&type=${selectedType}&tense=${selectedTense}&placement=${selectedPlacement}`,
     fetcher
   );
 
@@ -75,8 +75,8 @@ const Chatbits = ({ searchParams }) => {
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
 
-  function handleCategory(e) {
-    setCategory(e.target.value)
+  function handleUsage(e) {
+    setUsage(e.target.value)
     setFormality("Select Formality")
     setType("select Type")
     setTense("Select Tense")
@@ -86,7 +86,7 @@ const Chatbits = ({ searchParams }) => {
 
   function handleSearch(e) {
     setQuery(e.target.value)
-    setCategory('Select Category')
+    setUsage('Select Usage')
     setFormality("Select Formality")
     setType("select Type")
     setTense("Select Tense")
@@ -95,7 +95,7 @@ const Chatbits = ({ searchParams }) => {
 
   function handleFormality(e) {
     setFormality(e.target.value)
-    setCategory('Select Category')
+    setUsage('Select Usage')
     setType("select Type")
     setTense("Select Tense")
     setPlacement("Select Placement")
@@ -104,7 +104,7 @@ const Chatbits = ({ searchParams }) => {
 
   function handleType(e) {
     setType(e.target.value)
-    setCategory('Select Category')
+    setUsage('Select Usage')
     setFormality("Select Formality")
     setTense("Select Tense")
     setPlacement("Select Placement")
@@ -115,7 +115,7 @@ const Chatbits = ({ searchParams }) => {
 
   function handleTense(e) {
     setTense(e.target.value)
-    setCategory('Select Category')
+    setUsage('Select Usage')
     setFormality("Select Formality")
     setType("select Type")
     setPlacement("Select Placement")
@@ -125,7 +125,7 @@ const Chatbits = ({ searchParams }) => {
 
   function handlePlacement(e) {
     setPlacement(e.target.value)
-    setCategory('Select Category')
+    setUsage('Select Usage')
     setFormality("Select Formality")
     setType("select Type")
     setTense("Select Tense")
@@ -152,8 +152,8 @@ const Chatbits = ({ searchParams }) => {
           {isExpanded ? 'Hide Filters' : 'Show Filters'}
         </button>
         <section {...getCollapseProps()}>
-          <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
-            <option value='Select Category'>Select Category</option>
+          <select className={styles.selectInputUsage} name="usages" id="usages" onChange={handleUsage} value={selectedUsage}>
+            <option value='Select Usage'>Select Usage</option>
             {isLoading ?
               <TailSpin
                 height="40"
@@ -165,8 +165,8 @@ const Chatbits = ({ searchParams }) => {
                 wrapperClass=""
                 visible={true}
               />
-              : data?.categories?.map((item) => (
-                <option key={item.id} value={item.category}>{item.category}</option>
+              : data?.usages?.map((item) => (
+                <option key={item.id} value={item.usage}>{item.usage}</option>
               ))}
 
           </select>
@@ -252,8 +252,8 @@ const Chatbits = ({ searchParams }) => {
 
       <div className={styles.webFilters}>
 
-        <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
-          <option value='Select Category'>Select Category</option>
+        <select className={styles.selectInputUsage} name="usages" id="usages" onChange={handleUsage} value={selectedUsage}>
+          <option value='Select Usage'>Select Usage</option>
           {isLoading ?
             <TailSpin
               height="40"
@@ -265,8 +265,8 @@ const Chatbits = ({ searchParams }) => {
               wrapperClass=""
               visible={true}
             />
-            : data?.categories?.map((item) => (
-              <option key={item.id} value={item.category}>{item.category}</option>
+            : data?.usages?.map((item) => (
+              <option key={item.id} value={item.usage}>{item.usage}</option>
             ))}
 
         </select>
@@ -370,7 +370,7 @@ const Chatbits = ({ searchParams }) => {
                   <hr className={styles.horiLine} />
                   <h4 className={styles.example}>{item.example.split('-')[0]}</h4>
                   <h4 className={styles.example}>{item.example.split('-')[1]}</h4>
-                  <h6 className={styles.chatcat}>{item.category} | {item.language}</h6>
+                  <h6 className={styles.chatcat}>{item.usage} | {item.language}</h6>
 
                   {item.note != 'None' ?
                     <div>

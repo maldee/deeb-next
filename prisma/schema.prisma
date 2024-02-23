@@ -150,10 +150,10 @@ model Chatbits {
   type          String   @default("type")
   tense         String   @default("tense")
   placement     String   @default("placement")
+  usage         String   @default("usage")
   note          String
   pronounce     String   @default("pronounce")
   example       String   
-  category      String
   situation     String
   language      String
 }

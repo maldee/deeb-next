@@ -112,7 +112,7 @@
   color: #ddd;
 }
 
-.selectInputCategory {
+.selectInputUsage {
   margin-right: 10px;
   width: 20%;
   border: 2px solid #0a0f1b;
@@ -267,7 +267,7 @@ hr.horiLine {
     color: #fff;
   }
 
-  .selectInputCategory {
+  .selectInputUsage {
     margin-top: 20px;
     margin-right: 0;
     width: 100%;
