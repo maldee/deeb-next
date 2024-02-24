@@ -374,12 +374,12 @@ const Chatbits = ({ searchParams }) => {
                   <h4 className={styles.example}>{item.example.split('-')[1]}</h4>
                   <br/>
                   <div className={styles.details}>
-                    <span className={styles.formality}><span className={styles.tag}>Formality:</span> {item.formality} | </span>
-                    <span className={styles.tense}><span className={styles.tag}>Tense:</span> {item.tense} | </span>
-                    <span className={styles.type}><span className={styles.tag}>Type:</span> {item.type} | </span>
-                    <span className={styles.placement}><span className={styles.tag}>Placement:</span> {item.placement} | </span>
-                    <span className={styles.usage}><span className={styles.tag}>Usage:</span> {item.usage} | </span>
-                    <span className={styles.language}><span className={styles.tag}>Language:</span> {item.language}</span>
+                    <p className={styles.tag}><span className={styles.formality}>Formality: </span> {item.formality}  </p>
+                    <p className={styles.tag}><span className={styles.tense}>Tense: </span> {item.tense}  </p>
+                    <p className={styles.tag}><span className={styles.type}>Type:</span> {item.type} </p>
+                    <p className={styles.tag}><span className={styles.placement}>Placement: </span> {item.placement}  </p>
+                    <p className={styles.tag}><span className={styles.usage}>Usage: </span> {item.usage} </p>
+                    <p className={styles.tag}><span className={styles.language}>Language: </span> {item.language}</p>
                   </div>
 
                   {item.note != 'None' ?
@@ -393,7 +393,8 @@ const Chatbits = ({ searchParams }) => {
               </div>
 
             ))) : (
-            <h3> 🙄 No results. Try different selection</h3>
+              
+            <h3 className={styles.noResults}> 🙄 No results. Try different selection</h3>
           )}
       </div>
     </div>

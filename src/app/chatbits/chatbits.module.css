@@ -8,40 +8,41 @@
   grid-template-columns: 1fr;
 }
 
-.tag{
-  background-color: #0f172a;
-  padding: 1px;
-  /* border-radius: 20px; */
+.tag {
+  padding-bottom:5px;
+  font-size: small;
 }
 
-.formality{
+.formality {
+ 
   font-size: small;
-color: #17A2B8;
+  color: #17A2B8;
 }
 
-.tense{
+.tense {
+ 
   font-size: small;
-color:lightpink;
+  color: lightpink;
 }
 
-.type{
+.type {
   font-size: small;
-color:lightseagreen;
+  color: lightseagreen;
 }
 
-.placement{
+.placement {
   font-size: small;
-color:lightskyblue;
+  color: lightskyblue;
 }
 
-.usage{
+.usage {
   font-size: small;
-color:lightcoral;
+  color: lightcoral;
 }
 
-.language{
+.language {
   font-size: small;
-color:lightsalmon;
+  color: lightsalmon;
 }
 
 .diffText {
@@ -66,7 +67,7 @@ color:lightsalmon;
 
 }
 
-.mobFilters{
+.mobFilters {
   display: none;
 }
 
@@ -198,6 +199,9 @@ hr.horiLine {
   color: mediumpurple;
 }
 
+.skeletonList {
+  margin-top: 10px;
+}
 
 .skeletonBody {
   margin-top: 10px;
@@ -286,11 +290,15 @@ hr.horiLine {
 
 @media screen and (max-width: 640px) {
 
-  .webFilters{
+  .noResults {
+    margin-top: 20px;
+  }
+
+  .webFilters {
     display: none;
   }
 
-  .mobFilters{
+  .mobFilters {
     display: inline;
   }
 
@@ -298,8 +306,8 @@ hr.horiLine {
     border: 2px solid #17A2B8;
     background-color: #17A2B8;
     border-radius: 20px;
-    font-size: 12px;
-    padding: 9px;
+    font-size: 14px;
+    padding: 10px;
     color: #fff;
   }
 
