@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AuthLinks from "../authLinks/AuthLinks";
 import ThemeToggle from "../themeToggle/ThemeToggle";
+import NavMenu from "../navMenu/NavMenu";
 import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
@@ -17,7 +18,6 @@ const Navbar = () => {
           <Link href="/search" className={styles.link}>
             <FaSearch />
           </Link>
-
         </div>
       </div>
 
@@ -26,6 +26,7 @@ const Navbar = () => {
 
 
       <div className={styles.links}>
+        <NavMenu/>
         <ThemeToggle />
         <AuthLinks />
       </div>
