@@ -372,6 +372,7 @@ const Chatbits = ({ searchParams }) => {
                   <hr className={styles.horiLine} />
                   <h4 className={styles.example}>{item.example.split('-')[0]}</h4>
                   <h4 className={styles.example}>{item.example.split('-')[1]}</h4>
+                  <br/>
                   <div className={styles.details}>
                     <span className={styles.formality}>Formality: {item.formality} | </span>
                     <span className={styles.tense}>Tense: {item.tense} | </span>
