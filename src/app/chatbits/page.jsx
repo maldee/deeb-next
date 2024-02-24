@@ -374,12 +374,12 @@ const Chatbits = ({ searchParams }) => {
                   <h4 className={styles.example}>{item.example.split('-')[1]}</h4>
                   <br/>
                   <div className={styles.details}>
-                    <span className={styles.formality}>Formality: {item.formality} | </span>
-                    <span className={styles.tense}>Tense: {item.tense} | </span>
-                    <span className={styles.type}>Type: {item.type} | </span>
-                    <span className={styles.placement}>Placement: {item.placement} | </span>
-                    <span className={styles.usage}>Usage: {item.usage} | </span>
-                    <span className={styles.language}>Language: {item.language}</span>
+                    <span className={styles.formality}><span className={styles.tag}>Formality:</span> {item.formality} | </span>
+                    <span className={styles.tense}><span className={styles.tag}>Tense:</span> {item.tense} | </span>
+                    <span className={styles.type}><span className={styles.tag}>Type:</span> {item.type} | </span>
+                    <span className={styles.placement}><span className={styles.tag}>Placement:</span> {item.placement} | </span>
+                    <span className={styles.usage}><span className={styles.tag}>Usage:</span> {item.usage} | </span>
+                    <span className={styles.language}><span className={styles.tag}>Language:</span> {item.language}</span>
                   </div>
 
                   {item.note != 'None' ?
