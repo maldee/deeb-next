@@ -290,6 +290,9 @@ hr.horiLine {
 
 @media screen and (max-width: 640px) {
 
+  .diffText {
+    font-size: small;
+  }
   .noResults {
     margin-top: 20px;
   }
