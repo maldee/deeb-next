@@ -29,6 +29,12 @@ export const GET = async (req) => {
           },
         },
         {
+          eng_w: {
+            contains: searchQuery,
+            mode: 'insensitive', // Default value: default
+          },
+        },
+        {
           category: {
             contains: category,
             mode: 'insensitive',

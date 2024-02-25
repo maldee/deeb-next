@@ -162,6 +162,7 @@ model Dictionary {
   id            Int      @id @default(autoincrement())
   word          String
   sin_w         String
+  eng_w         String   @default("engword") 
   category      String
   language      String
 }
