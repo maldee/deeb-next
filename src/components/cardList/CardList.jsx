@@ -34,8 +34,6 @@ const CardList = ({ page, cat }) => {
       // fetch data
 
       if(cat){
-        
-
         const dataFetch = async () => {
           const postCount = await (
             await fetch(`/api/posts/listByCat?cat=${cat}`,
@@ -53,7 +51,7 @@ const CardList = ({ page, cat }) => {
 
         const dataFetch = async () => {
           const postCount = await (
-            await fetch("/api/posts/list",
+            await fetch(`/api/posts/list`,
             )
           ).json();
     
