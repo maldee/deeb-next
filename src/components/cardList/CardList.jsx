@@ -51,7 +51,7 @@ const CardList = ({ page, cat }) => {
 
         const dataFetch = async () => {
           const postCount = await (
-            await fetch(`/api/posts/list`,
+            await fetch(`/api/posts/listall`,
             )
           ).json();
     
