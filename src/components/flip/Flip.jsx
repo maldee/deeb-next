@@ -29,7 +29,17 @@ const Flip = ({ key, item }) => {
           </div>
         ) : (
           <div className={styles.back} onClick={() => setFlip(!flip)}>
-            {item.back}
+            {item.back.includes('-') ? (
+              <div>
+                <p>{item.back.split('-')[0]}</p>
+                <p>{item.back.split('-')[1]}</p>
+              </div>
+            ) : (
+              <div>
+                {item.back}
+              </div>
+
+            )}
             <br />
 
           </div>
