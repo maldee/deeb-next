@@ -2,6 +2,15 @@
   margin-top: 20px;
 }
 
+.loader{
+  height: 30px;
+  width: 30px;
+  color: #8a2be2;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  margin-left: 5px;
+  }
+  
 .phraseList {
   display: grid;
   grid-gap: 5px;

@@ -107,18 +107,7 @@ const Dictionary = ({ searchParams }) => {
 
       </select>
 
-      {isLoading ?
-          <TailSpin
-            height="30"
-            width="30"
-            color="#8a2be2"
-            ariaLabel="tail-spin-loading"
-            radius="1"
-            wrapperStyle={{}}
-            wrapperClass={styles.loader}
-            visible={true}
-          />
-      : postCount?.count > 0 ? (
+      {postCount?.count > 0 ? (
         <ResponsivePagination
           maxWidth={`50px`}
           current={currentPage}
