@@ -163,6 +163,7 @@ model Dictionary {
   word          String
   sin_w         String
   eng_w         String   @default("engword") 
+  note          String   @default("note") 
   category      String
   language      String
 }

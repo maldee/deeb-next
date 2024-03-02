@@ -125,6 +125,7 @@ const Dictionary = ({ searchParams }) => {
                 <ul className={styles.chatCard}>
                   <h3 key={item.id}>{item.word}</h3>
                   <h4 className={styles.engp}>{item.sin_w}</h4>
+                  <h4 className={styles.engp}>{item.eng_w}</h4>
                   <hr className={styles.horiLine} />
                   <h6 className={styles.chatcat}>{item.category} | {item.language}</h6>
                 </ul>
