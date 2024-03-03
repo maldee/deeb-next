@@ -93,13 +93,16 @@ const News = ({ searchParams }) => {
                     <div className={styles.imageContainer} >
                       <Image src={item.img} alt="" fill className={styles.image} />
                     </div>
-                    <h4>{item.news}</h4>
-                    
-                    <hr className={styles.horiLine} />
-                    
-                    <Link className={styles.docLink} href={item.link} target="_blank">{item.link}</Link>
-                   
-                    <h4 className={styles.desc}>{item.desc}</h4>
+                    <div className={styles.textContainer}>
+                      <h4>{item.news}</h4>
+
+                      <hr className={styles.horiLine} />
+
+                      <Link className={styles.docLink} href={item.link} target="_blank">{item.link}</Link>
+
+                      
+                    </div>
+
                   </ul>
 
                 </div>
