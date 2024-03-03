@@ -12,4 +12,17 @@
     flex: 6 1;
   }
   
+  .menucatMobile{
+    display: none;
+  }
   
+  @media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 640px) {
+  .menucatMobile{
+    display: inline;
+  }
+
+}

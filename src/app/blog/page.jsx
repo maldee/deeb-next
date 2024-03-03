@@ -3,7 +3,8 @@ import Featured from "../../components/featured/Featured";
 import CardList from "../../components/cardList/CardList";
 import Menu from "../../components/Menu/Menu";
 import SlideMenu from "../../components/slideMenu/slideMenu";
-import { GoogleTagManager  } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
+import MenuCategories from "../../components/menuCategories/MenuCategories";
 
 export const metadata = {
   title: "Blog | Deeflow",
@@ -22,7 +23,15 @@ export default function Blog({ searchParams }) {
           <Featured />
           <div className={styles.content}>
             <CardList page={page} />
+            
+
           </div>
+          <div className={styles.menucatMobile}>
+            <br/>
+            <br/>
+            <h3>Categories</h3>
+              <MenuCategories />
+            </div>
         </div>
         <Menu />
       </div>
