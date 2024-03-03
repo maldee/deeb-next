@@ -35,6 +35,7 @@ const Chatbits = ({ searchParams }) => {
 
   const [selectedFormality, setFormality] = useState('Select Formality')
   const [selectedSituation, setSituation] = useState('Select Situation')
+  const [selectedLanguage, setLanguage] = useState('Select Language')
 
   const [query, setQuery] = useState('')
 
@@ -47,7 +48,7 @@ const Chatbits = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&formality=${selectedFormality}&situation=${selectedSituation}`,
+        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&formality=${selectedFormality}&situation=${selectedSituation}&language=${selectedLanguage}`,
         )
       ).json();
 
@@ -56,11 +57,11 @@ const Chatbits = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedFormality, selectedSituation]);
+  }, [query, selectedFormality, selectedSituation,selectedLanguage]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/chatbits?page=${currentPage}&query=${query}&formality=${selectedFormality}&situation=${selectedSituation}`,
+    `/api/chatbits?page=${currentPage}&query=${query}&formality=${selectedFormality}&situation=${selectedSituation}&language=${selectedLanguage}`,
     fetcher
   );
 
@@ -81,12 +82,22 @@ const Chatbits = ({ searchParams }) => {
   function handleFormality(e) {
     setFormality(e.target.value)
     setSituation("Select Situation")
+    setLanguage("Select Language")
     setQuery(null)
     setCurrentPage(1)
   }
 
   function handleSituation(e) {
     setSituation(e.target.value)
+    setFormality("Select Formality")
+    setLanguage("Select Language")
+    setQuery(null)
+    setCurrentPage(1)
+  }
+
+  function handleLanguage(e) {
+    setLanguage(e.target.value)
+    setSituation("Select Situation")
     setFormality("Select Formality")
     setQuery(null)
     setCurrentPage(1)
@@ -153,6 +164,25 @@ const Chatbits = ({ searchParams }) => {
 
           </select>
 
+          <select className={styles.selectInputLanguage} name="languages" id="languages" onChange={handleLanguage} value={selectedLanguage}>
+            <option value='Select Language'>Select Language</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.languages?.map((item) => (
+                <option key={item.id} value={item.language}>{item.language}</option>
+              ))}
+
+          </select>
+
         </section>
       </div>
 
@@ -198,6 +228,25 @@ const Chatbits = ({ searchParams }) => {
 
           </select>
 
+          <select className={styles.selectInputLanguage} name="languages" id="languages" onChange={handleLanguage} value={selectedLanguage}>
+            <option value='Select Language'>Select Language</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.languages?.map((item) => (
+                <option key={item.id} value={item.language}>{item.language}</option>
+              ))}
+
+          </select>
+
 
 
       </div>
@@ -222,8 +271,6 @@ const Chatbits = ({ searchParams }) => {
                   <hr className={styles.horiLine} />
                   <h4 className={styles.engp}>{item.eng_p}</h4>
                   <h4 className={styles.engp}>{item.sin_p}</h4>
-                  
-                  <h4 className={styles.example}>{item.example}</h4>
                   <br/>
                   <div className={styles.details}>
                     <p className={styles.tag}><span className={styles.formality}>Formality: </span> {item.formality}  </p>

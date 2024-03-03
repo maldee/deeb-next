@@ -147,7 +147,6 @@ model Chatbits {
   eng_p         String
   sin_p         String
   phrase        String
-  example       String   @default("example") 
   situation     String   @default("any") 
   note          String   @default("none")
   formality     String   @default("Polite Informal")

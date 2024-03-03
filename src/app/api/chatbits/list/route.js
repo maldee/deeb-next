@@ -2,12 +2,11 @@ import prisma from "../../../../utils/connect";
 import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
-
   const { searchParams } = new URL(req.url);
   const page = searchParams.get("page");
   const searchQuery = searchParams.get('query');
   const situation = searchParams.get('situation');
-  
+  const language = searchParams.get('language');
   const formality = searchParams.get('formality');
   
   const POST_PER_PAGE = 10;
@@ -42,12 +41,6 @@ export const GET = async (req) => {
           },
         },
         {
-          example: {
-            contains: searchQuery,
-            mode: 'insensitive', // Default value: default
-          },
-        },
-        {
           note: {
             contains: searchQuery,
             mode: 'insensitive', // Default value: default
@@ -71,13 +64,19 @@ export const GET = async (req) => {
             mode: 'insensitive',
           }
         },
+        {
+          language: {
+            contains: language,
+            mode: 'insensitive',
+          }
+        },
       ]
 
     },
   };
 
   try {
-    const [phrases, count, formalities,situations] = await prisma.$transaction([
+    const [phrases, count, formalities,situations,languages] = await prisma.$transaction([
       prisma.chatbits.findMany(query),
       prisma.chatbits.count({ where: query.where }),
       prisma.chatbits.findMany({
@@ -98,8 +97,17 @@ export const GET = async (req) => {
           },
         ],
       }),
+      prisma.chatbits.findMany({
+        where: {},
+        distinct: ['language'],
+        orderBy: [
+          {
+            language: 'asc',
+          },
+        ],
+      }),
     ]);
-    return new NextResponse(JSON.stringify({ phrases, count,formalities,situations }, { status: 200 }));
+    return new NextResponse(JSON.stringify({ phrases, count,formalities,situations,languages}, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(
