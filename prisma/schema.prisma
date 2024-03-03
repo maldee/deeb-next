@@ -145,6 +145,19 @@ model Flips {
 model Chatbits {
   id            Int      @id @default(autoincrement())
   eng_p         String
+  sin_p         String
+  phrase        String
+  example       String   @default("example") 
+  situation     String   @default("any") 
+  note          String   @default("none")
+  formality     String   @default("Polite Informal")
+  pronounce     String   @default("pronounce")
+  language      String    
+}
+
+model Grammars {
+  id            Int      @id @default(autoincrement())
+  sin_p         String
   phrase        String
   formality     String   @default("formality")
   type          String   @default("type")
@@ -173,6 +186,16 @@ model Cloudy {
   doc         String
   link        String?
   uploadedAt  DateTime  @default(now())
+}
+
+model News {
+  id          Int      @id @default(autoincrement())
+  news        String
+  desc        String
+  img         String?
+  link        String?
+  category    String
+  createdAt  DateTime  @default(now())
 }
 
 

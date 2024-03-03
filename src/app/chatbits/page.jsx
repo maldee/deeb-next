@@ -32,13 +32,9 @@ const Chatbits = ({ searchParams }) => {
   const [isExpanded, setExpanded] = useState(false)
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded })
 
-  const [selectedUsage, setUsage] = useState('Select Usage')
-
 
   const [selectedFormality, setFormality] = useState('Select Formality')
-  const [selectedType, setType] = useState('Select Type')
-  const [selectedTense, setTense] = useState('Select Tense')
-  const [selectedPlacement, setPlacement] = useState('Select Placement')
+  const [selectedSituation, setSituation] = useState('Select Situation')
 
   const [query, setQuery] = useState('')
 
@@ -51,7 +47,7 @@ const Chatbits = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&usage=${selectedUsage}&formality=${selectedFormality}&type=${selectedType}&tense=${selectedTense}&placement=${selectedPlacement}`,
+        await fetch(`/api/chatbits/list?page=${currentPage}&query=${query}&formality=${selectedFormality}&situation=${selectedSituation}`,
         )
       ).json();
 
@@ -60,11 +56,11 @@ const Chatbits = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedUsage, selectedFormality, selectedType, selectedTense, selectedPlacement]);
+  }, [query, selectedFormality, selectedSituation]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/chatbits?page=${currentPage}&query=${query}&usage=${selectedUsage}&formality=${selectedFormality}&type=${selectedType}&tense=${selectedTense}&placement=${selectedPlacement}`,
+    `/api/chatbits?page=${currentPage}&query=${query}&formality=${selectedFormality}&situation=${selectedSituation}`,
     fetcher
   );
 
@@ -74,66 +70,29 @@ const Chatbits = ({ searchParams }) => {
 
   const totalPages = Math.ceil(count / POST_PER_PAGE);
 
-  function handleUsage(e) {
-    setUsage(e.target.value)
-    setFormality("Select Formality")
-    setType("select Type")
-    setTense("Select Tense")
-    setPlacement("Select Placement")
-    setQuery(null)
-    setCurrentPage(1)
-  }
-
+ 
   function handleSearch(e) {
     setQuery(e.target.value)
-    setUsage('Select Usage')
     setFormality("Select Formality")
-    setType("select Type")
-    setTense("Select Tense")
-    setPlacement("Select Placement")
+    setSituation("Select Situation")
     setCurrentPage(1)
   }
 
   function handleFormality(e) {
     setFormality(e.target.value)
-    setUsage('Select Usage')
-    setType("select Type")
-    setTense("Select Tense")
-    setPlacement("Select Placement")
+    setSituation("Select Situation")
     setQuery(null)
     setCurrentPage(1)
   }
 
-  function handleType(e) {
-    setType(e.target.value)
-    setUsage('Select Usage')
+  function handleSituation(e) {
+    setSituation(e.target.value)
     setFormality("Select Formality")
-    setTense("Select Tense")
-    setPlacement("Select Placement")
     setQuery(null)
     setCurrentPage(1)
   }
 
-  function handleTense(e) {
-    setTense(e.target.value)
-    setUsage('Select Usage')
-    setFormality("Select Formality")
-    setType("select Type")
-    setPlacement("Select Placement")
-    setQuery(null)
-    setCurrentPage(1)
-  }
-
-  function handlePlacement(e) {
-    setPlacement(e.target.value)
-    setUsage('Select Usage')
-    setFormality("Select Formality")
-    setType("select Type")
-    setTense("Select Tense")
-    setQuery(null)
-    setCurrentPage(1)
-  }
-
+  
   return (
     <div className={styles.container}>
       <GoogleTagManager gtmId="G-LFHZ053M0Z" />
@@ -154,24 +113,7 @@ const Chatbits = ({ searchParams }) => {
           {isExpanded ? 'Hide Filters' : 'Show Filters'}
         </button>
         <section {...getCollapseProps()}>
-          <select className={styles.selectInputUsage} name="usages" id="usages" onChange={handleUsage} value={selectedUsage}>
-            <option value='Select Usage'>Select Usage</option>
-            {isLoading ?
-              <TailSpin
-                height="40"
-                width="40"
-                color="#8a2be2"
-                ariaLabel="tail-spin-loading"
-                radius="1"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-              />
-              : data?.usages?.map((item) => (
-                <option key={item.id} value={item.usage}>{item.usage}</option>
-              ))}
-
-          </select>
+         
 
           <select className={styles.selectInputFormality} name="formalities" id="formalities" onChange={handleFormality} value={selectedFormality}>
             <option value='Select Formality'>Select Formality</option>
@@ -192,8 +134,8 @@ const Chatbits = ({ searchParams }) => {
 
           </select>
 
-          <select className={styles.selectInputType} name="types" id="types" onChange={handleType} value={selectedType}>
-            <option value='Select Type'>Select Type</option>
+          <select className={styles.selectInputSituation} name="situations" id="situations" onChange={handleSituation} value={selectedSituation}>
+            <option value='Select Situation'>Select Situation</option>
             {isLoading ?
               <TailSpin
                 height="40"
@@ -205,46 +147,8 @@ const Chatbits = ({ searchParams }) => {
                 wrapperClass=""
                 visible={true}
               />
-              : data?.types?.map((item) => (
-                <option key={item.id} value={item.type}>{item.type}</option>
-              ))}
-
-          </select>
-
-          <select className={styles.selectInputTense} name="tenses" id="tenses" onChange={handleTense} value={selectedTense}>
-            <option value='Select Tense'>Select Tense</option>
-            {isLoading ?
-              <TailSpin
-                height="40"
-                width="40"
-                color="#8a2be2"
-                ariaLabel="tail-spin-loading"
-                radius="1"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-              />
-              : data?.tenses?.map((item) => (
-                <option key={item.id} value={item.tense}>{item.tense}</option>
-              ))}
-
-          </select>
-
-          <select className={styles.selectInputPlacement} name="placements" id="placements" onChange={handlePlacement} value={selectedPlacement}>
-            <option value='Select Placement'>Select Placement</option>
-            {isLoading ?
-              <TailSpin
-                height="40"
-                width="40"
-                color="#8a2be2"
-                ariaLabel="tail-spin-loading"
-                radius="1"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-              />
-              : data?.placements?.map((item) => (
-                <option key={item.id} value={item.placement}>{item.placement}</option>
+              : data?.situations?.map((item) => (
+                <option key={item.id} value={item.situation}>{item.situation}</option>
               ))}
 
           </select>
@@ -254,24 +158,7 @@ const Chatbits = ({ searchParams }) => {
 
       <div className={styles.webFilters}>
 
-        <select className={styles.selectInputUsage} name="usages" id="usages" onChange={handleUsage} value={selectedUsage}>
-          <option value='Select Usage'>Select Usage</option>
-          {isLoading ?
-            <TailSpin
-              height="40"
-              width="40"
-              color="#8a2be2"
-              ariaLabel="tail-spin-loading"
-              radius="1"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
-            : data?.usages?.map((item) => (
-              <option key={item.id} value={item.usage}>{item.usage}</option>
-            ))}
-
-        </select>
+        
 
         <select className={styles.selectInputFormality} name="formalities" id="formalities" onChange={handleFormality} value={selectedFormality}>
           <option value='Select Formality'>Select Formality</option>
@@ -292,62 +179,26 @@ const Chatbits = ({ searchParams }) => {
 
         </select>
 
-        <select className={styles.selectInputType} name="types" id="types" onChange={handleType} value={selectedType}>
-          <option value='Select Type'>Select Type</option>
-          {isLoading ?
-            <TailSpin
-              height="40"
-              width="40"
-              color="#8a2be2"
-              ariaLabel="tail-spin-loading"
-              radius="1"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
-            : data?.types?.map((item) => (
-              <option key={item.id} value={item.type}>{item.type}</option>
-            ))}
+        <select className={styles.selectInputSituation} name="situations" id="situations" onChange={handleSituation} value={selectedSituation}>
+            <option value='Select Situation'>Select Situation</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.situations?.map((item) => (
+                <option key={item.id} value={item.situation}>{item.situation}</option>
+              ))}
 
-        </select>
+          </select>
 
-        <select className={styles.selectInputTense} name="tenses" id="tenses" onChange={handleTense} value={selectedTense}>
-          <option value='Select Tense'>Select Tense</option>
-          {isLoading ?
-            <TailSpin
-              height="40"
-              width="40"
-              color="#8a2be2"
-              ariaLabel="tail-spin-loading"
-              radius="1"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
-            : data?.tenses?.map((item) => (
-              <option key={item.id} value={item.tense}>{item.tense}</option>
-            ))}
 
-        </select>
-
-        <select className={styles.selectInputPlacement} name="placements" id="placements" onChange={handlePlacement} value={selectedPlacement}>
-          <option value='Select Placement'>Select Placement</option>
-          {isLoading ?
-            <TailSpin
-              height="40"
-              width="40"
-              color="#8a2be2"
-              ariaLabel="tail-spin-loading"
-              radius="1"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
-            : data?.placements?.map((item) => (
-              <option key={item.id} value={item.placement}>{item.placement}</option>
-            ))}
-
-        </select>
 
       </div>
 
@@ -367,28 +218,19 @@ const Chatbits = ({ searchParams }) => {
             data?.phrases?.map((item) => (
               <div key={item.id} className={styles.container}>
                 <ul className={styles.chatCard}>
-                  <h3 key={item.id}>{item.phrase}</h3>
-                  <h4 className={styles.engp}>{item.eng_p}</h4>
+                  <h3 key={item.id} className={styles.phrase}>{item.phrase}</h3>
                   <hr className={styles.horiLine} />
-                  <h4 className={styles.example}>{item.example.split('-')[0]}</h4>
-                  <h4 className={styles.example}>{item.example.split('-')[1]}</h4>
+                  <h4 className={styles.engp}>{item.eng_p}</h4>
+                  <h4 className={styles.engp}>{item.sin_p}</h4>
+                  
+                  <h4 className={styles.example}>{item.example}</h4>
                   <br/>
                   <div className={styles.details}>
                     <p className={styles.tag}><span className={styles.formality}>Formality: </span> {item.formality}  </p>
-                    <p className={styles.tag}><span className={styles.tense}>Tense: </span> {item.tense}  </p>
-                    <p className={styles.tag}><span className={styles.type}>Type:</span> {item.type} </p>
-                    <p className={styles.tag}><span className={styles.placement}>Placement: </span> {item.placement}  </p>
-                    <p className={styles.tag}><span className={styles.usage}>Usage: </span> {item.usage} </p>
+                    <p className={styles.tag}><span className={styles.situation}>Situation: </span> {item.situation}  </p>
+                    <p className={styles.tag}><span className={styles.note}>Note: </span> {item.note}  </p>
                     <p className={styles.tag}><span className={styles.language}>Language: </span> {item.language}</p>
                   </div>
-
-                  {item.note != 'None' ?
-                    <div>
-                      <p className={styles.diff}>{'Differences ❕'}</p>
-                      <p className={styles.diffText}>{item.note}</p>
-                    </div>
-                    : null
-                  }
                 </ul>
               </div>
 

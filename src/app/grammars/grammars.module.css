@@ -22,9 +22,6 @@
   font-size: small;
 }
 
-.phrase{
-  padding-bottom: 10px;
-}
 .formality {
  
   font-size: small;
@@ -42,12 +39,12 @@
   color: lightseagreen;
 }
 
-.situation {
+.placement {
   font-size: small;
   color: lightskyblue;
 }
 
-.note {
+.usage {
   font-size: small;
   color: lightcoral;
 }
@@ -125,8 +122,19 @@
   color: #ddd;
 }
 
+.selectInputPlacement {
 
-.selectInputSituation {
+  width: 20%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0a0f1b;
+  color: #ddd;
+}
+
+.selectInputTense {
   margin-right: 10px;
   width: 20%;
   border: 2px solid #0a0f1b;
@@ -138,6 +146,29 @@
   color: #ddd;
 }
 
+.selectInputType {
+  margin-right: 10px;
+  width: 20%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0a0f1b;
+  color: #ddd;
+}
+
+.selectInputUsage {
+  margin-right: 10px;
+  width: 20%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0a0f1b;
+  color: #ddd;
+}
 
 .selectInput {
   margin-left: 40px;
@@ -295,12 +326,29 @@ hr.horiLine {
     color: #fff;
   }
 
-  .selectInputFormality {
+  .selectInputUsage {
     margin-top: 20px;
+    margin-right: 0;
     width: 100%;
   }
 
-  .selectInputSituation {
+  .selectInputFormality {
+    width: 100%;
+  }
+
+  .selectInputType {
+    width: 100%;
+  }
+
+  .selectInputTense {
+    width: 100%;
+  }
+
+  .selectInputPlacement {
+    width: 100%;
+  }
+
+  .selectInputComparison {
     width: 100%;
   }
 

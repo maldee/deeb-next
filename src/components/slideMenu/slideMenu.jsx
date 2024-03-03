@@ -21,7 +21,11 @@ const SlideMenu = () => {
       </Link>
      
       <Link  href="chatbits">
-      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>💬</p> {'Chatbits'}</button>
+      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>🐦</p> {'Chatbits'}</button>
+      </Link>
+
+      <Link  href="grammars">
+      <button className={styles.slideMenuButton} ><p className={styles.emojSize}>🧩</p> {'Grammars'}</button>
       </Link>
 
       <Link  href="dictionary">

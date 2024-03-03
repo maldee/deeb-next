@@ -6,10 +6,13 @@ export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
   const page = searchParams.get("page");
   const searchQuery = searchParams.get('query');
-  const situation = searchParams.get('situation');
-  
+  const usage = searchParams.get('usage');
+
   const formality = searchParams.get('formality');
-  
+  const type = searchParams.get('type');
+  const tense = searchParams.get('tense');
+  const placement = searchParams.get('placement');
+
   const POST_PER_PAGE = 10;
 
   const query = {
@@ -19,12 +22,6 @@ export const GET = async (req) => {
       OR: [
         {
           phrase: {
-            contains: searchQuery,
-            mode: 'insensitive', // Default value: default
-          },
-        },
-        {
-          eng_p: {
             contains: searchQuery,
             mode: 'insensitive', // Default value: default
           },
@@ -48,16 +45,16 @@ export const GET = async (req) => {
           },
         },
         {
-          note: {
+          pronounce: {
             contains: searchQuery,
             mode: 'insensitive', // Default value: default
           },
         },
         {
-          pronounce: {
-            contains: searchQuery,
-            mode: 'insensitive', // Default value: default
-          },
+          usage: {
+            contains: usage,
+            mode: 'insensitive',
+          }
         },
         {
           formality: {
@@ -66,21 +63,42 @@ export const GET = async (req) => {
           }
         },
         {
-          situation: {
-            contains: situation,
+          type: {
+            contains: type,
             mode: 'insensitive',
           }
         },
-      ]
+        {
+          tense: {
+            contains: tense,
+            mode: 'insensitive',
+          }
+        },
+        {
+          placement: {
+            contains: placement,
+            mode: 'insensitive',
+          }
+        },
+      ],
 
     },
   };
 
   try {
-    const [phrases, count, formalities,situations] = await prisma.$transaction([
-      prisma.chatbits.findMany(query),
-      prisma.chatbits.count({ where: query.where }),
-      prisma.chatbits.findMany({
+    const [phrases, count, usages,formalities,types,tenses,placements] = await prisma.$transaction([
+      prisma.grammars.findMany(query),
+      prisma.grammars.count({ where: query.where }),
+      prisma.grammars.findMany({
+        where: {},
+        distinct: ['usage'],
+        orderBy: [
+          {
+            usage: 'asc',
+          },
+        ],
+      }),
+      prisma.grammars.findMany({
         where: {},
         distinct: ['formality'],
         orderBy: [
@@ -89,17 +107,35 @@ export const GET = async (req) => {
           },
         ],
       }),
-      prisma.chatbits.findMany({
+      prisma.grammars.findMany({
         where: {},
-        distinct: ['situation'],
+        distinct: ['type'],
         orderBy: [
           {
-            situation: 'asc',
+            type: 'asc',
+          },
+        ],
+      }),
+      prisma.grammars.findMany({
+        where: {},
+        distinct: ['tense'],
+        orderBy: [
+          {
+            tense: 'asc',
+          },
+        ],
+      }),
+      prisma.grammars.findMany({
+        where: {},
+        distinct: ['placement'],
+        orderBy: [
+          {
+            placement: 'asc',
           },
         ],
       }),
     ]);
-    return new NextResponse(JSON.stringify({ phrases, count,formalities,situations }, { status: 200 }));
+    return new NextResponse(JSON.stringify({ phrases, count, usages,formalities,types,tenses,placements}, { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(
