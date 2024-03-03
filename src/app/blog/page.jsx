@@ -22,7 +22,6 @@ export default function Blog({ searchParams }) {
           <Featured />
           <div className={styles.content}>
             <CardList page={page} />
-
           </div>
         </div>
         <Menu />
