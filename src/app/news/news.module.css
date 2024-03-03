@@ -1,9 +1,9 @@
-
-.newsList{
+.newsList {
   margin-top: 30px;
 }
+
 .searchInput {
-margin-top: 30px;
+  margin-top: 30px;
   width: 50%;
   border: 2px solid #1f273a;
   box-sizing: border-box;
@@ -13,11 +13,11 @@ margin-top: 30px;
   color: #ddd;
 }
 
-.skeletonItem{
+.skeletonItem {
   margin-bottom: 10px;
 }
 
-.searchIcon{
+.searchIcon {
   border: 2px solid #17A2B8;
   background-color: #17A2B8;
   font-size: 18px;
@@ -25,7 +25,24 @@ margin-top: 30px;
   color: #fff;
 }
 
-.newsGrid{
+.imageContainer {
+  flex: 1;
+  height: 150px;
+  position: relative;
+  width: 20%;
+  float: left;
+  margin-right: 10px;
+}
+
+.image {
+  width: 100px;
+
+}
+
+.desc{
+  margin-top: 10px;
+}
+.newsGrid {
   background-color: #0a0f1b;
   padding: 8px;
   margin-top: 5px;
@@ -35,17 +52,17 @@ margin-top: 30px;
   align-items: center;
 }
 
-.docLink{
- word-break: break-all;
- text-decoration: underline;
- color: cadetblue;
+.docLink {
+  word-break: break-all;
+  text-decoration: underline;
+  color: cadetblue;
 }
 
 hr.horiLine {
   border: 0;
   border-top: 2px solid #0f172a;
   padding-bottom: 10px;
-  
+
 }
 
 @media screen and (max-width: 1536px) and (min-width: 1280px) {}
@@ -55,15 +72,16 @@ hr.horiLine {
 @media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 640px) {
- 
+
   .searchInput {
     width: 85%;
   }
 
-  .searchIcon{
+  .searchIcon {
     width: 15%;
   }
-  .newsGrid{
+
+  .newsGrid {
     width: 100%;
     margin-top: 5px;
     display: grid;
@@ -71,7 +89,12 @@ hr.horiLine {
     align-items: center;
   }
 
-  .newsList{
+  .newsList {
     margin-top: 20px;
+  }
+
+  .imageContainer {
+    width: 30%;
+    height: 110px;
   }
 }
