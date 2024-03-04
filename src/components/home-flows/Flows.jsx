@@ -52,7 +52,7 @@ const Flows = () => {
                         </div>
                         <div id="slide-8">
                             <a href={`https://store.deeflow.com`} className={styles.slideLink}>
-                                <Image src="/deestore.png" alt="" width={300} height={300} className={styles.slideImage} />
+                                <Image src="/store.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
                         </div>
                         <div id="slide-9">
