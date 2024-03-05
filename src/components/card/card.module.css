@@ -70,6 +70,10 @@
   .mobileTextContainer {
     display: none;
   }
+
+  .mobileTitle{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1280px) {
@@ -122,6 +126,11 @@
   .mobileTextContainer {
     flex: 2;
   }
+
+  .mobileTitle{
+    display: inline;
+    
+  }
   
   .imageContainer {
     display: none;
@@ -145,6 +154,7 @@
   }
 
   .desc {
+    margin-top: 20px;
     margin-bottom: 5px;
   }
 
