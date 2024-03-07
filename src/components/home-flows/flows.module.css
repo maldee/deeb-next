@@ -32,7 +32,7 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-
+  
   /*
   scroll-snap-points-x: repeat(300px);
   scroll-snap-type: mandatory;
@@ -42,12 +42,12 @@
 .slides::-webkit-scrollbar {
 
   width: 10px;
-  height: 10px;
+  height: 15px;
 }
 
 .slides::-webkit-scrollbar-thumb {
 
-  background: #161f35;
+  background: #127C71;
   border-radius: 10px;
 }
 
@@ -72,6 +72,7 @@
   justify-content: center;
   align-items: center;
   font-size: 100px;
+  margin-bottom: 10px;
 }
 
 .slides>div:target {
