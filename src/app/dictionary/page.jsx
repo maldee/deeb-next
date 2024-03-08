@@ -31,7 +31,7 @@ const Dictionary = ({ searchParams }) => {
 
   const [isExpanded, setExpanded] = useState(false)
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded })
-
+  
   const [selectedLanguage, setLanguage] = useState('Select Language')
   const [selectedCategory, setCategory] = useState('Select Category')
   const [selectedAbbreviation, setAbbreviation] = useState('Select Abbreviation')
@@ -174,7 +174,7 @@ const Dictionary = ({ searchParams }) => {
       </div>
 
       <div className={styles.webFilters}>
-        <select className={styles.selectInputCategory} name="languages" id="languages" onChange={handleLanguage} value={selectedLanguage}>
+        <select className={styles.selectInputLanguage} name="languages" id="languages" onChange={handleLanguage} value={selectedLanguage}>
           <option value='Select Language'>Select Language</option>
           {isLoading ?
             <TailSpin
