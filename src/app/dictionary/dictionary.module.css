@@ -16,6 +16,19 @@ margin-left: 5px;
   grid-template-columns: 1fr;
 }
 
+.mobFilters {
+  display: none;
+}
+
+.filterbtn {
+  border: 2px solid #17A2B8;
+  background-color: #17A2B8;
+  border-radius: 20px;
+  font-size: 12px;
+  padding: 9px;
+  color: #fff;
+}
+
 .diffText{
   background-color: rgba(220, 20, 60, 0.178);
   font-size: small;
@@ -59,6 +72,18 @@ margin-left: 5px;
 }
 
 .selectInputAbbreviation {
+  margin-right: 10px;
+  width: 20%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0a0f1b;
+  color: #ddd;
+}
+
+.selectInputLanguage {
  
   width: 20%;
   border: 2px solid #0a0f1b;
@@ -120,6 +145,9 @@ hr.horiLine {
   color: mediumpurple;
 }
 
+.skeletonList{
+  margin-top: 10px;
+}
 
 .skeletonBody {
   padding-bottom: 10px;
@@ -207,6 +235,19 @@ hr.horiLine {
 
 @media screen and (max-width: 640px) {
 
+  .mobFilters {
+    display: inline;
+  }
+
+  .webFilters {
+    display: none;
+  }
+  
+  .selectInputLanguage {
+    margin-top: 20px;
+    margin-right: 0;
+    width: 100%;
+  }
   .selectInputCategory {
     margin-right: 0;
     width: 100%;

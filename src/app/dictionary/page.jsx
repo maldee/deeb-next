@@ -10,7 +10,8 @@ import React, { useState, useEffect } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
-import { GoogleTagManager  } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
+import { useCollapse } from 'react-collapsed'
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -28,9 +29,13 @@ const Dictionary = ({ searchParams }) => {
 
   const page = parseInt(searchParams.page) || 1;
 
+  const [isExpanded, setExpanded] = useState(false)
+  const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded })
+
   const [selectedLanguage, setLanguage] = useState('Select Language')
   const [selectedCategory, setCategory] = useState('Select Category')
-  
+  const [selectedAbbreviation, setAbbreviation] = useState('Select Abbreviation')
+
   const [query, setQuery] = useState('')
 
   const [postCount, setData] = useState();
@@ -42,7 +47,7 @@ const Dictionary = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/dictionary/list?page=${currentPage}&query=${query}&language=${selectedLanguage}&category=${selectedCategory}`,
+        await fetch(`/api/dictionary/list?page=${currentPage}&query=${query}&language=${selectedLanguage}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}`,
         )
       ).json();
 
@@ -51,11 +56,11 @@ const Dictionary = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedLanguage,selectedCategory]);
+  }, [query, selectedLanguage, selectedCategory, selectedAbbreviation]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/dictionary?page=${currentPage}&query=${query}&language=${selectedLanguage}&category=${selectedCategory}`,
+    `/api/dictionary?page=${currentPage}&query=${query}&language=${selectedLanguage}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}`,
     fetcher
   );
 
@@ -67,16 +72,25 @@ const Dictionary = ({ searchParams }) => {
 
   function handleLanguage(e) {
     setLanguage(e.target.value)
-  
+
   }
 
   function handleCategory(e) {
     setCategory(e.target.value)
+    setQuery(null)
+    setAbbreviation('Select Abbreviation')
   }
 
+  function handleAbbreviation(e) {
+    setAbbreviation(e.target.value)
+    setQuery(null)
+    setCategory('Select Category')
+  }
 
   function handleSearch(e) {
     setQuery(e.target.value)
+    setAbbreviation('Select Abbreviation')
+    setCategory('Select Category')
   }
 
   return (
@@ -88,24 +102,135 @@ const Dictionary = ({ searchParams }) => {
         <FaSearch />
       </button>
 
-      <select className={styles.selectInputCategory} name="languages" id="languages" onChange={handleLanguage} value={selectedLanguage}>
-        <option value='Select Language'>Select Language</option>
-        {isLoading ?
-          <TailSpin
-            height="40"
-            width="40"
-            color="#8a2be2"
-            ariaLabel="tail-spin-loading"
-            radius="1"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-          />
-          : data?.languages?.map((item) => (
-            <option key={item.id} value={item.language}>{item.language}</option>
-          ))}
+      <br />
 
-      </select>
+      <div className={styles.mobFilters}>
+        <button className={styles.filterbtn}
+          {...getToggleProps({
+            onClick: () => setExpanded((prevExpanded) => !prevExpanded),
+          })}
+        >
+          {isExpanded ? 'Hide Filters' : 'Show Filters'}
+        </button>
+        <section {...getCollapseProps()}>
+          <select className={styles.selectInputLanguage} name="languages" id="languages" onChange={handleLanguage} value={selectedLanguage}>
+            <option value='Select Language'>Select Language</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.languages?.map((item) => (
+                <option key={item.id} value={item.language}>{item.language}</option>
+              ))}
+
+          </select>
+
+          <select className={styles.selectInputAbbreviation} name="abbreviations" id="abbreviations" onChange={handleAbbreviation} value={selectedAbbreviation}>
+            <option value='Select Abbreviation'>Select Abbreviation</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.abbreviations?.map((item) => (
+                <option key={item.id} value={item.abbreviation}>{item.abbreviation}</option>
+              ))}
+
+          </select>
+
+          <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
+            <option value='Select Category'>Select Category</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.categories?.map((item) => (
+                <option key={item.id} value={item.category}>{item.category}</option>
+              ))}
+
+          </select>
+        </section>
+
+      </div>
+
+      <div className={styles.webFilters}>
+        <select className={styles.selectInputCategory} name="languages" id="languages" onChange={handleLanguage} value={selectedLanguage}>
+          <option value='Select Language'>Select Language</option>
+          {isLoading ?
+            <TailSpin
+              height="40"
+              width="40"
+              color="#8a2be2"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+            : data?.languages?.map((item) => (
+              <option key={item.id} value={item.language}>{item.language}</option>
+            ))}
+
+        </select>
+
+        <select className={styles.selectInputAbbreviation} name="abbreviations" id="abbreviations" onChange={handleAbbreviation} value={selectedAbbreviation}>
+          <option value='Select Abbreviation'>Select Abbreviation</option>
+          {isLoading ?
+            <TailSpin
+              height="40"
+              width="40"
+              color="#8a2be2"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+            : data?.abbreviations?.map((item) => (
+              <option key={item.id} value={item.abbreviation}>{item.abbreviation}</option>
+            ))}
+
+        </select>
+
+        <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
+          <option value='Select Category'>Select Category</option>
+          {isLoading ?
+            <TailSpin
+              height="40"
+              width="40"
+              color="#8a2be2"
+              ariaLabel="tail-spin-loading"
+              radius="1"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+            : data?.categories?.map((item) => (
+              <option key={item.id} value={item.category}>{item.category}</option>
+            ))}
+
+        </select>
+      </div>
 
       {postCount?.count > 0 ? (
         <ResponsivePagination

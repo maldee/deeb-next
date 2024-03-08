@@ -5,7 +5,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 const ChatbitsSkeleton = () => {
     return (
         <SkeletonTheme baseColor="#1f273a" highlightColor="#0F1729">
-        <ul className="list">
+        <ul className={styles.skeletonList}>
         {Array(7)
             .fill(1, 2)
             .map((item, index) => (
