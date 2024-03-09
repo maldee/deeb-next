@@ -178,7 +178,6 @@ model Dictionary {
   note          String   @default("note") 
   category      String
   language      String
-  abbreviation  String   @default("abb")
 }
 
 model Cloudy {

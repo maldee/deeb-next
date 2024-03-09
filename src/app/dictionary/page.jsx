@@ -34,7 +34,7 @@ const Dictionary = ({ searchParams }) => {
   
   const [selectedLanguage, setLanguage] = useState('Select Language')
   const [selectedCategory, setCategory] = useState('Select Category')
-  const [selectedAbbreviation, setAbbreviation] = useState('Select Abbreviation')
+
 
   const [query, setQuery] = useState('')
 
@@ -47,7 +47,7 @@ const Dictionary = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/dictionary/list?page=${currentPage}&query=${query}&language=${selectedLanguage}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}`,
+        await fetch(`/api/dictionary/list?page=${currentPage}&query=${query}&language=${selectedLanguage}&category=${selectedCategory}`,
         )
       ).json();
 
@@ -56,11 +56,11 @@ const Dictionary = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedLanguage, selectedCategory, selectedAbbreviation]);
+  }, [query, selectedLanguage, selectedCategory]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/dictionary?page=${currentPage}&query=${query}&language=${selectedLanguage}&category=${selectedCategory}&abbreviation=${selectedAbbreviation}`,
+    `/api/dictionary?page=${currentPage}&query=${query}&language=${selectedLanguage}&category=${selectedCategory}`,
     fetcher
   );
 
@@ -79,12 +79,6 @@ const Dictionary = ({ searchParams }) => {
     setCategory(e.target.value)
     setQuery(null)
     setAbbreviation('Select Abbreviation')
-  }
-
-  function handleAbbreviation(e) {
-    setAbbreviation(e.target.value)
-    setQuery(null)
-    setCategory('Select Category')
   }
 
   function handleSearch(e) {
@@ -132,24 +126,7 @@ const Dictionary = ({ searchParams }) => {
 
           </select>
 
-          <select className={styles.selectInputAbbreviation} name="abbreviations" id="abbreviations" onChange={handleAbbreviation} value={selectedAbbreviation}>
-            <option value='Select Abbreviation'>Select Abbreviation</option>
-            {isLoading ?
-              <TailSpin
-                height="40"
-                width="40"
-                color="#8a2be2"
-                ariaLabel="tail-spin-loading"
-                radius="1"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-              />
-              : data?.abbreviations?.map((item) => (
-                <option key={item.id} value={item.abbreviation}>{item.abbreviation}</option>
-              ))}
-
-          </select>
+          
 
           <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
             <option value='Select Category'>Select Category</option>
@@ -193,24 +170,6 @@ const Dictionary = ({ searchParams }) => {
 
         </select>
 
-        <select className={styles.selectInputAbbreviation} name="abbreviations" id="abbreviations" onChange={handleAbbreviation} value={selectedAbbreviation}>
-          <option value='Select Abbreviation'>Select Abbreviation</option>
-          {isLoading ?
-            <TailSpin
-              height="40"
-              width="40"
-              color="#8a2be2"
-              ariaLabel="tail-spin-loading"
-              radius="1"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
-            : data?.abbreviations?.map((item) => (
-              <option key={item.id} value={item.abbreviation}>{item.abbreviation}</option>
-            ))}
-
-        </select>
 
         <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
           <option value='Select Category'>Select Category</option>

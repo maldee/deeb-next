@@ -71,18 +71,6 @@ margin-left: 5px;
   color: #ddd;
 }
 
-.selectInputAbbreviation {
-  margin-right: 10px;
-  width: 20%;
-  border: 2px solid #0a0f1b;
-  box-sizing: border-box;
-  font-size: 16px;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: #0a0f1b;
-  color: #ddd;
-}
-
 .selectInputLanguage {
   margin-right: 10px;
   width: 20%;
@@ -250,10 +238,6 @@ hr.horiLine {
   }
   .selectInputCategory {
     margin-right: 0;
-    width: 100%;
-  }
-
-  .selectInputAbbreviation {
     width: 100%;
   }
 
