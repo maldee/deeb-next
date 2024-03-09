@@ -78,12 +78,10 @@ const Dictionary = ({ searchParams }) => {
   function handleCategory(e) {
     setCategory(e.target.value)
     setQuery(null)
-    setAbbreviation('Select Abbreviation')
   }
 
   function handleSearch(e) {
     setQuery(e.target.value)
-    setAbbreviation('Select Abbreviation')
     setCategory('Select Category')
   }
 

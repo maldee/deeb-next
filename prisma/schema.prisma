@@ -178,6 +178,7 @@ model Dictionary {
   note          String   @default("note") 
   category      String
   language      String
+  pronounce     String   @default("pronounce")
 }
 
 model Cloudy {
