@@ -26,6 +26,11 @@
   cursor: pointer;
 }
 
+.front{
+  object-fit: contain;
+  background-color: #fff;
+}
+
 .back {
   width: 360px;
   height: 260px;
