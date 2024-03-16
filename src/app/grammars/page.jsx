@@ -384,7 +384,7 @@ const Grammars = ({ searchParams }) => {
 
                   {item.note != 'None' ?
                     <div>
-                      <p className={styles.diff}>{'Comparisons ❕'}</p>
+                      <p className={styles.diff}>{'Notes ❕'}</p>
                       <p className={styles.diffText}>{item.note}</p>
                     </div>
                     : null
