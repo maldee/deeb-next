@@ -300,7 +300,7 @@ hr.horiLine {
 @media screen and (max-width: 640px) {
 
   .diff {
-    width: 120px;
+    width: 110px;
   }
   .diffText {
     font-size: small;
