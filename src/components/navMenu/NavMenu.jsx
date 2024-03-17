@@ -23,11 +23,13 @@ const NavMenu = () => {
         <option value='dictionary'><Link className={styles.authLink}  href="/dictionary">📚 Dictionary</Link></option>
         <option value='chatbits'><Link className={styles.authLink}  href="/chatbits">🐦 Chatbits</Link></option>
         <option value='grammars'><Link className={styles.authLink}  href="/grammars">🧩 Grammars</Link></option>
+        <option value='cheats'><Link className={styles.authLink}  href="/cheats">🎯 Cheats</Link></option>
         <option value='quizy'><Link className={styles.authLink}  href="/quizy">🏆 Quizy</Link></option>
         <option value='flips'><Link className={styles.authLink}  href="/flips">➰ Flips</Link></option>
         <option value='qlake'><Link className={styles.authLink}  href="/qlake">🪐 Qlake</Link></option>
         <option value='cloudy'><Link className={styles.authLink}  href="/cloudy">☁️ Cloudy</Link></option>
         <option value='news'><Link className={styles.authLink}  href="/news">📰 News</Link></option>
+        <option value='faq'><Link className={styles.authLink}  href="/faq">🗨️ FAQ</Link></option>
        
 
       </select>

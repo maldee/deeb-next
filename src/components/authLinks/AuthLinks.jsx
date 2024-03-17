@@ -56,6 +56,7 @@ const AuthLinks = () => {
 
             <p><Link className={styles.authLink} onClick={toggle} href="/chatbits">🐦 Chatbits</Link></p><br /><br />
             <p><Link className={styles.authLink} onClick={toggle} href="/grammars">🧩 Grammars</Link></p><br /><br />
+            <p><Link className={styles.authLink} onClick={toggle} href="/cheats">🎯 Cheats</Link></p><br /><br />
           </div>
           <div className={styles.col1}>
             <p><Link className={styles.authLink} onClick={toggle} href="/quizy">🏆 Quizy</Link></p><br /><br />
@@ -63,6 +64,7 @@ const AuthLinks = () => {
             <p><Link className={styles.authLink} onClick={toggle} href="/qlake">🪐 Qlake</Link></p><br /><br />
             <p><Link className={styles.authLink} onClick={toggle} href="/cloudy">☁️ Cloudy</Link></p><br /><br />
             <p><Link className={styles.authLink} onClick={toggle} href="/news">📰 News </Link></p><br /><br />
+            <p><Link className={styles.authLink} onClick={toggle} href="/faq">🗨️ FAQ </Link></p><br /><br />
           </div>
 
 
