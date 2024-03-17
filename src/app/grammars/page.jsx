@@ -263,7 +263,6 @@ const Grammars = ({ searchParams }) => {
           <ul className={styles.filterEmojList}>
           <button className={styles.emojBtn} onClick={handleTag} value={`🆚`}>🆚</button>
           <button className={styles.emojBtn} onClick={handleTag} value={`*️⃣`}>*️⃣</button>
-          <button className={styles.emojBtn} onClick={handleTag} value={`🟩`}>🟩</button>
           <button className={styles.emojBtn} onClick={handleTag} value={`🟥`}>🟥</button>
           
           </ul>
@@ -423,8 +422,8 @@ const Grammars = ({ searchParams }) => {
           <ul className={styles.tagEmojList}>
           <button className={styles.emojBtn} onClick={handleTag} value={`🆚`}>🆚</button>
           <button className={styles.emojBtn} onClick={handleTag} value={`*️⃣`}>*️⃣</button>
-          <button className={styles.emojBtn} onClick={handleTag} value={`🟩`}>🟩</button>
           <button className={styles.emojBtn} onClick={handleTag} value={`🟥`}>🟥</button>
+          
          
           </ul>
         </div>
