@@ -1,3 +1,4 @@
+
 .logoContainer {
     text-align: center;
     margin-top: 10px;
@@ -16,8 +17,14 @@
     
 }
 
+.planContent{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+}
+
 .planDetails{
-    justify-content: center;
+    justify-content: right;
     display: flex;
     gap: 20px;
 }
@@ -27,10 +34,8 @@
 }
 
 .upgradeButtonActivated {
-   
-    
     color: var(--textColor);
-    text-align: center;
+    text-align: left;
     background-color: #6245d8;
     border: none;
     border-radius: 10px;
@@ -48,6 +53,10 @@
     background-color: rgba(0, 0, 0, .08);
     color: #9898ea;
   }
+
+.upgradeBtn{
+    text-align: left;
+}  
 
 .vision {
     font-size: 20px;
@@ -82,4 +91,26 @@
 
 @media screen and (max-width: 1024px) {}
 
-@media screen and (max-width: 640px) {}
+@media screen and (max-width: 640px) {
+    .planContent{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .planDetails{
+        justify-content: center;
+        display: flex;
+        gap: 20px;
+    }
+
+    .wish{
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .upgradeBtn{
+        text-align: center;
+    }  
+}
