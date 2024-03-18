@@ -15,10 +15,8 @@ import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
 import { GoogleTagManager } from "@next/third-parties/google";
 
-// export const metadata = {
-//   title: "Flips | Deeflow",
-//   description: "Memorize anything with deeflow",
-// };
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -34,6 +32,9 @@ const fetcher = async (url) => {
 
 const Flips = ({ searchParams }) => {
 
+  const { status } = useSession();
+  const router = useRouter();
+  
   const page = parseInt(searchParams.page) || 1;
 
   const [selectedLesson, setLesson] = useState('EPS B1 Lesson 03')
@@ -81,6 +82,10 @@ const Flips = ({ searchParams }) => {
   function handleType(e) {
     setType(e.target.value)
     setCurrentPage(1)
+  }
+
+  if (status === "unauthenticated") {
+    router.push("/plans");
   }
 
   return (

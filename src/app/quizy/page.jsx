@@ -13,10 +13,8 @@ import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
 import { GoogleTagManager  } from "@next/third-parties/google";
 
-// export const metadata = {
-//   title: "Quizy | Deeflow",
-//   description: "Realtime exam hub of deeflow",
-// };
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -31,6 +29,9 @@ const fetcher = async (url) => {
 };
 
 const Quizy = ({ searchParams }) => {
+
+  const { status } = useSession();
+  const router = useRouter();
 
   const page = parseInt(searchParams.page) || 1;
   const [selectedSubject, setSubject] = useState('EPS TOPIK Grammar')
@@ -73,6 +74,10 @@ const Quizy = ({ searchParams }) => {
   function handleSubject(e) {
     setSubject(e.target.value)
     setCurrentPage(1)
+  }
+
+  if (status === "unauthenticated") {
+    router.push("/plans");
   }
 
   return (

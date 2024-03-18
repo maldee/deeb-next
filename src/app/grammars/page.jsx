@@ -13,6 +13,9 @@ import useSWR from "swr";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { useCollapse } from 'react-collapsed'
 
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+
 const fetcher = async (url) => {
   const res = await fetch(url);
 
@@ -26,6 +29,9 @@ const fetcher = async (url) => {
 };
 
 const Grammars = ({ searchParams }) => {
+
+  const { status } = useSession();
+  const router = useRouter();
 
   const page = parseInt(searchParams.page) || 1;
 
@@ -142,6 +148,10 @@ const Grammars = ({ searchParams }) => {
     setTense("Select Tense")
     setPlacement("Select Placement")
     setCurrentPage(1)
+  }
+
+  if (status === "unauthenticated") {
+    router.push("/plans");
   }
 
   return (

@@ -13,6 +13,9 @@ import useSWR from "swr";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { useCollapse } from 'react-collapsed'
 
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+
 const fetcher = async (url) => {
   const res = await fetch(url);
 
@@ -26,6 +29,9 @@ const fetcher = async (url) => {
 };
 
 const Cheats = ({ searchParams }) => {
+
+  const { status } = useSession();
+  const router = useRouter();
 
   const page = parseInt(searchParams.page) || 1;
 
@@ -83,6 +89,25 @@ const Cheats = ({ searchParams }) => {
   function handleSearch(e) {
     setQuery(e.target.value)
     setCategory('Select Category')
+  }
+
+  if (status === "loading") {
+    return <div className={styles.loading}>
+      <TailSpin
+        height="40"
+        width="40"
+        color="#8a2be2"
+        ariaLabel="tail-spin-loading"
+        radius="1"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+      </div>;
+  }
+
+  if (status === "unauthenticated") {
+    router.push("/plans");
   }
 
   return (

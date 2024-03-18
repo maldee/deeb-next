@@ -1,0 +1,85 @@
+.logoContainer {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 245px;
+    height: 77px;
+    
+}
+
+.plan_logo{
+    width: 200px;
+    height: 200px;
+    
+}
+
+.planDetails{
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+}
+
+.details{
+    line-height: 30px;
+}
+
+.upgradeButtonActivated {
+   
+    
+    color: var(--textColor);
+    text-align: center;
+    background-color: #6245d8;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 14px;
+    cursor: pointer;
+    font-size: medium;
+    font-weight: bold;
+  }
+
+  
+  .upgradeButton:hover {
+    color: #495057;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, .08);
+    color: #9898ea;
+  }
+
+.vision {
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.sections {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.wish{
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.subTitle {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.aboutDesc{
+    text-align: center;
+}
+
+
+@media screen and (max-width: 1536px) and (min-width: 1280px) {}
+
+@media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 640px) {}

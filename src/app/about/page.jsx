@@ -13,7 +13,6 @@ export default function About({ searchParams }) {
     <div className={styles.container}>
       <div className={styles.logoContainer}>
         <img className={styles.logo} src="./deeflow_logo.jpg" />
-        <h4 className={styles.vision}>Flow to the next world</h4>
       </div>
       <br/>
       <div className={styles.container}>

@@ -13,6 +13,10 @@ import useSWR from "swr";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { useCollapse } from 'react-collapsed'
 
+
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+
 const fetcher = async (url) => {
   const res = await fetch(url);
 
@@ -27,6 +31,9 @@ const fetcher = async (url) => {
 
 const Dictionary = ({ searchParams }) => {
 
+  const { status } = useSession();
+  const router = useRouter();
+  
   const page = parseInt(searchParams.page) || 1;
 
   const [isExpanded, setExpanded] = useState(false)
@@ -83,6 +90,10 @@ const Dictionary = ({ searchParams }) => {
   function handleSearch(e) {
     setQuery(e.target.value)
     setCategory('Select Category')
+  }
+
+  if (status === "unauthenticated") {
+    router.push("/plans");
   }
 
   return (
