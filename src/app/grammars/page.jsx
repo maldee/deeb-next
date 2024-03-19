@@ -150,9 +150,9 @@ const Grammars = ({ searchParams }) => {
     setCurrentPage(1)
   }
 
-  // if (status === "unauthenticated") {
-  //   router.push("/plans");
-  // }
+  if (status === "unauthenticated") {
+    router.push("/plans");
+  }
 
   return (
     <div className={styles.container}>

@@ -106,9 +106,9 @@ const Cheats = ({ searchParams }) => {
       </div>;
   }
 
-  // if (status === "unauthenticated") {
-  //   router.push("/plans");
-  // }
+  if (status === "unauthenticated") {
+    router.push("/plans");
+  }
 
   return (
     <div className={styles.container}>

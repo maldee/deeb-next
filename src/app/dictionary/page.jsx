@@ -92,9 +92,9 @@ const Dictionary = ({ searchParams }) => {
     setCategory('Select Category')
   }
 
-  // if (status === "unauthenticated") {
-  //   router.push("/plans");
-  // }
+  if (status === "unauthenticated") {
+    router.push("/plans");
+  }
 
   return (
     <div className={styles.container}>

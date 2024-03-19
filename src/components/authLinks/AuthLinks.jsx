@@ -9,6 +9,7 @@ const AuthLinks = () => {
   const [open, setOpen] = useState(false);
   const toggle = () => setOpen(!open);
   const { status } = useSession();
+  
 
   return (
     <>
@@ -26,7 +27,7 @@ const AuthLinks = () => {
           wrapperClass={styles.threedots}
         />
         : status === "unauthenticated" ? (
-          <Link href="/login" className={styles.link}>
+          <Link href="/sign-in" className={styles.link}>
             Login
           </Link>
         ) : (
