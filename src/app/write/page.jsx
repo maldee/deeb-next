@@ -35,7 +35,9 @@ const fetcher = async (url) => {
 };
 
 const WritePage = () => {
+  const { data: session } = useSession();
   const { status } = useSession();
+
   const router = useRouter();
   const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
 
@@ -103,8 +105,8 @@ const WritePage = () => {
       </div>;
   }
 
-  if (status === "unauthenticated") {
-    router.push("/");
+if (status === "unauthenticated" || session?.user.role === "user") {
+    router.push("/plans");
   }
 
   const slugify = (str) =>

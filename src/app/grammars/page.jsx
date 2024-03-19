@@ -30,7 +30,9 @@ const fetcher = async (url) => {
 
 const Grammars = ({ searchParams }) => {
 
+  const { data: session } = useSession();
   const { status } = useSession();
+  
   const router = useRouter();
 
   const page = parseInt(searchParams.page) || 1;
@@ -150,7 +152,7 @@ const Grammars = ({ searchParams }) => {
     setCurrentPage(1)
   }
 
-  if (status === "unauthenticated") {
+  if (status === "unauthenticated" || session?.user.subscription === "Free") {
     router.push("/plans");
   }
 

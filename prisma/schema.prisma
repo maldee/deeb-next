@@ -46,6 +46,8 @@ model User {
   password      String    @default("pass")
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt @default(now())
+  role          String    @default("user")
+  subscription  String    @default("Free")
   accounts      Account[]
   sessions      Session[]
   Post          Post[]

@@ -31,7 +31,9 @@ const fetcher = async (url) => {
 
 const Dictionary = ({ searchParams }) => {
 
+  const { data: session } = useSession();
   const { status } = useSession();
+
   const router = useRouter();
   
   const page = parseInt(searchParams.page) || 1;
@@ -92,7 +94,7 @@ const Dictionary = ({ searchParams }) => {
     setCategory('Select Category')
   }
 
-  if (status === "unauthenticated") {
+  if (status === "unauthenticated" || session?.user.subscription === "Free") {
     router.push("/plans");
   }
 

@@ -18,6 +18,7 @@ import GoogleSignInButton from '../GoogleSignInButton';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import styles from "./signin.module.css";
+import { ToastContainer, toast } from 'react-toastify';
 
 const FormSchema = z.object({
   email: z.string().min(1, 'Email is required').email('Invalid email'),
@@ -45,7 +46,8 @@ const SignInForm = () => {
     });
 
     if (signInData?.error) {
-      console.log(signInData.error);
+      toast.error(signInData.error);
+      
     } else {
       router.refresh();
       router.push('/');
@@ -59,8 +61,7 @@ const SignInForm = () => {
         <img width="100"
           src="./logo-400.png" />
       </div>
-
-
+      
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
           <div className='space-y-2'>

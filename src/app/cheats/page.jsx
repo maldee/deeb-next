@@ -30,7 +30,9 @@ const fetcher = async (url) => {
 
 const Cheats = ({ searchParams }) => {
 
+  const { data: session } = useSession();
   const { status } = useSession();
+  
   const router = useRouter();
 
   const page = parseInt(searchParams.page) || 1;
@@ -106,7 +108,7 @@ const Cheats = ({ searchParams }) => {
       </div>;
   }
 
-  if (status === "unauthenticated") {
+  if (status === "unauthenticated" || session?.user.subscription === "Free") {
     router.push("/plans");
   }
 

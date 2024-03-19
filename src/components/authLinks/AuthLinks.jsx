@@ -35,7 +35,10 @@ const AuthLinks = () => {
             <Link href="/write" className={styles.link}>
               Write
             </Link>
-            <Link href="/" className={styles.link} onClick={signOut}>
+            <Link href="/" className={styles.link} onClick={()=> signOut({
+              redirect: true,
+              callbackUrl: `${window.location.origin}/sign-in`,
+            })}>
               Logout
             </Link>
           </>

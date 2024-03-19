@@ -16,6 +16,8 @@ import { Button } from '../themeForm/button';
 import Link from 'next/link';
 import GoogleSignInButton from '../GoogleSignInButton';
 import { useRouter } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
+import styles from "./signup.module.css";
 
 const FormSchema = z
   .object({
@@ -58,14 +60,21 @@ const SignUpForm = () => {
     })
 
     if (responseUser.ok) {
+      toast.success("Account created successfully");
       router.push('/sign-in')
     } else {
-      console.error('registration failed');
+      console.error('Email already in use');
     }
 
   };
 
   return (
+    <div >
+      <div className={styles.logo}>
+        <img width="100"
+          src="./logo-400.png" />
+      </div>
+
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
         <div className='space-y-2'>
@@ -134,17 +143,16 @@ const SignUpForm = () => {
           Sign up
         </Button>
       </form>
-      <div className='mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400'>
-        or
-      </div>
-      <GoogleSignInButton>Sign up with Google</GoogleSignInButton>
-      <p className='text-center text-sm text-gray-600 mt-2'>
+     
+     
+      <p className={styles.centerText}>
         If you don&apos;t have an account, please&nbsp;
         <Link className='text-blue-500 hover:underline' href='/sign-in'>
           Sign in
         </Link>
       </p>
     </Form>
+    </div>
   );
 };
 
