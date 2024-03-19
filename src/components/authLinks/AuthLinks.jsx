@@ -8,8 +8,10 @@ import { ThreeDots } from 'react-loader-spinner';
 const AuthLinks = () => {
   const [open, setOpen] = useState(false);
   const toggle = () => setOpen(!open);
+
+  const { data: session } = useSession();
   const { status } = useSession();
-  
+
 
   return (
     <>
@@ -32,15 +34,31 @@ const AuthLinks = () => {
           </Link>
         ) : (
           <>
-            <Link href="/write" className={styles.link}>
-              Write
-            </Link>
-            <Link href="/" className={styles.link} onClick={()=> signOut({
-              redirect: true,
-              callbackUrl: `${window.location.origin}/sign-in`,
-            })}>
-              Logout
-            </Link>
+
+            {session?.user.role === "admin" ? (
+
+              <>
+                <Link href="/write" className={styles.link}>
+                  Write
+                </Link>
+                <Link href="/" className={styles.link} onClick={() => signOut({
+                  redirect: true,
+                  callbackUrl: `${window.location.origin}/sign-in`,
+                })}>
+                  Logout
+                </Link>
+              </>
+
+            ) : (
+
+
+              <Link href="/" className={styles.link} onClick={() => signOut({
+                redirect: true,
+                callbackUrl: `${window.location.origin}/sign-in`,
+              })}>
+                Logout
+              </Link>
+            )}
           </>
         )}
 
@@ -86,13 +104,33 @@ const AuthLinks = () => {
             : status === "unauthenticated" ? (
               <Link className={styles.authLinkMain} onClick={toggle} href="/sign-in">Login</Link>
             ) : (
+
+              <>
+
+            {session?.user.role === "admin" ? (
+
               <>
                 <Link className={styles.authLinkMain} onClick={toggle} href="/write">✏️ Write</Link>
-                <Link href="/" className={styles.authLinkLogout} onClick={signOut}>
+                <Link href="/" className={styles.authLinkLogout} onClick={() => signOut({
+                  redirect: true,
+                  callbackUrl: `${window.location.origin}/sign-in`,
+                })}>
                   Logout
                 </Link>
-
               </>
+
+            ) : (
+              <Link href="/" className={styles.authLinkLogout} onClick={() => signOut({
+                redirect: true,
+                callbackUrl: `${window.location.origin}/sign-in`,
+              })}>
+                Logout
+              </Link>
+            )}
+          </>
+
+
+              
             )}
         </div>
       )}

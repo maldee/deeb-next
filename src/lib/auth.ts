@@ -50,7 +50,8 @@ export const authOptions: NextAuthOptions = {
             id: `${existingUser.id}`,
             name: existingUser.name,
             email: existingUser.email,
-            subscription: existingUser.subscription
+            subscription: existingUser.subscription,
+            role: existingUser.role
            }
 
           }
@@ -62,6 +63,7 @@ export const authOptions: NextAuthOptions = {
             return{
               ...token,
               subscription: user.subscription,
+              role: user.role,
               name: user.name
             }
           }
@@ -73,7 +75,8 @@ export const authOptions: NextAuthOptions = {
             user:{
               ...session.user,
               name: token.name,
-              subscription: token.subscription
+              subscription: token.subscription,
+              role: token.role
             }
           }
         }
