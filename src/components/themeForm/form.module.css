@@ -2,7 +2,7 @@
     background-color: antiquewhite;
     width: 100%;
     display: block;
-    padding: 5px;
+    padding: 8px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -15,4 +15,5 @@
     margin-top: 10px;
     margin-bottom: 10px;
     border: none;
+    
 }
