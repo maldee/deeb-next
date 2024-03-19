@@ -10,7 +10,7 @@ const Hero = () => {
       <div className={styles.heroContent}>
         <h3 className={styles.heroTitle}>Flow to the next world </h3>
         <p className={styles.heroDes}>The largest online education platform in Sri Lanka on which students can access tutorials and lectures pre-recorded by experts in various fields. </p>
-        <Link className={styles.heroBtn1} href="/signin"> Get Started</Link>
+        <Link className={styles.heroBtn1} href="/blog"> Get Started</Link>
         <Link className={styles.heroBtn2} href="/signin"> Watch Video</Link>
       </div>
 
