@@ -25,9 +25,22 @@ const Footer = () => {
       </div>
       <div className={styles.links}>
         <div className={styles.list}>
-          <span className={styles.listTitle}>Links</span>
+          <span className={styles.listTitle}>Business</span>
           <Link href="/">Homepage</Link>
+          <Link href="/plans">Pricing</Link>
+          <Link href="/cloudy">Cloudy</Link>
+          <Link href="/store">Store</Link>
+        </div>
+        <div className={styles.list}>
+          <span className={styles.listTitle}>Education</span>
           <Link href="/blog">Blog</Link>
+          <Link href="/classroom">Classroom</Link>
+          <Link href="/flips">Flips</Link>
+          <Link href="/quizy">Quizy</Link>
+          <Link href="/qlake">qLake</Link>
+        </div>
+        <div className={styles.list}>
+          <span className={styles.listTitle}>Company</span>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/privacy">Privacy</Link>
