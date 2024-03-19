@@ -14,7 +14,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from '../themeForm/input';
 import { Button } from '../themeForm/button';
 import Link from 'next/link';
-import GoogleSignInButton from '../GoogleSignInButton';
 import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import styles from "./signup.module.css";
@@ -61,7 +60,7 @@ const SignUpForm = () => {
 
     if (responseUser.ok) {
       toast.success("Account created successfully");
-      router.push('/sign-in')
+      router.push('/signin')
     } else {
       console.error('Email already in use');
     }
@@ -147,7 +146,7 @@ const SignUpForm = () => {
      
       <p className={styles.centerText}>
         If you don&apos;t have an account, please&nbsp;
-        <Link className='text-blue-500 hover:underline' href='/sign-in'>
+        <Link className='text-blue-500 hover:underline' href='/signin'>
           Sign in
         </Link>
       </p>

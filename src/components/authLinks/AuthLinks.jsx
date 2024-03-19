@@ -29,7 +29,7 @@ const AuthLinks = () => {
           wrapperClass={styles.threedots}
         />
         : status === "unauthenticated" ? (
-          <Link href="/sign-in" className={styles.link}>
+          <Link href="/signin" className={styles.link}>
             Login
           </Link>
         ) : (
@@ -43,7 +43,7 @@ const AuthLinks = () => {
                 </Link>
                 <Link href="/" className={styles.link} onClick={() => signOut({
                   redirect: true,
-                  callbackUrl: `${window.location.origin}/sign-in`,
+                  callbackUrl: `${window.location.origin}/signin`,
                 })}>
                   Logout
                 </Link>
@@ -54,7 +54,7 @@ const AuthLinks = () => {
 
               <Link href="/" className={styles.link} onClick={() => signOut({
                 redirect: true,
-                callbackUrl: `${window.location.origin}/sign-in`,
+                callbackUrl: `${window.location.origin}/signin`,
               })}>
                 Logout
               </Link>
@@ -102,7 +102,7 @@ const AuthLinks = () => {
               wrapperClass={styles.threedotsmobile}
             />
             : status === "unauthenticated" ? (
-              <Link className={styles.authLinkMain} onClick={toggle} href="/sign-in">Login</Link>
+              <Link className={styles.authLinkMain} onClick={toggle} href="/signin">Login</Link>
             ) : (
 
               <>
@@ -113,7 +113,7 @@ const AuthLinks = () => {
                 <Link className={styles.authLinkMain} onClick={toggle} href="/write">✏️ Write</Link>
                 <Link href="/" className={styles.authLinkLogout} onClick={() => signOut({
                   redirect: true,
-                  callbackUrl: `${window.location.origin}/sign-in`,
+                  callbackUrl: `${window.location.origin}/signin`,
                 })}>
                   Logout
                 </Link>
@@ -122,15 +122,12 @@ const AuthLinks = () => {
             ) : (
               <Link href="/" className={styles.authLinkLogout} onClick={() => signOut({
                 redirect: true,
-                callbackUrl: `${window.location.origin}/sign-in`,
+                callbackUrl: `${window.location.origin}/signin`,
               })}>
                 Logout
               </Link>
             )}
           </>
-
-
-              
             )}
         </div>
       )}

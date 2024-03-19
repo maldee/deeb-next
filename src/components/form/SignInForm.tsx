@@ -14,7 +14,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Input } from '../themeForm/input';
 import { Button } from '../themeForm/button';
 import Link from 'next/link';
-import GoogleSignInButton from '../GoogleSignInButton';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import styles from "./signin.module.css";
@@ -104,7 +103,7 @@ const SignInForm = () => {
 
         <p className={styles.centerText}>
           If you don&apos;t have an account, please&nbsp;
-          <Link className='text-blue-500 hover:underline' href='/sign-up'>
+          <Link className='text-blue-500 hover:underline' href='/signup'>
             Sign up
           </Link>
         </p>
