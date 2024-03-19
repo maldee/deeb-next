@@ -45,23 +45,23 @@ const SignUpForm = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    const response = await fetch('/api/user',{
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: values.name,
-      email: values.email,
-      password: values.password
+    const responseUser = await fetch('/api/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: values.name,
+        email: values.email,
+        password: values.password
+      })
     })
-  }) 
 
-  if(response.ok){
-    router.push('/sign-in')
-  }else{
-    console.error('registration failed');
-  }
+    if (responseUser.ok) {
+      router.push('/sign-in')
+    } else {
+      console.error('registration failed');
+    }
 
   };
 

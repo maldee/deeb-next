@@ -56,8 +56,8 @@ const SignInForm = () => {
 
     <div >
       <div className={styles.logo}>
-        <img width="245"
-          src="./deeflow_logo.jpg" />
+        <img width="100"
+          src="./logo-400.png" />
       </div>
 
 
