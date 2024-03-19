@@ -46,7 +46,7 @@ const SignInForm = () => {
     });
 
     if (signInData?.error) {
-      toast.error(signInData.error);
+      toast.error("Something went wrong");
       
     } else {
       router.refresh();
