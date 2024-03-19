@@ -81,7 +81,7 @@ const AuthLinks = () => {
               wrapperClass={styles.threedotsmobile}
             />
             : status === "unauthenticated" ? (
-              <Link className={styles.authLinkMain} onClick={toggle} href="/login">Login</Link>
+              <Link className={styles.authLinkMain} onClick={toggle} href="/sign-in">Login</Link>
             ) : (
               <>
                 <Link className={styles.authLinkMain} onClick={toggle} href="/write">✏️ Write</Link>
