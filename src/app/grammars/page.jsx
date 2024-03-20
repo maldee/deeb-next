@@ -3,7 +3,7 @@
 import styles from "./grammars.module.css";
 import { FaSearch } from "react-icons/fa";
 import 'react-loading-skeleton/dist/skeleton.css'
-import ChatbitsSkeleton from "./grammars.skeleton";
+import GrammarSkeleton from "./grammars.skeleton";
 
 import { TailSpin } from 'react-loader-spinner';
 import React, { useState, useEffect } from 'react';
@@ -392,7 +392,7 @@ const Grammars = ({ searchParams }) => {
       <div className={styles.gridList}>
         <div className={styles.phraseList}>
           {isLoading
-            ? <ChatbitsSkeleton count={5} />
+            ? <GrammarSkeleton count={5} />
             : data?.phrases.length > 0 ? (
               data?.phrases?.map((item) => (
                 <div key={item.id} className={styles.container}>

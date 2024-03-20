@@ -164,12 +164,12 @@ hr.horiLine {
 }
 
 .skeletonItem {
-  width: 50%;
+  width: 70%;
   padding-top: 15px;
 }
 
 .chatCard {
-  width: 70%;
+  width: 100%;
   padding: 10px;
   background-color: var(--softBg);
 }
@@ -191,13 +191,11 @@ hr.horiLine {
 
   .skeletonBody {
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 1fr 1fr;
     padding-bottom: 10px;
   }
 
   .skeletonItem {
-    width: 600px !important;
+    width: 100%;
     height: 330px;
   }
 

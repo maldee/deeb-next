@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./dictionary.module.css";
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-const ChatbitsSkeleton = () => {
+const DictionarySkeleton = () => {
     return (
         <SkeletonTheme baseColor="#1f273a" highlightColor="#0F1729">
         <ul className={styles.skeletonList}>
@@ -11,7 +11,7 @@ const ChatbitsSkeleton = () => {
             .map((item, index) => (
                 
         <div key={item.id} className={styles.skeletonBody}>
-             <Skeleton className={styles.skeletonItem} height={80} />
+             <Skeleton className={styles.skeletonItem} height={130} />
             </div>
      
         ))}
@@ -19,4 +19,4 @@ const ChatbitsSkeleton = () => {
           </SkeletonTheme>
     );
 };
-export default ChatbitsSkeleton;
+export default DictionarySkeleton;
