@@ -12,12 +12,10 @@ export default function About({ searchParams }) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.logoContainer}>
-        <img className={styles.logo} src="./deeflow_logo.jpg" />
-      </div>
-
+      
       <div className={styles.container}>
-        <p className={styles.aboutDesc} >Upgrade your plan to Pro</p>
+
+        <p className={styles.aboutDesc} >Upgrade your Free plan to Pro</p>
         <br />
         <h1 className={styles.subTitle}>Pro Plan Required</h1>
         <div className={styles.planContent}>
@@ -38,7 +36,7 @@ export default function About({ searchParams }) {
               <br />
               <div className={styles.upgradeBtn}>
                 <Link href="/">
-                  <button className={styles.upgradeButtonActivated} >{'Upgrade LKR 3000/yr'}</button>
+                  <button className={styles.upgradeButtonActivated} >{'Upgrade LKR 1000/mo'}</button>
 
                 </Link>
                 <h3 className={styles.wish} >Happy exam ❤️</h3>
