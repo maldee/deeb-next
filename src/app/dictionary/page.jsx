@@ -81,19 +81,24 @@ const Dictionary = ({ searchParams }) => {
 
   function handleLanguage(e) {
     setLanguage(e.target.value)
-
+    setCategory('Select Category')
+    setQuery(null)
+    setCurrentPage(1)
   }
 
   function handleCategory(e) {
     setCategory(e.target.value)
     setLanguage("Select Language")
     setQuery(null)
+    setCurrentPage(1)
   }
 
   function handleSearch(e) {
     setQuery(e.target.value)
     setLanguage("Select Language")
     setCategory('Select Category')
+    setCurrentPage(1)
+    
   }
 
   function handleTag(e){
