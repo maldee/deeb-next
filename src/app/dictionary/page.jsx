@@ -86,12 +86,21 @@ const Dictionary = ({ searchParams }) => {
 
   function handleCategory(e) {
     setCategory(e.target.value)
+    setLanguage("Select Language")
     setQuery(null)
   }
 
   function handleSearch(e) {
     setQuery(e.target.value)
+    setLanguage("Select Language")
     setCategory('Select Category')
+  }
+
+  function handleTag(e){
+    setQuery(e.target.value)
+    setLanguage("Select Language")
+    setCategory('Select Category')
+    setCurrentPage(1)
   }
 
   if (status === "unauthenticated" || session?.user.subscription === "Free") {
@@ -157,6 +166,12 @@ const Dictionary = ({ searchParams }) => {
               ))}
 
           </select>
+          <div className={styles.emojFilterMobile}>
+          Search by
+          <ul className={styles.filterEmojList}>
+          <button className={styles.emojBtn} onClick={handleTag} value={`*️`}>*️⃣</button>
+          </ul>
+        </div>
         </section>
 
       </div>
@@ -211,6 +226,7 @@ const Dictionary = ({ searchParams }) => {
         />
       ) : (null)}
 
+<div className={styles.gridList}>
       <div className={styles.phraseList}>
         {isLoading
           ? <DictionarySkeleton count={5} />
@@ -229,6 +245,13 @@ const Dictionary = ({ searchParams }) => {
             ))) : (
             <h3> 🙄 No results. Try different selection</h3>
           )}
+      </div>
+      <div className={styles.emojTagList}>
+          Tags
+          <ul className={styles.tagEmojList}>
+          <button className={styles.emojBtn} onClick={handleTag} value={`*`}>*️⃣</button>
+          </ul>
+        </div>
       </div>
     </div>
   )

@@ -10,6 +10,28 @@ margin-top: 10px;
 margin-bottom: 25px;
 margin-left: 5px;
 }
+
+.gridList{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 50px;
+}
+
+.tagEmojList{
+  margin-top: 20px;
+  display: block;
+  font-size: xx-large;
+ 
+}
+
+.emojBtn{
+  border: none;
+  background-color: transparent;
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+
 .phraseList {
   display: grid;
   grid-gap: 5px;
@@ -223,6 +245,20 @@ hr.horiLine {
 
 @media screen and (max-width: 640px) {
 
+  .emojTagList{
+    display: none;
+  }
+
+  .emojTagMobile{
+    display: block;
+  }
+
+  .gridList{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
   .mobFilters {
     display: inline;
   }
