@@ -174,7 +174,7 @@ const Dictionary = ({ searchParams }) => {
           <div className={styles.emojFilterMobile}>
           Search by
           <ul className={styles.filterEmojList}>
-          <button className={styles.emojBtn} onClick={handleTag} value={`*️`}>*️⃣</button>
+          <button className={styles.emojBtn} onClick={handleTag} value={`*`}>*️⃣</button>
           </ul>
         </div>
         </section>
