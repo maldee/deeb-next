@@ -3,11 +3,11 @@
   margin-top: 80px;
 }
 .mentorsGrid {
-  padding: 10px 30px 25px 50px;
   margin-top: 50px;
   display: grid;
   grid-gap: 80px;
   grid-template-columns: 1fr 1fr 1fr;
+  justify-items:center
 }
 
 .mentorsHead {
