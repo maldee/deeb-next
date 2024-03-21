@@ -243,6 +243,11 @@ hr.horiLine {
 
 @media screen and (max-width: 640px) {
 
+  .emojBtn{
+    margin-top: 8px;
+    padding: 5px;
+  }
+
   .emojTagList{
     display: none;
   }
