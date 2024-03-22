@@ -11,6 +11,11 @@ margin-bottom: 25px;
 margin-left: 5px;
 }
 
+.itemId{
+  color: #0a0f1b;
+  float: right;
+}
+
 .gridList{
   display: grid;
   grid-template-columns: 3fr 1fr;

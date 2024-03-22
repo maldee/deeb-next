@@ -35,12 +35,12 @@ const Dictionary = ({ searchParams }) => {
   const { status } = useSession();
 
   const router = useRouter();
-  
+
   const page = parseInt(searchParams.page) || 1;
 
   const [isExpanded, setExpanded] = useState(false)
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded })
-  
+
   const [selectedLanguage, setLanguage] = useState('Select Language')
   const [selectedCategory, setCategory] = useState('Select Category')
 
@@ -98,10 +98,10 @@ const Dictionary = ({ searchParams }) => {
     setLanguage("Select Language")
     setCategory('Select Category')
     setCurrentPage(1)
-    
+
   }
 
-  function handleTag(e){
+  function handleTag(e) {
     setQuery(e.target.value)
     setLanguage("Select Language")
     setCategory('Select Category')
@@ -151,7 +151,7 @@ const Dictionary = ({ searchParams }) => {
 
           </select>
 
-          
+
 
           <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
             <option value='Select Category'>Select Category</option>
@@ -172,11 +172,11 @@ const Dictionary = ({ searchParams }) => {
 
           </select>
           <div className={styles.emojFilterMobile}>
-          Search by
-          <ul className={styles.filterEmojList}>
-          <button className={styles.emojBtn} onClick={handleTag} value={`*`}>*️⃣</button>
-          </ul>
-        </div>
+            Search by
+            <ul className={styles.filterEmojList}>
+              <button className={styles.emojBtn} onClick={handleTag} value={`*`}>*️⃣</button>
+            </ul>
+          </div>
         </section>
 
       </div>
@@ -231,30 +231,31 @@ const Dictionary = ({ searchParams }) => {
         />
       ) : (null)}
 
-<div className={styles.gridList}>
-      <div className={styles.phraseList}>
-        {isLoading
-          ? <DictionarySkeleton count={5} />
-          : data?.words.length > 0 ? (
-            data?.words?.map((item) => (
-              <div key={item.id} className={styles.container}>
-                <ul className={styles.chatCard}>
-                  <h3 key={item.id}>{item.word}</h3>
-                  <h4 className={styles.engp}>{item.sin_w}</h4>
-                  <h4 className={styles.engp}>{item.eng_w}</h4>
-                  <hr className={styles.horiLine} />
-                  <h6 className={styles.chatcat}>{item.category} | {item.language}</h6>
-                </ul>
-              </div>
+      <div className={styles.gridList}>
+        <div className={styles.phraseList}>
+          {isLoading
+            ? <DictionarySkeleton count={5} />
+            : data?.words.length > 0 ? (
+              data?.words?.map((item) => (
+                <div key={item.id} className={styles.container}>
+                  <ul className={styles.chatCard}>
+                    <h6 key={item.id} className={styles.itemId}>{item.id}</h6>
+                    <h3 key={item.id}>{item.word}</h3>
+                    <h4 className={styles.engp}>{item.sin_w}</h4>
+                    <h4 className={styles.engp}>{item.eng_w}</h4>
+                    <hr className={styles.horiLine} />
+                    <h6 className={styles.chatcat}>{item.category} | {item.language}</h6>
+                  </ul>
+                </div>
 
-            ))) : (
-            <h3> 🙄 No results. Try different selection</h3>
-          )}
-      </div>
-      <div className={styles.emojTagList}>
+              ))) : (
+              <h3> 🙄 No results. Try different selection</h3>
+            )}
+        </div>
+        <div className={styles.emojTagList}>
           Tags
           <ul className={styles.tagEmojList}>
-          <button className={styles.emojBtn} onClick={handleTag} value={`*`}>*️⃣</button>
+            <button className={styles.emojBtn} onClick={handleTag} value={`*`}>*️⃣</button>
           </ul>
         </div>
       </div>

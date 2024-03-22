@@ -23,6 +23,11 @@
   gap: 50px;
 }
 
+.itemId{
+  color: #0a0f1b;
+  float: right;
+}
+
 .tagEmojList{
   margin-top: 20px;
   display: block;

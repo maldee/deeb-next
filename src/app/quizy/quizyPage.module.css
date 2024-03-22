@@ -35,6 +35,10 @@
   color: #ddd;
 }
 
+.itemId{
+  color: #0a0f1b;
+  float: right;
+}
 
 .quizyList {
   display: grid;

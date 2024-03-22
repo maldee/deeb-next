@@ -11,7 +11,7 @@ import React, { useState, useEffect } from 'react';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css'
 import useSWR from "swr";
-import { GoogleTagManager  } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -32,7 +32,7 @@ const Quizy = ({ searchParams }) => {
 
   const { data: session } = useSession();
   const { status } = useSession();
-  
+
   const router = useRouter();
 
   const page = parseInt(searchParams.page) || 1;
@@ -128,6 +128,7 @@ const Quizy = ({ searchParams }) => {
             data?.quizes?.map((item) => (
               <div key={item.id} className={styles.qCard}>
 
+                <h6 key={item.id} className={styles.itemId}>{item.id}</h6>
                 <Link className={styles.quizLink} key={item.id} href={`/quizy/${item.id}`} >
                   <h4>{item.title}</h4>
                   <h5 className={styles.qCategory}>{item.quiz.quizSynopsis}</h5>

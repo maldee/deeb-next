@@ -397,6 +397,7 @@ const Grammars = ({ searchParams }) => {
               data?.phrases?.map((item) => (
                 <div key={item.id} className={styles.container}>
                   <ul className={styles.chatCard}>
+                    <h6 key={item.id} className={styles.itemId}>{item.id}</h6>
                     <h3 key={item.id}>{item.phrase}</h3>
                     <h4 className={styles.engp}>{item.sin_p}</h4>
                     <hr className={styles.horiLine} />
