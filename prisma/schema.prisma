@@ -194,6 +194,14 @@ model Cheats {
   desc          String
 }
 
+model Notes {
+  id            Int      @id @default(autoincrement())
+  subject       String
+  category      String
+  title         String
+  desc          String
+}
+
 model Faq {
   id            Int      @id @default(autoincrement())
   title         String
