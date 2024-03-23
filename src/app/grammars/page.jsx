@@ -32,7 +32,7 @@ const Grammars = ({ searchParams }) => {
 
   const { data: session } = useSession();
   const { status } = useSession();
-  
+
   const router = useRouter();
 
   const page = parseInt(searchParams.page) || 1;
@@ -142,7 +142,7 @@ const Grammars = ({ searchParams }) => {
     setCurrentPage(1)
   }
 
-  function handleTag(e){
+  function handleTag(e) {
     setQuery(e.target.value)
     setUsage('Select Usage')
     setFormality("Select Formality")
@@ -271,14 +271,14 @@ const Grammars = ({ searchParams }) => {
 
           </select>
           <div className={styles.emojFilterMobile}>
-          Search by
-          <ul className={styles.filterEmojList}>
-          <button className={styles.emojBtn} onClick={handleTag} value={`🆚`}>🆚</button>
-          <button className={styles.emojBtn} onClick={handleTag} value={`*️⃣`}>*️⃣</button>
-          <button className={styles.emojBtn} onClick={handleTag} value={`🟥`}>🟥</button>
-          
-          </ul>
-        </div>
+            Search by
+            <ul className={styles.filterEmojList}>
+              <button className={styles.emojBtn} onClick={handleTag} value={`🆚`}>🆚</button>
+              <button className={styles.emojBtn} onClick={handleTag} value={`*️⃣`}>*️⃣</button>
+              <button className={styles.emojBtn} onClick={handleTag} value={`🟥`}>🟥</button>
+
+            </ul>
+          </div>
         </section>
       </div>
 
@@ -400,6 +400,10 @@ const Grammars = ({ searchParams }) => {
                     <h6 key={item.id} className={styles.itemId}>{item.id}</h6>
                     <h3 key={item.id}>{item.phrase}</h3>
                     <h4 className={styles.engp}>{item.sin_p}</h4>
+                    {item.eng_p != 'None' ?
+                      <h4 className={styles.engp}>{item.eng_p}</h4>
+                      : null
+                    }
                     <hr className={styles.horiLine} />
                     <h4 className={styles.example}>{item.example.split('-')[0]}</h4>
                     <h4 className={styles.example}>{item.example.split('-')[1]}</h4>
@@ -433,15 +437,15 @@ const Grammars = ({ searchParams }) => {
         <div className={styles.emojTagList}>
           Tags
           <ul className={styles.tagEmojList}>
-          <button className={styles.emojBtn} onClick={handleTag} value={`🆚`}>🆚</button>
-          <button className={styles.emojBtn} onClick={handleTag} value={`*️⃣`}>*️⃣</button>
-          <button className={styles.emojBtn} onClick={handleTag} value={`🟥`}>🟥</button>
-          
-         
+            <button className={styles.emojBtn} onClick={handleTag} value={`🆚`}>🆚</button>
+            <button className={styles.emojBtn} onClick={handleTag} value={`*️⃣`}>*️⃣</button>
+            <button className={styles.emojBtn} onClick={handleTag} value={`🟥`}>🟥</button>
+
+
           </ul>
         </div>
       </div>
-     
+
 
     </div>
   )
