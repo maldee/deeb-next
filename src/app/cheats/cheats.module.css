@@ -16,6 +16,22 @@ margin-left: 5px;
   grid-template-columns: 1fr;
 }
 
+.cheatTitle{
+  margin-top: 5px;
+  
+}
+
+.cattag{
+  font-size: smaller;
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #775aec;
+  border-radius: 10px;
+  margin-right: 10px;
+
+}
+
 .mobFilters {
   display: none;
 }
@@ -125,7 +141,7 @@ hr.horiLine {
 }
 
 .cheat{
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
   white-space: pre-line;
 }
