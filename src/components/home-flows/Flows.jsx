@@ -55,19 +55,22 @@ const Flows = () => {
                                 <Image src="/chatbits.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
                         </div>
-                        
-                        
                         <div id="slide-9">
+                            <a href={`/notes`} className={styles.slideLink}>
+                                <Image src="/notes.png" alt="" width={300} height={300} className={styles.slideImage} />
+                            </a>
+                        </div>
+                        <div id="slide-10">
                             <a href={`https://store.deeflow.com`} className={styles.slideLink}>
                                 <Image src="/store.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
                         </div>
-                        <div id="slide-10">
+                        <div id="slide-11">
                             <a href={`/dictionary`} className={styles.slideLink}>
                                 <Image src="/dictionary.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
                         </div>
-                        <div id="slide-11">
+                        <div id="slide-12">
                             <a href={`/cloudy`} className={styles.slideLink}>
                                 <Image src="/cloudy.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
