@@ -24,13 +24,13 @@ export const GET = async (req) => {
         },
         {
           category: {
-            contains: category,
+            equals: category,
             mode: 'insensitive',
           }
         },
         {
           subject: {
-            contains: subject,
+            equals: subject,
             mode: 'insensitive',
           }
         }
