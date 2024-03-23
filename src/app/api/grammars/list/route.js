@@ -58,6 +58,12 @@ export const GET = async (req) => {
           },
         },
         {
+          eng_p: {
+            contains: searchQuery,
+            mode: 'insensitive', // Default value: default
+          },
+        },
+        {
           usage: {
             contains: usage,
             mode: 'insensitive',
