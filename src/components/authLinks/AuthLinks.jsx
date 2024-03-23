@@ -85,7 +85,7 @@ const AuthLinks = () => {
             <p><Link className={styles.authLink} onClick={toggle} href="/flips">➰ Flips</Link></p><br /><br />
             <p><Link className={styles.authLink} onClick={toggle} href="/qlake">🪐 Qlake</Link></p><br /><br />
             <p><Link className={styles.authLink} onClick={toggle} href="/cloudy">☁️ Cloudy</Link></p><br /><br />
-            <p><Link className={styles.authLink} onClick={toggle} href="/notes">🗒️ Notes </Link></p><br /><br />
+            <p><Link className={styles.authLink} onClick={toggle} href="/notes">📜 Notes </Link></p><br /><br />
             <p><Link className={styles.authLink} onClick={toggle} href="/news">📰 News </Link></p><br /><br />
             
           </div>

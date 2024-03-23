@@ -28,7 +28,7 @@ const NavMenu = () => {
         <option value='flips'><Link className={styles.authLink}  href="/flips">➰ Flips</Link></option>
         <option value='qlake'><Link className={styles.authLink}  href="/qlake">🪐 Qlake</Link></option>
         <option value='cloudy'><Link className={styles.authLink}  href="/cloudy">☁️ Cloudy</Link></option>
-        <option value='notes'><Link className={styles.authLink}  href="/notes">🗒️ Notes</Link></option>
+        <option value='notes'><Link className={styles.authLink}  href="/notes">📜 Notes</Link></option>
         <option value='news'><Link className={styles.authLink}  href="/news">📰 News</Link></option>
         <option value='faq'><Link className={styles.authLink}  href="/faq">🗨️ FAQ</Link></option>
        
