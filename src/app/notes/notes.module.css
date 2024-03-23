@@ -26,10 +26,19 @@ margin-left: 5px;
   padding: 4px;
   padding-left: 8px;
   padding-right: 8px;
-  background-color: crimson;
+  background-color: #127C71;
   border-radius: 10px;
   margin-right: 10px;
 
+}
+
+.descColor1{
+  color: gold;
+  font-weight: 900;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  white-space: pre-line;
+  background-color: transparent;
 }
 
 .mobFilters {
@@ -139,6 +148,9 @@ hr.horiLine {
   color: thistle;
 
 }
+
+
+
 
 .note{
   margin-top: 20px;

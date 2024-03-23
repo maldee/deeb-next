@@ -200,6 +200,7 @@ model Notes {
   category      String
   title         String
   desc          String
+  highlight     String    @default("highlight")
 }
 
 model Faq {

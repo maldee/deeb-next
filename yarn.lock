@@ -2336,6 +2336,7 @@ __metadata:
     react-quiz-component: "npm:^0.8.1"
     react-responsive-pagination: "npm:^2.2.4"
     react-toastify: "npm:^10.0.5"
+    react-words-highlight: "npm:^1.0.1"
     react-youtube: "npm:^10.1.0"
     sharp: "npm:^0.32.6"
     swr: "npm:^2.2.2"
@@ -3451,6 +3452,13 @@ __metadata:
   dependencies:
     function-bind: "npm:^1.1.2"
   checksum: 5d415b114f410661208c95e7ab4879f1cc2765b8daceff4dc8718317d1cb7b9ffa7c5d1eafd9a4389c9aab7445d6ea88e05f3096cb1e529618b55304956b87fc
+  languageName: node
+  linkType: hard
+
+"highlight-words@npm:^1.2.0":
+  version: 1.2.2
+  resolution: "highlight-words@npm:1.2.2"
+  checksum: 15d1498de8b82ad4f004983e77898810b0019329ffae069156df4ebb1e90d11d9236bbfa6da281825a663b62991300e54d40be45b1dcdec9437a3e35884b075c
   languageName: node
   linkType: hard
 
@@ -5342,6 +5350,17 @@ __metadata:
     react: ">=18"
     react-dom: ">=18"
   checksum: 66c68ec3d6c017d9f32652d73bb925224921c6a80b629b9d481430d5b4fd504abb7a99995a64b9aef0fc31326c74f3cbe088b3287b978dd0c355079c4bbf4158
+  languageName: node
+  linkType: hard
+
+"react-words-highlight@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "react-words-highlight@npm:1.0.1"
+  dependencies:
+    highlight-words: "npm:^1.2.0"
+  peerDependencies:
+    react: ^16.0 || ^17.0 || ^18.0
+  checksum: 8ca5b007aab2ad90c8666ef2dd36422712c0a9b0f1c74cbabfb424a6d4e018acb292c2ddd7609073f309209c57dbc42e3ee6f7f883cd2e2149601d48c352a0ec
   languageName: node
   linkType: hard
 

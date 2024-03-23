@@ -46,6 +46,7 @@
     "react-quiz-component": "^0.8.1",
     "react-responsive-pagination": "^2.2.4",
     "react-toastify": "^10.0.5",
+    "react-words-highlight": "^1.0.1",
     "react-youtube": "^10.1.0",
     "sharp": "^0.32.6",
     "swr": "^2.2.2",

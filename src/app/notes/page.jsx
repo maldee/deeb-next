@@ -15,6 +15,7 @@ import { useCollapse } from 'react-collapsed'
 
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { WordsHighlight } from 'react-words-highlight'
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -32,14 +33,14 @@ const Notes = ({ searchParams }) => {
 
   const { data: session } = useSession();
   const { status } = useSession();
-  
+
   const router = useRouter();
 
   const page = parseInt(searchParams.page) || 1;
 
   const [isExpanded, setExpanded] = useState(false)
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded })
-  
+
   const [selectedSubject, setSubject] = useState('Select Subject / Language')
   const [selectedCategory, setCategory] = useState('Select Category')
 
@@ -105,12 +106,14 @@ const Notes = ({ searchParams }) => {
         wrapperClass=""
         visible={true}
       />
-      </div>;
+    </div>;
   }
 
   if (status === "unauthenticated" || session?.user.subscription === "Free") {
     router.push("/plans");
   }
+
+
 
   return (
     <div className={styles.container}>
@@ -151,7 +154,7 @@ const Notes = ({ searchParams }) => {
 
           </select>
 
-          
+
 
           <select className={styles.selectInputCategory} name="categories" id="categories" onChange={handleCategory} value={selectedCategory}>
             <option value='Select Category'>Select Category</option>
@@ -233,7 +236,15 @@ const Notes = ({ searchParams }) => {
               <div key={item.id} className={styles.container}>
                 <ul className={styles.noteCard}>
                   <h3 className={styles.noteTitle} key={item.id}><span className={styles.notetag}>{item.category}</span>  {item.title}</h3>
-                  <p className={styles.note}>{item.desc}</p>
+
+                  <p className={styles.note}>
+                    <WordsHighlight
+                      text={item.desc}
+                      query={item.highlight}
+                      highlightClassName={styles.descColor1}
+                    />
+                  </p>
+
                   <h6 className={styles.notecat}>{item.subject}</h6>
                 </ul>
               </div>
