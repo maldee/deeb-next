@@ -16,6 +16,12 @@ margin-left: 5px;
   grid-template-columns: 1fr;
 }
 
+.image{
+  position: relative !important;
+  object-fit: scale-down;
+  width: 65% !important;
+}
+
 .noteTitle{
   margin-top: 5px;
   
@@ -253,6 +259,10 @@ hr.horiLine {
 @media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 640px) {
+
+  .image{
+    width: 100% !important;
+  }
 
   .mobFilters {
     display: inline;

@@ -201,6 +201,7 @@ model Notes {
   title         String
   desc          String
   highlight     String    @default("highlight")
+  img           String    @default("None")
 }
 
 model Faq {

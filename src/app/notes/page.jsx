@@ -16,6 +16,7 @@ import { useCollapse } from 'react-collapsed'
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { WordsHighlight } from 'react-words-highlight'
+import Image from "next/image";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -234,7 +235,7 @@ const Notes = ({ searchParams }) => {
           : data?.notes.length > 0 ? (
             data?.notes?.map((item) => (
               <div key={item.id} className={styles.container}>
-                <ul className={styles.noteCard}>
+                <div className={styles.noteCard}>
                   <h3 className={styles.noteTitle} key={item.id}><span className={styles.notetag}>{item.category}</span>  {item.title}</h3>
 
                   <p className={styles.note}>
@@ -245,8 +246,14 @@ const Notes = ({ searchParams }) => {
                     />
                   </p>
 
+                  {item.img !== "None" ? (
+                    <div className={styles.imageContainer}>
+                      <Image src={item.img} alt="" fill className={styles.image} />
+                    </div>
+                   ) : (null)}
+
                   <h6 className={styles.notecat}>{item.subject}</h6>
-                </ul>
+                </div>
               </div>
 
             ))) : (
