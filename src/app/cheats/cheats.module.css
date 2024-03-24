@@ -75,8 +75,11 @@ margin-left: 5px;
   margin-right: 10px;
 }
 
-.searchInput {
+.searchResult{
+  margin-top: 20px;
+}
 
+.searchInput {
   width: 60%;
   border: 2px solid #1f273a;
   box-sizing: border-box;
@@ -94,7 +97,7 @@ margin-left: 5px;
   box-sizing: border-box;
   font-size: 16px;
   padding: 10px;
-  margin-bottom: 20px;
+ 
   background-color: #0a0f1b;
   color: #ddd;
 }
@@ -106,7 +109,7 @@ margin-left: 5px;
   box-sizing: border-box;
   font-size: 16px;
   padding: 10px;
-  margin-bottom: 20px;
+
   background-color: #0a0f1b;
   color: #ddd;
 }

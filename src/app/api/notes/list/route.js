@@ -30,7 +30,7 @@ export const GET = async (req) => {
         },
         {
           category: {
-            contains: category,
+            equals: category,
             mode: 'insensitive',
           }
         },

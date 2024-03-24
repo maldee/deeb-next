@@ -192,6 +192,7 @@ model Cheats {
   category      String
   title         String
   desc          String
+  subcategory   String    @default("sub")
 }
 
 model Notes {

@@ -40,9 +40,9 @@ const Cheats = ({ searchParams }) => {
   const [isExpanded, setExpanded] = useState(false)
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded })
   
-  const [selectedSubject, setSubject] = useState('Select Subject / Language')
+  const [selectedSubject, setSubject] = useState('Select Subject')
   const [selectedCategory, setCategory] = useState('Select Category')
-
+  const [selectedSubCategory, setSubCategory] = useState('Select Sub Category')
 
   const [query, setQuery] = useState('')
 
@@ -55,7 +55,7 @@ const Cheats = ({ searchParams }) => {
     // fetch data
     const dataFetch = async () => {
       const postCount = await (
-        await fetch(`/api/cheats/list?page=${currentPage}&query=${query}&subject=${selectedSubject}&category=${selectedCategory}`,
+        await fetch(`/api/cheats/list?page=${currentPage}&query=${query}&subject=${selectedSubject}&category=${selectedCategory}&subcategory=${selectedSubCategory}`,
         )
       ).json();
 
@@ -64,11 +64,11 @@ const Cheats = ({ searchParams }) => {
     };
 
     dataFetch();
-  }, [query, selectedSubject, selectedCategory]);
+  }, [query, selectedSubject, selectedCategory,selectedSubCategory]);
 
 
   const { data, mutate, isLoading } = useSWR(
-    `/api/cheats?page=${currentPage}&query=${query}&subject=${selectedSubject}&category=${selectedCategory}`,
+    `/api/cheats?page=${currentPage}&query=${query}&subject=${selectedSubject}&category=${selectedCategory}&subcategory=${selectedSubCategory}`,
     fetcher
   );
 
@@ -80,17 +80,27 @@ const Cheats = ({ searchParams }) => {
 
   function handleSubject(e) {
     setSubject(e.target.value)
-
+    
+    setQuery(null)
   }
 
   function handleCategory(e) {
     setCategory(e.target.value)
+  
+    setQuery(null)
+  }
+
+  function handleSubCategory(e) {
+    setSubCategory(e.target.value)
+   
     setQuery(null)
   }
 
   function handleSearch(e) {
     setQuery(e.target.value)
+    setSubject('Select Subject')
     setCategory('Select Category')
+    setSubCategory('Select Sub Category')
   }
 
   if (status === "loading") {
@@ -133,7 +143,7 @@ const Cheats = ({ searchParams }) => {
         </button>
         <section {...getCollapseProps()}>
           <select className={styles.selectInputLanguage} name="subjects" id="subjects" onChange={handleSubject} value={selectedSubject}>
-            <option value='Select Subject / Language'>Select Subject / Language</option>
+            <option value='Select Subject'>Select Subject</option>
             {isLoading ?
               <TailSpin
                 height="40"
@@ -171,13 +181,33 @@ const Cheats = ({ searchParams }) => {
               ))}
 
           </select>
+
+          <select className={styles.selectInputCategory} name="subcategories" id="subcategories" onChange={handleSubCategory} value={selectedSubCategory}>
+            <option value='Select Sub Category'>Select Sub Category</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.subcategories?.map((item) => (
+                <option key={item.id} value={item.subcategory}>{item.subcategory}</option>
+              ))}
+
+          </select>
+          
         </section>
 
       </div>
 
       <div className={styles.webFilters}>
         <select className={styles.selectInputLanguage} name="subjects" id="subjects" onChange={handleSubject} value={selectedSubject}>
-          <option value='Select Subject / Language'>Select Subject / Language</option>
+          <option value='Select Subject'>Select Subject</option>
           {isLoading ?
             <TailSpin
               height="40"
@@ -214,6 +244,26 @@ const Cheats = ({ searchParams }) => {
             ))}
 
         </select>
+
+        <select className={styles.selectInputCategory} name="subcategories" id="subcategories" onChange={handleSubCategory} value={selectedSubCategory}>
+            <option value='Select Sub Category'>Select Sub Category</option>
+            {isLoading ?
+              <TailSpin
+                height="40"
+                width="40"
+                color="#8a2be2"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+              : data?.subcategories?.map((item) => (
+                <option key={item.id} value={item.subcategory}>{item.subcategory}</option>
+              ))}
+
+          </select>
+
       </div>
 
       {postCount?.count > 0 ? (
@@ -239,7 +289,7 @@ const Cheats = ({ searchParams }) => {
               </div>
 
             ))) : (
-            <h3> 🙄 No results. Try different selection</h3>
+            <h3 className={styles.searchResult}> 🙄 No results. Try all selection</h3>
           )}
       </div>
     </div>
