@@ -252,6 +252,7 @@ hr.horiLine {
   .cheattag {
     display: block;
     margin-bottom: 10px;
+    width: 100%;
   }
 
   .mobFilters {

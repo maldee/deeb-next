@@ -285,7 +285,7 @@ const Cheats = ({ searchParams }) => {
                 
                 <div className={styles.header}>
 
-                  <h3 className={styles.cheattag}>{item.category}</h3>
+                  <span className={styles.cheattag}>{item.category}</span>
                   <h3 className={styles.cheatTitle} key={item.id}> {item.title}</h3>
                   </div>
                   <p className={styles.cheat}>{item.desc}</p>
