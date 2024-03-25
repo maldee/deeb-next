@@ -2,27 +2,27 @@
   margin-top: 10px;
 }
 
-.loader{
-height: 30px;
-width: 30px;
-color: #8a2be2;
-margin-top: 10px;
-margin-bottom: 25px;
-margin-left: 5px;
+.loader {
+  height: 30px;
+  width: 30px;
+  color: #8a2be2;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  margin-left: 5px;
 }
+
 .cheatList {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 1fr;
 }
 
-.cheatTitle{
+.cheatTitle {
   margin-top: 10px;
-   display: inline;
+  display: inline;
 }
 
-
-.cheattag{
+.cheattag {
   font-size: smaller;
   padding: 4px;
   padding-left: 8px;
@@ -30,7 +30,7 @@ margin-left: 5px;
   background-color: #775aec;
   border-radius: 10px;
   margin-right: 10px;
-  width: fit-content;
+  max-width: fit-content;
   display: inline;
 }
 
@@ -47,17 +47,18 @@ margin-left: 5px;
   color: #fff;
 }
 
-.diffText{
+.diffText {
   background-color: rgba(220, 20, 60, 0.178);
   font-size: small;
- 
+
   padding: 5px;
   color: #fff;
   width: fit-content;
- 
-  
+
+
 }
-.diff{
+
+.diff {
   background-color: crimson;
   font-size: small;
   border-top-right-radius: 5px;
@@ -66,8 +67,9 @@ margin-left: 5px;
   color: #fff;
   width: fit-content;
   margin-top: 15px;
- 
+
 }
+
 .searchIcon {
   border: 2px solid #17A2B8;
   background-color: #17A2B8;
@@ -77,7 +79,7 @@ margin-left: 5px;
   margin-right: 10px;
 }
 
-.searchResult{
+.searchResult {
   margin-top: 20px;
 }
 
@@ -99,7 +101,7 @@ margin-left: 5px;
   box-sizing: border-box;
   font-size: 16px;
   padding: 10px;
- 
+
   background-color: #0a0f1b;
   color: #ddd;
 }
@@ -145,7 +147,7 @@ hr.horiLine {
 
 }
 
-.cheat{
+.cheat {
   margin-top: 20px;
   margin-bottom: 10px;
   white-space: pre-line;
@@ -160,7 +162,7 @@ hr.horiLine {
   color: mediumpurple;
 }
 
-.skeletonList{
+.skeletonList {
   margin-top: 10px;
 }
 
@@ -247,16 +249,11 @@ hr.horiLine {
 
 @media screen and (max-width: 640px) {
 
- 
-  .cheatTitle{
+  .cheattag {
     display: block;
-  }
-  .cheattag{
-    display: block;
-    width: fit-content;
-    margin-top: 5px;
     margin-bottom: 10px;
   }
+
   .mobFilters {
     display: inline;
   }
@@ -264,12 +261,13 @@ hr.horiLine {
   .webFilters {
     display: none;
   }
-  
+
   .selectInputLanguage {
     margin-top: 20px;
     margin-right: 0;
     width: 100%;
   }
+
   .selectInputCategory {
     margin-right: 0;
     width: 100%;
