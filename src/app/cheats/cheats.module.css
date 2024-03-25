@@ -18,8 +18,9 @@ margin-left: 5px;
 
 .cheatTitle{
   margin-top: 10px;
-  
+   display: inline;
 }
+
 
 .cheattag{
   font-size: smaller;
@@ -29,8 +30,8 @@ margin-left: 5px;
   background-color: #775aec;
   border-radius: 10px;
   margin-right: 10px;
- 
-
+  width: fit-content;
+  display: inline;
 }
 
 .mobFilters {
@@ -246,17 +247,14 @@ hr.horiLine {
 
 @media screen and (max-width: 640px) {
 
-  .header{
-   width:  100%;
-  }
-
+ 
   .cheatTitle{
-    width: 100%;
+    display: block;
   }
-  
   .cheattag{
     display: block;
     width: fit-content;
+    margin-top: 5px;
     margin-bottom: 10px;
   }
   .mobFilters {
