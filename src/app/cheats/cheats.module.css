@@ -246,9 +246,12 @@ hr.horiLine {
 
 @media screen and (max-width: 640px) {
 
+  .cheatTitle{
+    width: fit-content;
+  }
   .cheattag{
     display: block;
-    max-width: max-content;
+    width: max-content;
     margin-bottom: 10px;
   }
   .mobFilters {
