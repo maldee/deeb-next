@@ -32,6 +32,7 @@
   margin-right: 10px;
   max-width: fit-content;
   display: inline;
+  font-weight: bold;
 }
 
 .mobFilters {
