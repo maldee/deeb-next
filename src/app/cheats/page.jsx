@@ -282,7 +282,9 @@ const Cheats = ({ searchParams }) => {
             data?.cheats?.map((item) => (
               <div key={item.id} className={styles.container}>
                 <ul className={styles.cheatCard}>
-                  <h3 className={styles.cheatTitle} key={item.id}><span className={styles.cattag}>{item.category}</span>  {item.title}</h3>
+                
+                  <h3 className={styles.cheatTitle} key={item.id}><span className={styles.cheattag}>{item.category}</span> {item.title}</h3>
+                 
                   <p className={styles.cheat}>{item.desc}</p>
                   <h6 className={styles.chatcat}>{item.subject}</h6>
                 </ul>

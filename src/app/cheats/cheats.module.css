@@ -17,11 +17,11 @@ margin-left: 5px;
 }
 
 .cheatTitle{
-  margin-top: 5px;
+  margin-top: 10px;
   
 }
 
-.cattag{
+.cheattag{
   font-size: smaller;
   padding: 4px;
   padding-left: 8px;
@@ -29,6 +29,7 @@ margin-left: 5px;
   background-color: #775aec;
   border-radius: 10px;
   margin-right: 10px;
+ 
 
 }
 
@@ -245,6 +246,11 @@ hr.horiLine {
 
 @media screen and (max-width: 640px) {
 
+  .cheattag{
+    display: block;
+    max-width: fit-content;
+    margin-bottom: 10px;
+  }
   .mobFilters {
     display: inline;
   }
