@@ -57,7 +57,7 @@ const Confusy = ({ searchParams }) => {
     const dataFetch = async () => {
       const postCount = await (
         await fetch(`/api/confusy/list?page=${currentPage}&query=${query}&language=${selectedLanguage}&category=${selectedCategory}`,
-        )
+        {  cache: 'no-store' })
       ).json();
 
       // set state when the data received

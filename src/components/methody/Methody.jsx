@@ -4,31 +4,29 @@ import Node from "./Node";
 import styles from "./methody.module.css";
 import React, { useState, useEffect ,useRef} from 'react';
 
-
-const fetcher = async (url) => {
-  const res = await fetch(url);
-
-  const data = await res.json();
-
-  if (!res.ok) {
-    const error = new Error(data.message);
-    throw error;
-  }
-  return data;
-};
-
 const Methody = () => {
 
   const [term, setTerm] = useState("");
   const treeRef = useRef(null);
   const [methodyData, setData] = useState();
 
-  const { data, mutate, isLoading } = useSWR(
-    `/api/methody`,
-    fetcher
-  );
+  useEffect(() => {
+    // fetch data
+    const dataFetch = async () => {
+      const data = await (
+        await fetch(`/api/methody`,
+        {  cache: 'no-store' })
+      ).json();
 
-  const methodies = data;
+      // set state when the data received
+      setData(data);
+    };
+
+    dataFetch();
+  }, );
+
+
+  const methodies = methodyData;
 
   return (
     <div className="methodyContainer">
