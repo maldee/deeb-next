@@ -23,27 +23,12 @@ const Methody = () => {
   const treeRef = useRef(null);
   const [methodyData, setData] = useState();
 
-  // useEffect(() => {
-  //   // fetch data
-  //   const dataFetch = async () => {
-  //     const methodyData = await (
-  //       await fetch(`/api/methody`,
-  //       )
-  //     ).json();
-
-  //     // set state when the data received
-  //     setData(methodyData);
-  //   };
-
-  //   dataFetch();
-  // }, []);
-
   const { data, mutate, isLoading } = useSWR(
     `/api/methody`,
     fetcher
   );
 
-  const methodies = data?.methodies;
+  const methodies = data;
 
   return (
     <div className="methodyContainer">
