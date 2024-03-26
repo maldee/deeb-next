@@ -49,7 +49,7 @@ const Methody = () => {
     <div className="methodyContainer">
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Search sloving methods..."
         className={styles.searchTree}
         value={term}
         onChange={(e) => setTerm(e.target.value)}
