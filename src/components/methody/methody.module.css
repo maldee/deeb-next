@@ -1,5 +1,4 @@
 .chipContainer {
-  
   display: flex;
   gap: 10px;
   
@@ -35,7 +34,6 @@
 .tag{
   font-size: 12px;
 }
-
 
 @media screen and (max-width: 1536px) and (min-width: 1280px)  {
 
