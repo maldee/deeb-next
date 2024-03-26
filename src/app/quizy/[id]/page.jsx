@@ -7,6 +7,7 @@ import useSWR from "swr";
 import { useParams } from 'next/navigation'
 import Link from "next/link";
 import { TailSpin } from 'react-loader-spinner';
+import Methody from "../../../components/methody/Methody";
 
 const fetcher = async (url) => {
 
@@ -35,34 +36,41 @@ const QuizyStart = () => {
 
   return (
 
+    <div >
+       {isLoading
+          ?
+          <TailSpin
+            height="40"
+            width="40"
+            color="#8a2be2"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass={styles.tailLoader}
+            visible={true}
+          />
+          :
+      <div className={styles.gridList}>
+      <div className={styles.quizyList}>
 
-    <div className={styles.quizyList}>
+        <Link href="/quizy" className={styles.slideMenuButtonActivated}>
+          {'< Back to Quizes'}
+        </Link>
 
-      <Link href="/quizy" className={styles.slideMenuButtonActivated}>
-        {'< Back to Quizes'}
-      </Link>
+       
+          <div className={styles.quizSection}>
+            <h5 className={styles.quizDetails} >{data?.title} | {data?.note}</h5>
+            <Quiz className={styles.quizContainer} quiz={data?.quiz} shuffleAnswer={true} />
 
-      {isLoading
-        ?
-        <TailSpin
-          height="40"
-          width="40"
-          color="#8a2be2"
-          ariaLabel="tail-spin-loading"
-          radius="1"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
-        :
-        <div >
-          <h5 className={styles.quizDetails} >{data?.title} | {data?.note}</h5>
-          <Quiz className={styles.quizContainer} quiz={data?.quiz} shuffleAnswer={true} />
-          
-        </div>
+          </div>
+        
+      </div>
+      <div className={styles.grammarTree}>
+        <Methody/>
+      </div>
+      </div>
       }
     </div>
-
   );
 };
 

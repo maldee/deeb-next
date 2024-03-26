@@ -72,6 +72,11 @@ model Category {
   Posts Post[]
 }
 
+model Methody {
+  id    Int     @id @default(autoincrement())
+  tree  Json? 
+}
+
 model Post {
   id        Int       @id @default(autoincrement())
   createdAt DateTime  @default(now())

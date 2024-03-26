@@ -2,10 +2,24 @@
   margin-top: 20px;
 }
 
-.quizyList {
+
+
+.gridList{
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+}
+
+
+.tailLoader{
+  margin-top: 20px !important;
+}
+.grammarTree{
+  margin-top: 70px !important;
+}
+
+.quizSection {
+  margin-top: 50px !important;
 }
 
 .quizDetails {
@@ -135,11 +149,12 @@
 @media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 640px) {
-
-
-  .quizyList {
+  .gridList{
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 50px;
   }
+
 
   .quizyList div div img {
     height: fit-content !important;
