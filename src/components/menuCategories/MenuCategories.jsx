@@ -24,7 +24,7 @@ const { data, mutate, isLoading } = useSWR(
   fetcher
 );
 
-  const categories = data;
+  const categories = data?.categories;
   return (
    
       <div className={styles.categoryList}>
