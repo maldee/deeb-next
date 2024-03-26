@@ -1,32 +1,32 @@
 import { Tree } from "react-arborist";
 import useSWR from "swr";
 import Node from "./Node";
-import { useRef, useState } from "react";
 import styles from "./methody.module.css";
+import React, { useState, useEffect ,useRef} from 'react';
 
-const fetcher = async (url) => {
-  const res = await fetch(url);
-
-  const data = await res.json();
-
-  if (!res.ok) {
-    const error = new Error(data.message);
-    throw error;
-  }
-  return data;
-};
 
 const Methody = () => {
 
   const [term, setTerm] = useState("");
   const treeRef = useRef(null);
+  const [methodyData, setData] = useState();
 
-  const { data, mutate, isLoading } = useSWR(
-    `/api/methody`,
-    fetcher
-  );
+  useEffect(() => {
+    // fetch data
+    const dataFetch = async () => {
+      const methodyData = await (
+        await fetch(`/api/methody`,
+        )
+      ).json();
 
-  const methodies = data;
+      // set state when the data received
+      setData(methodyData);
+    };
+
+    dataFetch();
+  }, []);
+
+  const methodies = methodyData;
 
   return (
     <div className="methodyContainer">

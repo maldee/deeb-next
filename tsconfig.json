@@ -30,7 +30,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/error.jsx", "src/app/search/error.jsx"  ],
+, "src/app/error.jsx", "src/app/search/error.jsx", "src/components/methody/Methody.jsx"  ],
   "exclude": [
     "node_modules"
   ]
