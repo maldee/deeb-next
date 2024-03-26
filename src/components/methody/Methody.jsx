@@ -1,3 +1,5 @@
+'use client';
+
 import { Tree } from "react-arborist";
 import useSWR from "swr";
 import Node from "./Node";
@@ -14,8 +16,7 @@ const Methody = () => {
     // fetch data
     const dataFetch = async () => {
       const data = await (
-        await fetch(`/api/methody`,
-        {  cache: 'no-store' })
+        await fetch(`/api/methody`,{  cache: 'no-store' })
       ).json();
 
       // set state when the data received
