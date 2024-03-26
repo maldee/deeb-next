@@ -15,6 +15,7 @@ margin-left: 5px;
   margin-top: 20px;
   margin-bottom: 10px;
   white-space: pre-line;
+  font-size: large;
 }
 
 .image{
@@ -253,6 +254,12 @@ hr.horiLine {
 @media screen and (max-width: 1024px) {}
 
 @media screen and (max-width: 640px) {
+
+  .confuseCat {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+  }
 
   .image{
     width: 100% !important;
