@@ -1,4 +1,4 @@
-import { AiOutlineNumber ,AiOutlineDown , AiFillCheckCircle ,AiFillCaretDown, AiFillCaretRight      } from "react-icons/ai";
+import { AiOutlineCheckSquare  ,AiOutlineDown , AiFillCheckCircle ,AiFillCaretDown, AiFillCaretRight      } from "react-icons/ai";
 import { MdArrowRight, MdArrowDropDown, MdEdit } from "react-icons/md";
 import styles from "./methody.module.css";
 // import { RxCross2 } from "react-icons/rx";
@@ -25,7 +25,7 @@ const Node = ({ node, style, dragHandle, tree }) => {
               {CustomIcon ? (
                 <CustomIcon color={iconColor ? iconColor : "#6bc7f6"} />
               ) : (
-                <span color="#6bc7f6"  >🔹</span>
+                <AiOutlineCheckSquare color="#00ff95" className={styles.iconLeft}  />
               )}
             </span>
           </>
