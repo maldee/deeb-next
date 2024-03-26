@@ -1,0 +1,337 @@
+.container {
+  margin-top: 10px;
+}
+
+.loader{
+height: 30px;
+width: 30px;
+color: #8a2be2;
+margin-top: 10px;
+margin-bottom: 25px;
+margin-left: 5px;
+}
+
+.confuseDesc {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  white-space: pre-line;
+}
+
+.image{
+  position: relative !important;
+  object-fit: scale-down;
+  width: 50% !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.itemId{
+  color: #0a0f1b;
+  float: right;
+}
+
+.gridList{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 50px;
+}
+
+.tagEmojList{
+  margin-top: 20px;
+  display: block;
+  font-size: xx-large;
+ 
+}
+
+.emojBtn{
+  border: none;
+  background-color: transparent;
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+
+.phraseList {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr;
+}
+
+.mobFilters {
+  display: none;
+}
+
+.filterbtn {
+  border: 2px solid #17A2B8;
+  background-color: #17A2B8;
+  border-radius: 20px;
+  font-size: 12px;
+  padding: 9px;
+  color: #fff;
+}
+
+.searchIcon {
+  border: 2px solid #17A2B8;
+  background-color: #17A2B8;
+  font-size: 18px;
+  padding: 9px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.searchInput {
+
+  width: 60%;
+  border: 2px solid #1f273a;
+  box-sizing: border-box;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0f172a;
+  color: #ddd;
+}
+
+.selectInputLanguage {
+  margin-right: 10px;
+  width: 20%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0a0f1b;
+  color: #ddd;
+}
+
+.selectInputCategory {
+  margin-right: 10px;
+  width: 30%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0a0f1b;
+  color: #ddd;
+}
+
+.selectInput {
+  margin-left: 40px;
+  width: 30%;
+  border: 2px solid #0a0f1b;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #0a0f1b;
+  color: #ddd;
+}
+
+hr.horiLine {
+  border: 0;
+  border-top: 2px solid #0f172a;
+  padding-bottom: 10px;
+}
+
+.engp {
+
+  padding-bottom: 10px;
+}
+
+.example {
+  font-weight: 100;
+  color: thistle;
+
+}
+
+.confuseTitle {
+  margin-top: 10px;
+  display: inline;
+}
+
+.confuseCat {
+  font-size: smaller;
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: #775aec;
+  border-radius: 10px;
+  margin-right: 10px;
+  max-width: fit-content;
+  display: inline;
+  font-weight: bold;
+}
+
+.confuseSub {
+  color: mediumpurple;
+}
+
+.skeletonList{
+  margin-top: 10px;
+}
+
+.skeletonBody {
+  padding-bottom: 10px;
+}
+
+.skeletonItem {
+  width: 70%;
+  padding-top: 15px;
+}
+
+.confuseCard {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--softBg);
+}
+
+
+@media screen and (max-width: 1536px) and (min-width: 1280px) {
+  .selectInput {
+
+    margin-left: 50px;
+    width: 30%;
+    border: 2px solid #0a0f1b;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #0a0f1b;
+    color: #ddd;
+  }
+
+  .skeletonBody {
+    display: grid;
+    padding-bottom: 10px;
+  }
+
+  .skeletonItem {
+    width: 100%;
+    height: 330px;
+  }
+
+  .phraseList iframe {
+    width: 600px;
+    height: 330px;
+
+  }
+}
+
+.errorTopic {
+  margin-top: 100px;
+
+
+}
+
+.errorMessage {
+  color: indianred;
+  margin-bottom: 30px;
+
+}
+
+.errorButton {
+
+  width: 100px;
+  color: white;
+  background-color: #775aec;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 14px;
+  cursor: pointer;
+  margin-bottom: 100px;
+}
+
+.errorContent {
+  text-align: center;
+
+
+}
+
+@media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 640px) {
+
+  .image{
+    width: 100% !important;
+  }
+
+  .emojBtn{
+    margin-top: 8px;
+    padding: 5px;
+  }
+
+  .emojTagList{
+    display: none;
+  }
+
+  .emojTagMobile{
+    display: block;
+  }
+
+  .gridList{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .mobFilters {
+    display: inline;
+  }
+
+  .webFilters {
+    display: none;
+  }
+  
+  .selectInputLanguage {
+    margin-top: 20px;
+    margin-right: 0;
+    width: 100%;
+  }
+  .selectInputCategory {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .searchInput {
+    width: 85%;
+  }
+
+  .searchIcon {
+    margin-right: 0;
+    width: 15%;
+  }
+
+  .phraseList {
+    grid-template-columns: 1fr;
+
+
+  }
+
+  .phraseList iframe {
+    width: 100%;
+    height: 200px;
+
+  }
+
+  .skeletonItem {
+    width: 100%;
+    height: 200px;
+  }
+
+  .skeletonBody {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    padding-bottom: 10px;
+  }
+
+  .chatCard {
+    width: 100%;
+
+  }
+
+
+}

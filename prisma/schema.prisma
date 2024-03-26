@@ -200,6 +200,15 @@ model Cheats {
   subcategory   String    @default("sub")
 }
 
+model Confusy {
+  id            Int      @id @default(autoincrement())
+  subject       String
+  category      String
+  title         String
+  desc          String
+  img           String   @default("None")
+}
+
 model Notes {
   id            Int      @id @default(autoincrement())
   subject       String

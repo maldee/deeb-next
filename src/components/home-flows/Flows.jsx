@@ -46,31 +46,36 @@ const Flows = () => {
                             </a>
                         </div>
                         <div id="slide-7">
+                            <a href={`/confusy`} className={styles.slideLink}>
+                                <Image src="/confusy.png" alt="" width={300} height={300} className={styles.slideImage} />
+                            </a>
+                        </div>
+                        <div id="slide-8">
                             <a href={`/flips`} className={styles.slideLink}>
                                 <Image src="/flips.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
                         </div>
-                        <div id="slide-8">
+                        <div id="slide-9">
                             <a href={`/chatbits`} className={styles.slideLink}>
                                 <Image src="/chatbits.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
                         </div>
-                        <div id="slide-9">
+                        <div id="slide-10">
                             <a href={`/notes`} className={styles.slideLink}>
                                 <Image src="/notes.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
                         </div>
-                        <div id="slide-10">
+                        <div id="slide-11">
                             <a href={`https://store.deeflow.com`} className={styles.slideLink}>
                                 <Image src="/store.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
                         </div>
-                        <div id="slide-11">
+                        <div id="slide-12">
                             <a href={`/dictionary`} className={styles.slideLink}>
                                 <Image src="/dictionary.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
                         </div>
-                        <div id="slide-12">
+                        <div id="slide-13">
                             <a href={`/cloudy`} className={styles.slideLink}>
                                 <Image src="/cloudy.png" alt="" width={300} height={300} className={styles.slideImage} />
                             </a>
