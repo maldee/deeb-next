@@ -42,6 +42,7 @@ const Methody = () => {
 
       {methodies?.length > 0 ? (
         methodies?.map((item) => (
+          <div key={item.id}>
           <Tree
             className="Tree"
             initialData={item.tree}
@@ -54,6 +55,7 @@ const Methody = () => {
             >
              {Node}
             </Tree>
+            </div>
             )
         )) : (
         null
