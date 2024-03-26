@@ -28,8 +28,6 @@ const Methody = () => {
 
   const methodies = data;
 
- 
-
   return (
     <div className="methodyContainer">
       <input
