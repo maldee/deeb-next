@@ -1,6 +1,7 @@
 import { AiOutlineCheckSquare  ,AiOutlineDown , AiFillCheckCircle ,AiFillCaretDown, AiFillCaretRight      } from "react-icons/ai";
 import { MdArrowRight, MdArrowDropDown, MdEdit } from "react-icons/md";
 import styles from "./methody.module.css";
+// import { RxCross2 } from "react-icons/rx";
 
 const Node = ({ node, style, dragHandle, tree }) => {
   const CustomIcon = node.data.icon;
