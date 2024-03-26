@@ -7,7 +7,6 @@ const Node = ({ node, style, dragHandle, tree }) => {
   const CustomIcon = node.data.icon;
   const iconColor = node.data.iconColor;
 
-  // console.log(node, tree);
   return (
     <div
       className={`node-container ${node.state.isSelected ? "isSelected" : ""}`}
