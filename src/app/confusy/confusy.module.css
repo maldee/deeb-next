@@ -22,13 +22,14 @@ margin-left: 5px;
 .cardGrid{
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   margin-bottom: 30px;
 }
 
 .image{
   position: relative !important;
   width: 100% !important;
+  height: auto !important;
   float: left;
   margin-right: 20px;
   margin-left: 0px;
