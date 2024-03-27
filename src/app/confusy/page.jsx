@@ -243,13 +243,14 @@ const Confusy = ({ searchParams }) => {
                       <span className={styles.confuseCat}>{item.category}</span>
                       <h3 className={styles.confuseTitle} key={item.id}> {item.title}</h3>
                     </div>
-                    <p className={styles.confuseDesc}>{item.desc}</p>
 
                     {item.img !== "None" ? (
                     <div className={styles.imageContainer}>
                       <Image src={item.img} alt="" fill className={styles.image} />
                     </div>
                    ) : (null)}
+
+                    <p className={styles.confuseDesc}>{item.desc}</p>
 
                     <h6 className={styles.confuseSub}>{item.subject}</h6>
                   </ul>
