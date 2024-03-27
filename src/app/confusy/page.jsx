@@ -57,7 +57,7 @@ const Confusy = ({ searchParams }) => {
     const dataFetch = async () => {
       const postCount = await (
         await fetch(`/api/confusy/list?page=${currentPage}&query=${query}&language=${selectedLanguage}&category=${selectedCategory}`,
-        {  cache: 'no-store' })
+          { cache: 'no-store' })
       ).json();
 
       // set state when the data received
@@ -238,22 +238,39 @@ const Confusy = ({ searchParams }) => {
             : data?.confuses.length > 0 ? (
               data?.confuses?.map((item) => (
                 <div key={item.id} className={styles.container}>
-                  <ul className={styles.confuseCard}>
+                  <div className={styles.confuseCard}>
                     <div className={styles.header}>
                       <span className={styles.confuseCat}>{item.category}</span>
                       <h3 className={styles.confuseTitle} key={item.id}> {item.title}</h3>
                     </div>
+                    <div>
+                      {item.img !== "None" ? (
+                        <div className={styles.cardGrid}>
 
-                    {item.img !== "None" ? (
-                    <div className={styles.imageContainer}>
-                      <Image src={item.img} alt="" fill className={styles.image} />
+                          <div className={styles.imageContainer}>
+                            <Image src={item.img} alt="" fill className={styles.image} />
+                          </div>
+
+
+                          <div className={styles.cardBody}>
+                            <p className={styles.confuseDesc}>{item.desc}</p>
+                          </div>
+                        </div>
+                        
+                      ) :
+                        <div className={styles.cardBody}>
+                          <p className={styles.confuseDesc}>{item.desc}</p>
+                        </div>
+                      }
+                       <h6 className={styles.confuseSub}>{item.subject}</h6>
                     </div>
-                   ) : (null)}
 
-                    <p className={styles.confuseDesc}>{item.desc}</p>
 
-                    <h6 className={styles.confuseSub}>{item.subject}</h6>
-                  </ul>
+
+                    
+
+                  </div>
+
                 </div>
 
               ))) : (
