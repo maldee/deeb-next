@@ -22,7 +22,7 @@ margin-left: 5px;
 .cardGrid{
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 2fr 1fr;
   margin-bottom: 30px;
 }
 
