@@ -60,7 +60,7 @@ const QuizyStart = () => {
        
           <div className={styles.quizSection}>
             <h5 className={styles.quizDetails} >{data?.title} | {data?.note}</h5>
-            <Quiz className={styles.quizContainer} quiz={data?.quiz} shuffleAnswer={true} />
+            <Quiz className={styles.quizContainer} quiz={data?.quiz} showInstantFeedback={true}/>
 
           </div>
         
